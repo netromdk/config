@@ -27,12 +27,12 @@
 (tool-bar-mode -1)                      ;; same for the toolbar
 (scroll-bar-mode -1)                    ;; .. and for the scrollbar
 (setq inhibit-startup-message t)        ;; dont show the GNU splash screen
-(transient-mark-mode t)			;; show selection from mark
-(mouse-avoidance-mode 'jump)		;; jump mouse away when typing
-(setq visible-bell nil)			;; turn off bip warnings
-(auto-compression-mode t)		;; browse tar archives
-(put 'upcase-region 'disabled nil)	;; enable ``upcase-region''
-(global-font-lock-mode t)		;; syntax highlight
+(transient-mark-mode t)                 ;; show selection from mark
+(mouse-avoidance-mode 'jump)            ;; jump mouse away when typing
+(setq visible-bell nil)                 ;; turn off bip warnings
+(auto-compression-mode t)               ;; browse tar archives
+(put 'upcase-region 'disabled nil)      ;; enable ``upcase-region''
+(global-font-lock-mode t)               ;; syntax highlight
 (setq-default indent-tabs-mode nil)     ;; use spaces instead of tabs
 (fset 'yes-or-no-p 'y-or-n-p)           ;; use 'y' instead of 'yes' etc.
 
