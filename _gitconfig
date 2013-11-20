@@ -14,7 +14,5 @@
 	unstage = reset HEAD --
 	cia = commit -a
 	df = diff
-	revert = checkout --
-	revertall = reset --hard
 	ls = ls-files
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
