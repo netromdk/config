@@ -13,9 +13,7 @@
 	br = branch
 	ci = commit
 	last = log -1 HEAD
-	unstage = reset HEAD --
 	cia = commit -a
 	df = diff
 	ls = ls-files
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-	dfbr = diff --name-status # input like "master..dev" afterwards
