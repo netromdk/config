@@ -506,3 +506,33 @@
 ;;;;;;;;; JavaScript
 
 (add-hook 'js-mode-hook (lambda () (setq js-indent-level 2)))
+
+;;;;;;;;; CEDET
+
+(require 'cc-mode)
+(require 'semantic)
+
+(global-semanticdb-minor-mode 1)
+(global-semantic-idle-scheduler-mode 1)
+(global-semantic-idle-summary-mode 1)
+(global-semantic-idle-completions-mode 0)
+(global-semantic-idle-breadcrumbs-mode 0)
+(global-semantic-stickyfunc-mode 1)
+(global-semantic-highlight-func-mode 1)
+(global-semantic-decoration-mode 0)
+(global-semantic-show-parser-state-mode 1)
+
+(global-set-key (kbd "C-c c") 'semantic-complete-analyze-inline)
+(global-set-key (kbd "C-c r") 'semantic-complete-analyze-and-replace)
+(global-set-key (kbd "C-c s") 'semantic-decoration-all-include-summary)
+
+(semantic-mode 1)
+
+;;;;;;;;; Company ("complete-anything")
+
+(require 'company)
+
+(add-hook 'after-init-hook 'global-company-mode)
+(global-set-key (kbd "C-<tab>") 'company-complete)
+
+(company-mode 1)
