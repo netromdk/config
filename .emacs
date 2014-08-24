@@ -522,6 +522,8 @@
 (global-semantic-decoration-mode 0)
 (global-semantic-show-parser-state-mode 1)
 
+(semantic-add-system-include "/opt/local/include")
+
 (global-set-key (kbd "C-c c") 'semantic-complete-analyze-inline)
 (global-set-key (kbd "C-c r") 'semantic-complete-analyze-and-replace)
 (global-set-key (kbd "C-c s") 'semantic-decoration-all-include-summary)
