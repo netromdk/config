@@ -34,12 +34,15 @@
 
 (defcustom company-dabbrev-other-buffers 'all
   "Determines whether `company-dabbrev' should search other buffers.
-If `all', search all other buffers.  If t, search buffers with the same
-major mode.
-See also `company-dabbrev-time-limit'."
+If `all', search all other buffers, except the ignored ones.  If t, search
+buffers with the same major mode.  See also `company-dabbrev-time-limit'."
   :type '(choice (const :tag "Off" nil)
                  (const :tag "Same major mode" t)
                  (const :tag "All" all)))
+
+(defcustom company-dabbrev-ignore-buffers "\\`[ *]"
+  "Regexp matching the names of buffers to ignore."
+  :type 'regexp)
 
 (defcustom company-dabbrev-time-limit .1
   "Determines how many seconds `company-dabbrev' should look for matches."
@@ -51,7 +54,9 @@ See also `company-dabbrev-time-limit'."
   :type 'regexp)
 
 (defcustom company-dabbrev-ignore-case 'keep-prefix
-  "The value of `ignore-case' returned by `company-dabbrev'.")
+  "Non-nil to ignore case when collecting completion candidates.
+When it's `keep-prefix', the text before point will remain unchanged after
+candidate is inserted, even some of its characters have different case.")
 
 (defcustom company-dabbrev-downcase 'case-replace
   "Whether to downcase the returned candidates.
@@ -119,8 +124,10 @@ This variable affects both `company-dabbrev' and `company-dabbrev-code'."
     (when other-buffer-modes
       (cl-dolist (buffer (delq (current-buffer) (buffer-list)))
         (with-current-buffer buffer
-          (when (or (eq other-buffer-modes 'all)
-                    (apply #'derived-mode-p other-buffer-modes))
+          (when (if (eq other-buffer-modes 'all)
+                    (not (string-match-p company-dabbrev-ignore-buffers
+                                         (buffer-name)))
+                  (apply #'derived-mode-p other-buffer-modes))
             (setq symbols
                   (company-dabbrev--search-buffer regexp nil symbols start
                                                   limit ignore-comments))))
@@ -137,14 +144,15 @@ This variable affects both `company-dabbrev' and `company-dabbrev-code'."
     (interactive (company-begin-backend 'company-dabbrev))
     (prefix (company-grab-word))
     (candidates
-     (let ((words (company-dabbrev--search (company-dabbrev--make-regexp arg)
-                                           company-dabbrev-time-limit
-                                           (pcase company-dabbrev-other-buffers
-                                             (`t (list major-mode))
-                                             (`all `all))))
-           (downcase-p (if (eq company-dabbrev-downcase 'case-replace)
-                           case-replace
-                         company-dabbrev-downcase)))
+     (let* ((case-fold-search company-dabbrev-ignore-case)
+            (words (company-dabbrev--search (company-dabbrev--make-regexp arg)
+                                            company-dabbrev-time-limit
+                                            (pcase company-dabbrev-other-buffers
+                                              (`t (list major-mode))
+                                              (`all `all))))
+            (downcase-p (if (eq company-dabbrev-downcase 'case-replace)
+                            case-replace
+                          company-dabbrev-downcase)))
        (if downcase-p
            (mapcar 'downcase words)
          words)))

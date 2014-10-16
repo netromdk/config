@@ -548,6 +548,7 @@
 
 (require 'company)
 
+(add-to-list 'company-backends 'company-c-headers)
 (add-hook 'after-init-hook 'global-company-mode)
 (global-set-key (kbd "C-<tab>") 'company-complete)
 

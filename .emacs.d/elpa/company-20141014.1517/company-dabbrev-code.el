@@ -47,10 +47,10 @@ complete only symbols, not text in comments or strings.  In other modes
 
 (defcustom company-dabbrev-code-other-buffers t
   "Determines whether `company-dabbrev-code' should search other buffers.
-If `all', search all other buffers.  If t, search buffers with the same
-major mode.  If `code', search all buffers with major modes in
-`company-dabbrev-code-modes', or derived from one of them.
-See also `company-dabbrev-code-time-limit'."
+If `all', search all other buffers, except the ignored ones.  If t, search
+buffers with the same major mode.  If `code', search all buffers with major
+modes in `company-dabbrev-code-modes', or derived from one of them.  See
+also `company-dabbrev-code-time-limit'."
   :type '(choice (const :tag "Off" nil)
                  (const :tag "Same major mode" t)
                  (const :tag "Code major modes" code)
@@ -66,7 +66,7 @@ See also `company-dabbrev-code-time-limit'."
   :type 'boolean)
 
 (defcustom company-dabbrev-code-ignore-case nil
-  "Non-nil to ignore case in completion candidates."
+  "Non-nil to ignore case when collecting completion candidates."
   :type 'boolean)
 
 (defsubst company-dabbrev-code--make-regexp (prefix)
