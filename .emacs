@@ -648,3 +648,8 @@
 (require 'magit)
 (global-set-key "\C-xg" 'magit-status)
 (add-hook 'magit-mode-hook 'magit-load-config-extensions)
+
+;;;;;;;;; FIC mode (marks TODO, FIXME etc. clearly)
+
+(require 'fic-mode)
+(add-hook 'c-mode-common-hook 'fic-mode)
