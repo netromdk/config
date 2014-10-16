@@ -2,7 +2,7 @@
 ;;   Emacs Configurations
 ;; ------------------------
 
-;; Copyright (C) 2007-2013 - Morten Slot Kristensen
+;; Copyright (C) 2007-2014 - Morten Slot Kristensen
 ;;
 ;; I got inspiration to some of the tweaks elsewhere. One of those are
 ;; Ian Zerny. If I have wrongfully forgotten to give credit to the
@@ -399,11 +399,6 @@
 
 (autoload 'php-mode "php-mode" "Mode for editing PHP source files")
 (add-to-list 'auto-mode-alist '("\\.\\(inc\\|php[s34]?\\)" . php-mode))
-
-;;;;;;;;; Python-mode
-
-(autoload 'python-mode "python-mode" "Mode for editing Python source files")
-(add-to-list 'auto-mode-alist '("\\.py" . python-mode))
 
 ;;;;;;;;; D-mode
 
