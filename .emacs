@@ -166,7 +166,6 @@
 (add-to-list 'package-archives 
              '("marmalade" .
                "http://marmalade-repo.org/packages/"))
-;; magit
 (add-to-list 'package-archives
              '("marmalade" . "http://marmalade-repo.org/packages/") t)
 (add-to-list 'package-archives
@@ -637,3 +636,15 @@
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+
+;;;;;;;;; Nyan mode
+
+(require 'nyan-mode)
+(nyan-mode)
+
+;;;;;;;;; Magit mode
+
+(require 'magit-svn)
+(require 'magit)
+(global-set-key "\C-xg" 'magit-status)
+(add-hook 'magit-mode-hook 'magit-load-config-extensions)
