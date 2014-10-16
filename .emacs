@@ -519,18 +519,27 @@
 (global-semantic-idle-breadcrumbs-mode 0)
 (global-semantic-stickyfunc-mode 1)
 (global-semantic-highlight-func-mode 1)
+(global-semantic-highlight-edits-mode 0)
 (global-semantic-decoration-mode 0)
 (global-semantic-show-parser-state-mode 1)
 
 (semantic-add-system-include "/opt/local/include")
 
-(global-set-key (kbd "C-c c") 'semantic-complete-analyze-inline)
-(global-set-key (kbd "C-c r") 'semantic-complete-analyze-and-replace)
-(global-set-key (kbd "C-c s") 'semantic-decoration-all-include-summary)
+(defun custom-cedet-hook ()
+  (local-set-key [(control return)] 'semantic-ia-complete-symbol)
+  (local-set-key "\C-cc" 'semantic-complete-analyze-inline)
+  (local-set-key "\C-cr" 'semantic-complete-analyze-and-replace)
+  (local-set-key "\C-ci" 'semantic-decoration-all-include-summary)
+  (local-set-key "\C-cj" 'semantic-ia-fast-jump)
+  (local-set-key "\C-cs" 'semantic-symref)
+  ;(local-set-key "." 'semantic-complete-self-insert)
+  ;(local-set-key ">" 'semantic-complete-self-insert)
+)
+(add-hook 'c-mode-common-hook 'custom-cedet-hook)
 
 (semantic-mode 1)
 
-;;;;;;;;; Company ("complete-anything")
+;;;;;;;;; Company ("complete-anything") 
 
 (require 'company)
 
@@ -538,3 +547,79 @@
 (global-set-key (kbd "C-<tab>") 'company-complete)
 
 (company-mode 1)
+
+;;;;;;;;; CEDET utility stuff
+
+(defvar c-files-regex ".*\\.\\(c\\|cc\\|cpp\\|h\\|hpp\\)"
+  "A regular expression to match any c/c++ related files under a directory")
+
+(defvar qt-files-regex "Q.*"
+  "A regular expression to match any c/c++ related files under a directory")
+ 
+(defun my-semantic-parse-dir (root regex)
+  "
+   This function is an attempt of mine to force semantic to
+   parse all source files under a root directory. Arguments:
+   -- root: The full path to the root directory
+   -- regex: A regular expression against which to match all files in the directory
+  "
+  (let (
+        ;;make sure that root has a trailing slash and is a dir
+        (root (file-name-as-directory root))
+        (files (directory-files root t ))
+       )
+    ;; remove current dir and parent dir from list
+    (setq files (delete (format "%s." root) files))
+    (setq files (delete (format "%s.." root) files))
+    ;; remove any known version control directories 
+    (setq files (delete (format "%s.git" root) files))
+    (setq files (delete (format "%s.hg" root) files))
+    (while files
+      (setq file (pop files))
+      (if (not(file-accessible-directory-p file))
+          ;;if it's a file that matches the regex we seek
+          (progn (when (string-match-p regex file)
+                   (save-excursion
+                     (semanticdb-file-table-object file))
+           ))
+          ;;else if it's a directory
+          (my-semantic-parse-dir file regex)
+      )
+     )
+  )
+)
+ 
+(defun my-semantic-parse-current-dir (regex)
+  "Parses all files under the current directory matching regex
+  "
+  (my-semantic-parse-dir (file-name-directory(buffer-file-name)) regex)
+)
+ 
+(defun lk-parse-curdir-c ()
+  "Parses all the c/c++ related files under the current directory
+   and inputs their data into semantic
+  "
+  (interactive)
+  (my-semantic-parse-current-dir c-files-regex)
+)
+ 
+(defun lk-parse-dir-c (dir)
+  "Prompts the user for a directory and parses all c/c++ related
+   files under the directory
+  "
+  (interactive (list (read-directory-name "Provide the directory to search in:")))
+  (my-semantic-parse-dir (expand-file-name dir) c-files-regex)
+) 
+
+(defun lk-parse-dir-qt (dir)
+  "Prompts the user for a directory and parses all QT c/c++
+   related files under the directory
+  "
+  (interactive (list (read-directory-name "Provide the directory to search in:")))
+  (my-semantic-parse-dir (expand-file-name dir) qt-files-regex)
+) 
+
+;;;;;;;;; Recent files mode
+
+(recentf-mode 1)
+(global-set-key "\C-xr" 'recentf-open-files)
