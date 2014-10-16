@@ -77,7 +77,7 @@
 (global-set-key (kbd "M-p") 'scroll-down-one-line)
 (global-set-key (kbd "M-P") 'previous-user-buffer) 
 (global-set-key (kbd "M-N") 'next-user-buffer) 
-;(global-set-key (kbd "M-ƒ") 'open-with-finder) ; Command+Option+f
+(global-set-key (kbd "C-c o") 'ff-find-other-file)
 
 ;;;;;;;;; CUSTOM ALIASES
 
