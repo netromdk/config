@@ -160,6 +160,20 @@
     (setq exec-path (split-string path-from-shell path-separator))))
 (set-exec-path-from-shell-path)
 
+;;;;;;;;; Packages
+
+(require 'package)
+(add-to-list 'package-archives 
+             '("marmalade" .
+               "http://marmalade-repo.org/packages/"))
+;; magit
+(add-to-list 'package-archives
+             '("marmalade" . "http://marmalade-repo.org/packages/") t)
+(add-to-list 'package-archives
+	     '("melpa" . "http://melpa.milkbox.net/packages/") t)
+
+(package-initialize)
+
 ;;;;;;;;; Luxion related
 
 (defun wrap-luxion-count (start end)
@@ -395,10 +409,6 @@
 
 (autoload 'd-mode "d-mode" "Major mode for editing D code." t)
 (add-to-list 'auto-mode-alist '("\\.d[i]?\\'" . d-mode))
-
-;;;;;;;;; svn-mode
-
-(require 'psvn)
 
 ;;;;;;;;; Ediff hacks
 
