@@ -633,3 +633,4 @@
 
 (recentf-mode 1)
 (global-set-key "\C-xr" 'recentf-open-files)
+(add-to-list 'recentf-exclude "ido.last")
