@@ -254,7 +254,6 @@
 
 (add-hook 'c-mode-common-hook
           (lambda ()
-            (flyspell-prog-mode)
             (setq tab-width 2)
             (setq c-basic-offset tab-width)
             (setq indent-tabs-mode nil)))
