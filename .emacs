@@ -518,7 +518,7 @@
 
 (global-semanticdb-minor-mode 1)
 (global-semantic-idle-scheduler-mode 1)
-(global-semantic-idle-summary-mode 1)
+(global-semantic-idle-summary-mode 0)
 (global-semantic-idle-completions-mode 0)
 (global-semantic-idle-breadcrumbs-mode 0)
 (global-semantic-stickyfunc-mode 1)
