@@ -4,7 +4,7 @@
 
 ;; Copyright (C) 2007-2014 - Morten Slot Kristensen
 ;;
-;; I got inspiration to some of the tweaks elsewhere. One of those are
+;; I got inspiration to some of the tweaks elsewhere. One of those is
 ;; Ian Zerny. If I have wrongfully forgotten to give credit to the
 ;; original source of something please do inform me of the mistake.
 ;;
@@ -653,3 +653,10 @@
 
 (require 'fic-mode)
 (add-hook 'c-mode-common-hook 'fic-mode)
+
+;;;;;;;;; Highlight current line mode
+
+(require 'highlight-current-line)
+(highlight-current-line-set-bg-color "#252525")
+(highlight-current-line-set-fg-color "none")
+(highlight-current-line-minor-mode)
