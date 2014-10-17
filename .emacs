@@ -636,11 +636,6 @@
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
-;;;;;;;;; Nyan mode
-
-(require 'nyan-mode)
-(nyan-mode)
-
 ;;;;;;;;; Magit mode
 
 (require 'magit-svn)
@@ -656,7 +651,34 @@
 ;;;;;;;;; Highlight current line mode
 
 (require 'highlight-current-line)
-(highlight-current-line-set-bg-color "#252525")
-(highlight-current-line-set-fg-color "none")
 (highlight-current-line-minor-mode)
-(highlight-current-line-on 1)
+
+;;;;;;;;; Nyan mode
+
+(require 'nyan-mode)
+(nyan-mode)
+
+;;;;;;;;; Customizations
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ansi-color-names-vector ["#212121" "#CC5542" "#6aaf50" "#7d7c61" "#5180b3" "#DC8CC3" "#9b55c3" "#bdbdb3"])
+ '(custom-enabled-themes (quote (mustang)))
+ '(custom-safe-themes (quote ("93d8a80b68b34dcb767eb9c9bee1c631426d367dd2b42402c2966edc13011d94" "2b5aa66b7d5be41b18cc67f3286ae664134b95ccc4a86c9339c886dfd736132d" "25ec89f85d706543d81df3ebbce10d7e6bb230ddef888e48945775966569416a" default)))
+ '(fci-rule-color "#2e2e2e")
+ '(nyan-bar-length 20)
+ '(nyan-mode t)
+ '(vc-annotate-background "#3b3b3b")
+ '(vc-annotate-color-map (quote ((20 . "#dd5542") (40 . "#CC5542") (60 . "#fb8512") (80 . "#baba36") (100 . "#bdbc61") (120 . "#7d7c61") (140 . "#6abd50") (160 . "#6aaf50") (180 . "#6aa350") (200 . "#6a9550") (220 . "#6a8550") (240 . "#6a7550") (260 . "#9b55c3") (280 . "#6CA0A3") (300 . "#528fd1") (320 . "#5180b3") (340 . "#6380b3") (360 . "#DC8CC3"))))
+ '(vc-annotate-very-old-color "#DC8CC3"))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(highlight-current-line-face ((t (:background "#252525")))))
+
+
