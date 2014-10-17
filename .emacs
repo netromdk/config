@@ -660,3 +660,8 @@
 (highlight-current-line-set-fg-color "none")
 (highlight-current-line-minor-mode)
 (highlight-current-line-on 1)
+
+;;;;;;;;; Grep plus
+
+;; Improves the normal "grep" and "grep-find" automatically.
+(require 'grep+)
