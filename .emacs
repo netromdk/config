@@ -660,3 +660,4 @@
 (highlight-current-line-set-bg-color "#252525")
 (highlight-current-line-set-fg-color "none")
 (highlight-current-line-minor-mode)
+(highlight-current-line-on 1)
