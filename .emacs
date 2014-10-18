@@ -667,8 +667,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(ansi-color-names-vector ["#212121" "#CC5542" "#6aaf50" "#7d7c61" "#5180b3" "#DC8CC3" "#9b55c3" "#bdbdb3"])
- '(custom-enabled-themes (quote (mustang)))
- '(custom-safe-themes (quote ("93d8a80b68b34dcb767eb9c9bee1c631426d367dd2b42402c2966edc13011d94" "2b5aa66b7d5be41b18cc67f3286ae664134b95ccc4a86c9339c886dfd736132d" "25ec89f85d706543d81df3ebbce10d7e6bb230ddef888e48945775966569416a" default)))
+ '(custom-enabled-themes (quote (mustang-netrom)))
+ '(custom-safe-themes (quote ("c980b9c7fac58bd7c3f22ae31c34b16e95eb55e9cdec6966a00ad92ee9df29d3" default)))
  '(fci-rule-color "#2e2e2e")
  '(nyan-bar-length 20)
  '(nyan-mode t)
@@ -680,6 +680,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(highlight-current-line-face ((t (:background "#303030")))))
+ '(highlight-current-line-face ((t (:background "#242424")))))
 
 
