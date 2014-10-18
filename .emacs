@@ -163,14 +163,9 @@
 ;;;;;;;;; Packages
 
 (require 'package)
-(add-to-list 'package-archives 
-             '("marmalade" .
-               "http://marmalade-repo.org/packages/"))
-(add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/") t)
-(add-to-list 'package-archives
-	     '("melpa" . "http://melpa.milkbox.net/packages/") t)
-
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                         ("marmalade" . "http://marmalade-repo.org/packages/")
+                         ("melpa" . "http://melpa.milkbox.net/packages/")))
 (package-initialize)
 
 ;;;;;;;;; Luxion related
@@ -646,7 +641,7 @@
 ;;;;;;;;; FIC mode (marks TODO, FIXME etc. clearly)
 
 (require 'fic-mode)
-(add-hook 'c-mode-common-hook 'fic-mode)
+(add-hook 'prog-mode-hook 'fic-mode)
 
 ;;;;;;;;; Highlight current line mode
 
@@ -658,6 +653,15 @@
 
 (require 'nyan-mode)
 (nyan-mode)
+
+;;;;;;;;; Nlinum-mode - shows line numbers in the margin
+
+(add-hook 'find-file-hook 'nlinum-mode)
+
+;;;;;;;;; Rainbow mode - highlights hexcolors, like #aabbcc
+
+(require 'rainbow-mode)
+(add-hook 'find-file-hook 'rainbow-mode)
 
 ;;;;;;;;; Customizations
 
@@ -680,6 +684,4 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(highlight-current-line-face ((t (:background "#242424")))))
-
-
+ '(highlight-current-line-face ((t (:background "#282828")))))
