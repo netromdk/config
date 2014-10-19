@@ -679,6 +679,10 @@
 (require 'ace-jump-buffer)
 (define-key global-map (kbd "C-c b") 'ace-jump-buffer)
 
+;;;;;;;;; Helm
+
+(helm-mode)
+
 ;;;;;;;;; Additional customizations
 
 (custom-set-variables
@@ -690,6 +694,13 @@
  '(custom-enabled-themes (quote (mustang-netrom)))
  '(custom-safe-themes (quote ("c980b9c7fac58bd7c3f22ae31c34b16e95eb55e9cdec6966a00ad92ee9df29d3" default)))
  '(fci-rule-color "#2e2e2e")
+ '(helm-candidate-number-limit 300)
+ '(helm-display-source-at-screen-top t)
+ '(helm-exit-idle-delay 0)
+ '(helm-full-frame nil)
+ '(helm-reuse-last-window-split-state nil)
+ '(helm-save-configuration-functions (quote (set-window-configuration . current-window-configuration)))
+ '(helm-split-window-default-side (quote below))
  '(nyan-bar-length 20)
  '(nyan-mode t)
  '(vc-annotate-background "#3b3b3b")
@@ -700,4 +711,5 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(helm-candidate-number ((t (:foreground "#ff9800"))))
  '(highlight-current-line-face ((t (:background "#282828")))))
