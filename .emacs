@@ -713,4 +713,5 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(helm-candidate-number ((t (:foreground "#ff9800"))))
+ '(helm-selection ((t (:background "#282828" :underline t))))
  '(highlight-current-line-face ((t (:background "#282828")))))
