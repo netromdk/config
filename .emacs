@@ -681,7 +681,8 @@
 
 ;;;;;;;;; Helm
 
-(helm-mode)
+;; Use Helm's "M-x" mode instead of the default one.
+(global-set-key (kbd "M-x") 'helm-M-x)
 
 ;;;;;;;;; Additional customizations
 
