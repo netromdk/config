@@ -684,6 +684,10 @@
 ;; Use Helm's "M-x" mode instead of the default one.
 (global-set-key (kbd "M-x") 'helm-M-x)
 
+;;;;;;;;; psvn - mostly used for the red/green indicator
+
+(require 'psvn)
+
 ;;;;;;;;; Additional customizations
 
 (custom-set-variables
