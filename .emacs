@@ -718,6 +718,12 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(company-scrollbar-bg ((t (:inherit company-tooltip))))
+ '(company-scrollbar-fg ((t (:background "#808080"))))
+ '(company-tooltip ((t (:background "#282828" :foreground "#ffffff"))))
+ '(company-tooltip-common ((t (:inherit company-tooltip :foreground "#ff9800"))))
+ '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :foreground "#b1d631"))))
+ '(company-tooltip-selection ((t (:inherit company-tooltip :background "#353535"))))
  '(helm-candidate-number ((t (:foreground "#ff9800"))))
  '(helm-selection ((t (:background "#282828" :underline t))))
  '(highlight-current-line-face ((t (:background "#282828")))))
