@@ -81,7 +81,17 @@
 	'(mu4e-view-url-number-face ((t (:foreground "#7e8aa2"))))
 	'(mu4e-cited-1-face ((t (:foreground "#df9f2d"))))
 	'(mu4e-cited-7-face ((t (:foreground "#808bed"))))
-	'(slime-repl-inputed-output-face ((t (:foreground "#ff9800")))))
+	'(slime-repl-inputed-output-face ((t (:foreground "#ff9800"))))
+        '(company-tooltip ((t (:background "#282828" :foreground "#ffffff"))))
+        '(company-tooltip-common ((t (:background "#282828" :foreground "#ff9800"))))
+        '(company-tooltip-selection ((t (:background "#353535" :foreground "#ffffff"))))
+        '(company-tooltip-common-selection ((t (:background "#353535" :foreground "#b1d631"))))
+        '(company-scrollbar-bg ((t (:background "#282828"))))
+        '(company-scrollbar-fg ((t (:background "#808080"))))
+        '(helm-candidate-number ((t (:background "#202020" :foreground "#ff9800"))))
+        '(helm-selection ((t (:background "#282828" :underline t))))
+        '(helm-source-header ((t (:background "#353535" :foreground "white" :weight bold :height 1.3 :family "Sans Serif"))))
+        '(highlight-current-line-face ((t (:background "#282828")))))
 
 ;;;###autoload
 (when load-file-name

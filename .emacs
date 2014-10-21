@@ -699,7 +699,7 @@
  ;; If there is more than one, they won't work right.
  '(ansi-color-names-vector ["#212121" "#CC5542" "#6aaf50" "#7d7c61" "#5180b3" "#DC8CC3" "#9b55c3" "#bdbdb3"])
  '(custom-enabled-themes (quote (mustang-netrom)))
- '(custom-safe-themes (quote ("ee1847c21240e9b6c12ad8efeae39d6f99937ced9229c4508fe121258b9d0931" default)))
+ '(custom-safe-themes (quote ("04f9dba71c88c902d8582596b1abf084e6ceb348969ce17dd8615761dbdfe08f" default)))
  '(fci-rule-color "#2e2e2e")
  '(helm-candidate-number-limit 300)
  '(helm-display-source-at-screen-top t)
@@ -718,12 +718,4 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(company-scrollbar-bg ((t (:inherit company-tooltip))))
- '(company-scrollbar-fg ((t (:background "#808080"))))
- '(company-tooltip ((t (:background "#282828" :foreground "#ffffff"))))
- '(company-tooltip-common ((t (:inherit company-tooltip :foreground "#ff9800"))))
- '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :foreground "#b1d631"))))
- '(company-tooltip-selection ((t (:inherit company-tooltip :background "#353535"))))
- '(helm-candidate-number ((t (:foreground "#ff9800"))))
- '(helm-selection ((t (:background "#282828" :underline t))))
- '(highlight-current-line-face ((t (:background "#282828")))))
+ )
