@@ -91,6 +91,7 @@
         '(helm-candidate-number ((t (:background "#202020" :foreground "#ff9800"))))
         '(helm-selection ((t (:background "#282828" :underline t))))
         '(helm-source-header ((t (:background "#353535" :foreground "white" :weight bold :height 1.3 :family "Sans Serif"))))
+        '(helm-match ((t (:foreground "#ff9800"))))
         '(highlight-current-line-face ((t (:background "#282828")))))
 
 ;;;###autoload
