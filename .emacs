@@ -699,7 +699,7 @@
  ;; If there is more than one, they won't work right.
  '(ansi-color-names-vector ["#212121" "#CC5542" "#6aaf50" "#7d7c61" "#5180b3" "#DC8CC3" "#9b55c3" "#bdbdb3"])
  '(custom-enabled-themes (quote (mustang-netrom)))
- '(custom-safe-themes (quote ("c980b9c7fac58bd7c3f22ae31c34b16e95eb55e9cdec6966a00ad92ee9df29d3" default)))
+ '(custom-safe-themes (quote ("ee1847c21240e9b6c12ad8efeae39d6f99937ced9229c4508fe121258b9d0931" default)))
  '(fci-rule-color "#2e2e2e")
  '(helm-candidate-number-limit 300)
  '(helm-display-source-at-screen-top t)

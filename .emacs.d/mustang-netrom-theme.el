@@ -28,7 +28,7 @@
         '(mode-line-buffer-id ((t (:bold t :foreground "#ff9800" :background "#202020"))))
         '(minibuffer-prompt ((t (:bold t :foreground "#708090"))))
         '(default-italic ((t (:italic t))))
-	'(font-lock-negation-char-face ((t (:foreground "ff9800"))))
+	'(font-lock-negation-char-face ((t (:foreground "#ff9800"))))
 	'(font-lock-reference-face ((t (:foreground "#ff9800"))))
         ;'(font-lock-comment-delimiter-face ((t (:foreground "#808080"))))
         '(font-lock-comment-delimiter-face ((t (:foreground "#908080"))))
@@ -90,4 +90,4 @@
 
 (provide-theme 'mustang-netrom)
 
-;;; mustang-theme.el ends here
+;;; mustang-netrom-theme.el ends here
