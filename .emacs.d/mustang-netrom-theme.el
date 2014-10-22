@@ -29,7 +29,6 @@
         '(minibuffer-prompt ((t (:bold t :foreground "#708090"))))
         '(default-italic ((t (:italic t))))
 	'(font-lock-negation-char-face ((t (:foreground "#ff9800"))))
-	'(font-lock-reference-face ((t (:foreground "#ff9800"))))
         ;'(font-lock-comment-delimiter-face ((t (:foreground "#808080"))))
         '(font-lock-comment-delimiter-face ((t (:foreground "#908080"))))
 	;'(font-lock-comment-face ((t (:foreground "#808080"))))

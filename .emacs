@@ -703,7 +703,7 @@
  ;; If there is more than one, they won't work right.
  '(ansi-color-names-vector ["#212121" "#CC5542" "#6aaf50" "#7d7c61" "#5180b3" "#DC8CC3" "#9b55c3" "#bdbdb3"])
  '(custom-enabled-themes (quote (mustang-netrom)))
- '(custom-safe-themes (quote ("0dfbcac1391ee35d4df8aaf18f685aeca0383c2c620d772ce4a845c0f73aacb6" default)))
+ '(custom-safe-themes (quote ("428c0f758afcc16d7dcbcf158064c1911c153645193ed2ecba00a0581f1d5d87" default)))
  '(fci-rule-color "#2e2e2e")
  '(helm-candidate-number-limit 100)
  '(helm-display-source-at-screen-top t)
