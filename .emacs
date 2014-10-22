@@ -663,7 +663,11 @@
 ;;;;;;;;; Rainbow mode - highlights hexcolors, like #aabbcc
 
 (require 'rainbow-mode)
-(add-hook 'find-file-hook 'rainbow-mode)
+
+;; Define and enable global mode because the module doesn't have it.
+(define-globalized-minor-mode global-rainbow-mode rainbow-mode
+  (lambda () (rainbow-mode t)))
+(global-rainbow-mode t)
 
 ;;;;;;;;; Ace jump mode + ace jump buffer
 
