@@ -658,7 +658,7 @@
 
 ;;;;;;;;; Nlinum-mode - shows line numbers in the margin
 
-(add-hook 'find-file-hook 'nlinum-mode)
+(global-nlinum-mode t)
 
 ;;;;;;;;; Rainbow mode - highlights hexcolors, like #aabbcc
 
