@@ -168,6 +168,28 @@
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
 (package-initialize)
 
+;; The following packages are used and therfore should be installed if
+;; they aren't:
+;;   ace-jump-mode
+;;   ace-jump-buffer
+;;   ack
+;;   company
+;;   company-c-headers
+;;   fic-mode
+;;   gitconfig-mode
+;;   gitignore-mode
+;;   git-commit-mode
+;;   git-rebase-mode
+;;   helm
+;;   highlight-current-line
+;;   magit
+;;   magit-svn
+;;   multiple-cursors
+;;   nlinum-mode
+;;   nyan-mode
+;;   psvn
+;;   rainbow-mode
+
 ;;;;;;;;; Additional customizations
 
 (custom-set-variables
