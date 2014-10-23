@@ -724,3 +724,8 @@
 ;;;;;;;;; psvn - mostly used for the red/green indicator
 
 (require 'psvn)
+
+;;;;;;;;; objc-mode
+
+(setq auto-mode-alist (append '(("\\.mm$" . objc-mode))
+                              auto-mode-alist))
