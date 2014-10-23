@@ -752,8 +752,8 @@
 
 ;;;;;;;;; objc-mode
 
-(setq auto-mode-alist (append '(("\\.mm$" . objc-mode))
-                              auto-mode-alist))
+(setq auto-mode-alist (append '(("\\.mm$" . objc-mode)) auto-mode-alist))
+
 ;;;;;;;;; anzu-mode - always shows the number of matches for searches
 
 (global-anzu-mode t)
