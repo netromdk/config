@@ -55,6 +55,7 @@
         '(helm-source-header ((t (:background "#353535" :foreground "white" :weight bold :height 1.3 :family "Sans Serif"))))
         '(helm-match ((t (:foreground "#ff9800"))))
         '(highlight-current-line-face ((t (:background "#282828"))))
+        '(linum ((t (:inherit (shadow default) :foreground "#696969" :height 0.9))))
 	'(org-hide ((t (:foreground "#708090"))))
         '(org-level-1 ((t (:bold t :foreground "#808080" :height 1.1))))
         '(org-level-2 ((t (:bold nil :foreground "#7e8aa2" :height 1.1))))
