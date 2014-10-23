@@ -81,7 +81,7 @@
 
 ;;;;;;;;; CUSTOM ALIASES
 
-(defalias 'qrr 'query-replace-regexp)
+(defalias 'qrr 'anzu-query-replace-regexp)
 (defalias 'sb 'ispell-buffer)
 (defalias 'rp 'run-petite-chez-scheme)
 
@@ -173,6 +173,7 @@
 ;;   ace-jump-mode
 ;;   ace-jump-buffer
 ;;   ack
+;;   anzu-mode
 ;;   company
 ;;   company-c-headers
 ;;   fic-mode
@@ -201,7 +202,7 @@
  '(ack-scroll-output t)
  '(ansi-color-names-vector ["#212121" "#CC5542" "#ff9800" "#b1d631" "#5180b3" "#DC8CC3" "#9b55c3" "#bdbdb3"])
  '(custom-enabled-themes (quote (mustang-netrom)))
- '(custom-safe-themes (quote ("dd275d4d025a5a3d4f6f95f5b032980e56291b02c180397a5f579a6c58335100" default)))
+ '(custom-safe-themes (quote ("ec35f073aa5211d182d8291431b6bfb812688c47662f7a80165902b4a2276fc3" default)))
  '(fci-rule-color "#2e2e2e")
  '(fic-background-color "#ff9800")
  '(fic-foreground-color "#000000")
@@ -753,3 +754,6 @@
 
 (setq auto-mode-alist (append '(("\\.mm$" . objc-mode))
                               auto-mode-alist))
+;;;;;;;;; anzu-mode - always shows the number of matches for searches
+
+(global-anzu-mode t)
