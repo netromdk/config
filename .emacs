@@ -176,7 +176,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(ack-command "ack -i ")
- '(ansi-color-names-vector ["#212121" "#CC5542" "#6aaf50" "#7d7c61" "#5180b3" "#DC8CC3" "#9b55c3" "#bdbdb3"])
+ '(ansi-color-names-vector ["#212121" "#CC5542" "#ff9800" "#b1d631" "#5180b3" "#DC8CC3" "#9b55c3" "#bdbdb3"])
  '(custom-enabled-themes (quote (mustang-netrom)))
  '(custom-safe-themes (quote ("dd275d4d025a5a3d4f6f95f5b032980e56291b02c180397a5f579a6c58335100" default)))
  '(fci-rule-color "#2e2e2e")
