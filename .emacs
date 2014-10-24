@@ -264,9 +264,14 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(sml/col-number ((t (:inherit sml/global :foreground "#808bed"))))
  '(sml/filename ((t (:inherit sml/global :foreground "#ff9800" :weight bold))))
  '(sml/modes ((t (:inherit sml/global :foreground "#b1d631"))))
  '(sml/position-percentage ((t (:foreground "#df9f2d" :weight normal)))))
+
+;; Faces for smart-mode-line are kept here because it loads a theme
+;; after my custom theme, so if they are kept in my theme then they
+;; will be overridden.
 
 ;;;;;;;;; Luxion related
 
