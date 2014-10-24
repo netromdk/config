@@ -187,9 +187,9 @@
 ;;   magit-svn
 ;;   multiple-cursors
 ;;   nlinum-mode
-;;   nyan-mode
 ;;   psvn
 ;;   rainbow-mode
+;;   smart-mode-line
 
 ;;;;;;;;; Additional customizations
 
@@ -202,7 +202,7 @@
  '(ack-scroll-output t)
  '(ansi-color-names-vector ["#212121" "#CC5542" "#ff9800" "#b1d631" "#5180b3" "#DC8CC3" "#9b55c3" "#bdbdb3"])
  '(custom-enabled-themes (quote (mustang-netrom)))
- '(custom-safe-themes (quote ("ec35f073aa5211d182d8291431b6bfb812688c47662f7a80165902b4a2276fc3" default)))
+ '(custom-safe-themes (quote ("6a37be365d1d95fad2f4d185e51928c789ef7a4ccf17e7ca13ad63a8bf5b922f" "ec35f073aa5211d182d8291431b6bfb812688c47662f7a80165902b4a2276fc3" default)))
  '(fci-rule-color "#2e2e2e")
  '(fic-background-color "#ff9800")
  '(fic-foreground-color "#000000")
@@ -215,8 +215,7 @@
  '(helm-reuse-last-window-split-state nil)
  '(helm-save-configuration-functions (quote (set-window-configuration . current-window-configuration)))
  '(helm-split-window-default-side (quote below))
- '(nyan-bar-length 20)
- '(nyan-mode t)
+ '(sml/theme (quote dark))
  '(vc-annotate-background "#3b3b3b")
  '(vc-annotate-color-map (quote ((20 . "#dd5542") (40 . "#CC5542") (60 . "#fb8512") (80 . "#baba36") (100 . "#bdbc61") (120 . "#7d7c61") (140 . "#6abd50") (160 . "#6aaf50") (180 . "#6aa350") (200 . "#6a9550") (220 . "#6a8550") (240 . "#6a7550") (260 . "#9b55c3") (280 . "#6CA0A3") (300 . "#528fd1") (320 . "#5180b3") (340 . "#6380b3") (360 . "#DC8CC3"))))
  '(vc-annotate-very-old-color "#DC8CC3"))
@@ -711,11 +710,6 @@
 (highlight-current-line-minor-mode)
 (highlight-current-line-on t)
 
-;;;;;;;;; Nyan mode
-
-(require 'nyan-mode)
-(nyan-mode)
-
 ;;;;;;;;; Nlinum-mode - shows line numbers in the margin
 
 (global-nlinum-mode t)
@@ -757,3 +751,8 @@
 ;;;;;;;;; anzu-mode - always shows the number of matches for searches
 
 (global-anzu-mode t)
+
+;;;;;;;;; smart-mode-line
+
+(require 'smart-mode-line)
+(sml/setup)
