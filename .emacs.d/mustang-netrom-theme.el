@@ -58,6 +58,7 @@
         '(linum ((t (:inherit (shadow default) :foreground "#696969" :height 0.9))))
         '(anzu-mode-line ((t (:foreground "#b1d631" :weight bold))))
         '(anzu-replace-to ((t (:foreground "#ff9800" :slant italic :weight bold))))
+        '(semantic-highlight-func-current-tag-face ((t (:background "#353535" :weight bold))))
 	'(org-hide ((t (:foreground "#708090"))))
         '(org-level-1 ((t (:bold t :foreground "#808080" :height 1.1))))
         '(org-level-2 ((t (:bold nil :foreground "#7e8aa2" :height 1.1))))
