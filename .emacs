@@ -103,7 +103,7 @@
  '(ack-scroll-output t)
  '(ansi-color-names-vector ["#212121" "#CC5542" "#ff9800" "#b1d631" "#5180b3" "#DC8CC3" "#9b55c3" "#bdbdb3"])
  '(custom-enabled-themes (quote (mustang-netrom)))
- '(custom-safe-themes (quote ("6a37be365d1d95fad2f4d185e51928c789ef7a4ccf17e7ca13ad63a8bf5b922f" "e1d7104248c51669b764ad57625525ed1b35f0f8df53f1838150ebe2b0f74288" default)))
+ '(custom-safe-themes (quote ("6a37be365d1d95fad2f4d185e51928c789ef7a4ccf17e7ca13ad63a8bf5b922f" "0ea38bb419fdafd8f49465a8e311dcdeadf7a632c5c06749422a264e1c73382b" default)))
  '(fci-rule-color "#2e2e2e")
  '(fic-background-color "#ff9800")
  '(fic-foreground-color "#000000")
