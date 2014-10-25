@@ -135,11 +135,7 @@
 ;; after my custom theme, so if they are kept in my theme then they
 ;; will be overridden.
 
-;;;;;;;;; CUSTOM COLORS & FONTS
-
-(set-background-color "black")
-(set-foreground-color "white")
-(set-cursor-color "white")
+;;;;;;;;; CUSTOM FONTS
 
 ;; under X11
 (if (eq window-system 'x)
