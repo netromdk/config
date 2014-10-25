@@ -133,11 +133,11 @@
   (interactive)
   (load-file "~/.emacs"))
 
-;; Opens (finds) .emacs in another buffer
+;; Opens (finds) .emacs in current buffer
 (defun open-conf () 
   "Opens ~/.emacs for editing"
   (interactive)
-  (find-file-other-window "~/.emacs"))
+  (find-file-existing "~/.emacs"))
 
 ;; Scroll one line up / down
 (defun scroll-down-one-line ()
