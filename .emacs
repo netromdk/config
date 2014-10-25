@@ -70,17 +70,17 @@
 (unless (package-installed-p 'package+)
   (package-install 'package+))
 (package-manifest
- 'ace-jump-mode
  'ace-jump-buffer
+ 'ace-jump-mode
  'ack
  'anzu
  'company
  'company-c-headers
  'fic-mode
- 'gitconfig-mode
- 'gitignore-mode
  'git-commit-mode
  'git-rebase-mode
+ 'gitconfig-mode
+ 'gitignore-mode
  'helm
  'helm-package
  'highlight-current-line
@@ -88,9 +88,9 @@
  'magit-svn
  'multiple-cursors
  'nlinum
+ 'package+
  'rainbow-mode
- 'smart-mode-line
- 'package+)
+ 'smart-mode-line)
 
 ;;;;;;;;; Additional customizations
 
