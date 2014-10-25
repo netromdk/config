@@ -83,7 +83,7 @@
 
 (defalias 'qrr 'anzu-query-replace-regexp)
 (defalias 'sb 'ispell-buffer)
-(defalias 'rp 'run-petite-chez-scheme)
+(defalias 'lp 'helm-list-elisp-packages)
 
 ;;;;;;;;; FUNCTIONS
 
@@ -198,6 +198,7 @@
 ;;   git-commit-mode
 ;;   git-rebase-mode
 ;;   helm
+;;   helm-package
 ;;   highlight-current-line
 ;;   magit
 ;;   magit-svn
