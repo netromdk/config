@@ -57,6 +57,84 @@
 (set-selection-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
 
+;;;;;;;;; Packages
+
+(require 'package)
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                         ("marmalade" . "http://marmalade-repo.org/packages/")
+                         ("melpa" . "http://melpa.org/packages/")))
+(package-initialize)
+
+;; The list of packages that should be automatically installed for
+;; this configuration.
+(unless (package-installed-p 'package+)
+  (package-install 'package+))
+(package-manifest
+ 'ace-jump-mode
+ 'ace-jump-buffer
+ 'ack
+ 'anzu
+ 'company
+ 'company-c-headers
+ 'fic-mode
+ 'gitconfig-mode
+ 'gitignore-mode
+ 'git-commit-mode
+ 'git-rebase-mode
+ 'helm
+ 'helm-package
+ 'highlight-current-line
+ 'magit
+ 'magit-svn
+ 'multiple-cursors
+ 'nlinum
+ 'rainbow-mode
+ 'smart-mode-line
+ 'package+)
+
+;;;;;;;;; Additional customizations
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ack-command "ack -i ")
+ '(ack-scroll-output t)
+ '(ansi-color-names-vector ["#212121" "#CC5542" "#ff9800" "#b1d631" "#5180b3" "#DC8CC3" "#9b55c3" "#bdbdb3"])
+ '(custom-enabled-themes (quote (mustang-netrom)))
+ '(custom-safe-themes (quote ("6a37be365d1d95fad2f4d185e51928c789ef7a4ccf17e7ca13ad63a8bf5b922f" "e1d7104248c51669b764ad57625525ed1b35f0f8df53f1838150ebe2b0f74288" default)))
+ '(fci-rule-color "#2e2e2e")
+ '(fic-background-color "#ff9800")
+ '(fic-foreground-color "#000000")
+ '(fic-highlighted-words (quote ("FIXME" "TODO" "BUG" "KLUDGE" "TEMP")))
+ '(global-nlinum-mode t)
+ '(helm-candidate-number-limit 100)
+ '(helm-display-source-at-screen-top t)
+ '(helm-exit-idle-delay 0)
+ '(helm-full-frame nil)
+ '(helm-reuse-last-window-split-state nil)
+ '(helm-save-configuration-functions (quote (set-window-configuration . current-window-configuration)))
+ '(helm-split-window-default-side (quote below))
+ '(sml/theme (quote dark))
+ '(vc-annotate-background "#3b3b3b")
+ '(vc-annotate-color-map (quote ((20 . "#dd5542") (40 . "#CC5542") (60 . "#fb8512") (80 . "#baba36") (100 . "#bdbc61") (120 . "#7d7c61") (140 . "#6abd50") (160 . "#6aaf50") (180 . "#6aa350") (200 . "#6a9550") (220 . "#6a8550") (240 . "#6a7550") (260 . "#9b55c3") (280 . "#6CA0A3") (300 . "#528fd1") (320 . "#5180b3") (340 . "#6380b3") (360 . "#DC8CC3"))))
+ '(vc-annotate-very-old-color "#DC8CC3"))
+
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(sml/col-number ((t (:inherit sml/global :foreground "#808bed"))))
+ '(sml/filename ((t (:inherit sml/global :foreground "#ff9800" :weight bold))))
+ '(sml/modes ((t (:inherit sml/global :foreground "#b1d631"))))
+ '(sml/position-percentage ((t (:foreground "#df9f2d" :weight normal)))))
+
+;; Faces for smart-mode-line are kept here because it loads a theme
+;; after my custom theme, so if they are kept in my theme then they
+;; will be overridden.
+
 ;;;;;;;;; CUSTOM COLORS & FONTS
 
 (set-background-color "black")
@@ -175,104 +253,6 @@
   (unless (and (eq type 'initialization)
                (string-starts-with message "Your `load-path' seems to contain\nyour `.emacs.d' directory"))
     ad-do-it))
-
-;;;;;;;;; Packages
-
-(require 'package)
-(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                         ("marmalade" . "http://marmalade-repo.org/packages/")
-                         ("melpa" . "http://melpa.org/packages/")))
-(package-initialize)
-
-;; The following packages are used and therfore should be installed if
-;; they aren't:
-;;   ace-jump-mode
-;;   ace-jump-buffer
-;;   ack
-;;   anzu-mode
-;;   company
-;;   company-c-headers
-;;   fic-mode
-;;   gitconfig-mode
-;;   gitignore-mode
-;;   git-commit-mode
-;;   git-rebase-mode
-;;   helm
-;;   helm-package
-;;   highlight-current-line
-;;   magit
-;;   magit-svn
-;;   multiple-cursors
-;;   nlinum-mode
-;;   rainbow-mode
-;;   smart-mode-line
-
-;;;;;;;;; Additional customizations
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(ack-command "ack -i ")
- '(ack-scroll-output t)
- '(ansi-color-names-vector
-   ["#212121" "#CC5542" "#ff9800" "#b1d631" "#5180b3" "#DC8CC3" "#9b55c3" "#bdbdb3"])
- '(custom-enabled-themes (quote (mustang-netrom)))
- '(custom-safe-themes
-   (quote
-    ("6a37be365d1d95fad2f4d185e51928c789ef7a4ccf17e7ca13ad63a8bf5b922f" "e1d7104248c51669b764ad57625525ed1b35f0f8df53f1838150ebe2b0f74288" default)))
- '(fci-rule-color "#2e2e2e")
- '(fic-background-color "#ff9800")
- '(fic-foreground-color "#000000")
- '(fic-highlighted-words (quote ("FIXME" "TODO" "BUG" "KLUDGE" "TEMP")))
- '(global-nlinum-mode t)
- '(helm-candidate-number-limit 100)
- '(helm-display-source-at-screen-top t)
- '(helm-exit-idle-delay 0)
- '(helm-full-frame nil)
- '(helm-reuse-last-window-split-state nil)
- '(helm-save-configuration-functions
-   (quote
-    (set-window-configuration . current-window-configuration)))
- '(helm-split-window-default-side (quote below))
- '(sml/theme (quote dark))
- '(vc-annotate-background "#3b3b3b")
- '(vc-annotate-color-map
-   (quote
-    ((20 . "#dd5542")
-     (40 . "#CC5542")
-     (60 . "#fb8512")
-     (80 . "#baba36")
-     (100 . "#bdbc61")
-     (120 . "#7d7c61")
-     (140 . "#6abd50")
-     (160 . "#6aaf50")
-     (180 . "#6aa350")
-     (200 . "#6a9550")
-     (220 . "#6a8550")
-     (240 . "#6a7550")
-     (260 . "#9b55c3")
-     (280 . "#6CA0A3")
-     (300 . "#528fd1")
-     (320 . "#5180b3")
-     (340 . "#6380b3")
-     (360 . "#DC8CC3"))))
- '(vc-annotate-very-old-color "#DC8CC3"))
-
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(sml/col-number ((t (:inherit sml/global :foreground "#808bed"))))
- '(sml/filename ((t (:inherit sml/global :foreground "#ff9800" :weight bold))))
- '(sml/modes ((t (:inherit sml/global :foreground "#b1d631"))))
- '(sml/position-percentage ((t (:foreground "#df9f2d" :weight normal)))))
-
-;; Faces for smart-mode-line are kept here because it loads a theme
-;; after my custom theme, so if they are kept in my theme then they
-;; will be overridden.
 
 ;;;;;;;;; Luxion related
 
@@ -734,15 +714,12 @@
 
 ;;;;;;;;; Multiple cursors
 
-(require 'multiple-cursors)
 (global-set-key (kbd "C-c n") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-c p") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c m") 'mc/mark-all-like-this)
 
 ;;;;;;;;; Magit mode
 
-(require 'magit-svn)
-(require 'magit)
 (global-set-key "\C-xg" 'magit-status)
 (add-hook 'magit-mode-hook 'magit-load-config-extensions)
 
@@ -759,11 +736,11 @@
 
 ;;;;;;;;; Nlinum-mode - shows line numbers in the margin
 
+(require 'nlinum)
 (global-nlinum-mode t)
 
 ;;;;;;;;; Rainbow mode - highlights hexcolors, like #aabbcc
 
-(require 'rainbow-mode)
 (add-hook 'prog-mode-hook 'rainbow-mode)
 
 ;;;;;;;;; Ace jump mode + ace jump buffer
@@ -779,7 +756,6 @@
 (define-key global-map (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
 
 ;; Jump to some buffer
-(require 'ace-jump-buffer)
 (define-key global-map (kbd "C-c b") 'ace-jump-buffer)
 
 ;;;;;;;;; Helm
@@ -797,5 +773,4 @@
 
 ;;;;;;;;; smart-mode-line
 
-(require 'smart-mode-line)
 (sml/setup)
