@@ -35,7 +35,7 @@
 (global-font-lock-mode t)               ;; syntax highlight
 (setq-default indent-tabs-mode nil)     ;; use spaces instead of tabs
 (fset 'yes-or-no-p 'y-or-n-p)           ;; use 'y' instead of 'yes' etc.
-(toggle-uniquify-buffer-names t)        ;; uniquify buffer names.
+(toggle-uniquify-buffer-names t)        ;; uniquify buffer names if necessary.
 
 ;;;;;;;;; MAC OS X SPECIFIC
 
