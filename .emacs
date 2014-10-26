@@ -117,7 +117,7 @@
  '(custom-enabled-themes (quote (mustang-netrom)))
  '(custom-safe-themes
    (quote
-    ("340e58799f5acc64dccfc2423aa485f25596c45c0f0337012d006f03d7794db7" default)))
+    ("df4707fa85f4d38bb3fd455e0dafaa62efaae5c06ebaca482d556eb3c7335823" default)))
  '(fci-rule-color "#2e2e2e")
  '(fic-background-color "#ff9800")
  '(fic-foreground-color "#000000")
