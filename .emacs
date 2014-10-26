@@ -117,7 +117,7 @@
  '(custom-enabled-themes (quote (mustang-netrom)))
  '(custom-safe-themes
    (quote
-    ("6a37be365d1d95fad2f4d185e51928c789ef7a4ccf17e7ca13ad63a8bf5b922f" "0ea38bb419fdafd8f49465a8e311dcdeadf7a632c5c06749422a264e1c73382b" default)))
+    ("340e58799f5acc64dccfc2423aa485f25596c45c0f0337012d006f03d7794db7" default)))
  '(fci-rule-color "#2e2e2e")
  '(fic-background-color "#ff9800")
  '(fic-foreground-color "#000000")
@@ -132,7 +132,6 @@
    (quote
     (set-window-configuration . current-window-configuration)))
  '(helm-split-window-default-side (quote below))
- '(sml/theme (quote dark))
  '(uniquify-buffer-name-style (quote post-forward-angle-brackets) nil (uniquify))
  '(vc-annotate-background "#3b3b3b")
  '(vc-annotate-color-map
@@ -162,14 +161,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(sml/col-number ((t (:inherit sml/global :foreground "#808bed"))))
- '(sml/filename ((t (:inherit sml/global :foreground "#ff9800" :weight bold))))
- '(sml/modes ((t (:inherit sml/global :foreground "#b1d631"))))
- '(sml/position-percentage ((t (:foreground "#df9f2d" :weight normal)))))
-
-;; Faces for smart-mode-line are kept here because it loads a theme
-;; after my custom theme, so if they are kept in my theme then they
-;; will be overridden.
+ )
 
 ;;;;;;;;; CUSTOM FONTS
 
