@@ -67,31 +67,33 @@
 (package-initialize)
 
 ;; The list of packages that should be automatically installed for
-;; this configuration.
-(unless (package-installed-p 'package+)
-  (package-install 'package+))
-(package-manifest
- 'ace-jump-buffer
- 'ace-jump-mode
- 'ack
- 'anzu
- 'company
- 'company-c-headers
- 'fic-mode
- 'git-commit-mode
- 'git-rebase-mode
- 'gitconfig-mode
- 'gitignore-mode
- 'helm
- 'helm-package
- 'highlight-current-line
- 'magit
- 'magit-svn
- 'multiple-cursors
- 'nlinum
- 'package+
- 'rainbow-mode
- 'smart-mode-line)
+;; this configuration if they aren't.
+(mapcar
+ (lambda (pkg)
+   (unless (package-installed-p pkg)
+     (package-install pkg)))
+ (list
+  'ace-jump-buffer
+  'ace-jump-mode
+  'ack
+  'anzu
+  'company
+  'company-c-headers
+  'fic-mode
+  'git-commit-mode
+  'git-rebase-mode
+  'gitconfig-mode
+  'gitignore-mode
+  'helm
+  'helm-package
+  'highlight-current-line
+  'magit
+  'magit-svn
+  'multiple-cursors
+  'nlinum
+  'package-safe-delete
+  'rainbow-mode
+  'smart-mode-line))
 
 ;;;;;;;;; Additional customizations
 
