@@ -35,7 +35,6 @@
 (global-font-lock-mode t)               ;; syntax highlight
 (setq-default indent-tabs-mode nil)     ;; use spaces instead of tabs
 (fset 'yes-or-no-p 'y-or-n-p)           ;; use 'y' instead of 'yes' etc.
-(toggle-uniquify-buffer-names t)        ;; uniquify buffer names if necessary.
 
 ;;;;;;;;; MAC OS X SPECIFIC
 
@@ -113,9 +112,12 @@
  ;; If there is more than one, they won't work right.
  '(ack-command "ack -i ")
  '(ack-scroll-output t)
- '(ansi-color-names-vector ["#212121" "#CC5542" "#ff9800" "#b1d631" "#5180b3" "#DC8CC3" "#9b55c3" "#bdbdb3"])
+ '(ansi-color-names-vector
+   ["#212121" "#CC5542" "#ff9800" "#b1d631" "#5180b3" "#DC8CC3" "#9b55c3" "#bdbdb3"])
  '(custom-enabled-themes (quote (mustang-netrom)))
- '(custom-safe-themes (quote ("6a37be365d1d95fad2f4d185e51928c789ef7a4ccf17e7ca13ad63a8bf5b922f" "0ea38bb419fdafd8f49465a8e311dcdeadf7a632c5c06749422a264e1c73382b" default)))
+ '(custom-safe-themes
+   (quote
+    ("6a37be365d1d95fad2f4d185e51928c789ef7a4ccf17e7ca13ad63a8bf5b922f" "0ea38bb419fdafd8f49465a8e311dcdeadf7a632c5c06749422a264e1c73382b" default)))
  '(fci-rule-color "#2e2e2e")
  '(fic-background-color "#ff9800")
  '(fic-foreground-color "#000000")
@@ -126,11 +128,33 @@
  '(helm-exit-idle-delay 0)
  '(helm-full-frame nil)
  '(helm-reuse-last-window-split-state nil)
- '(helm-save-configuration-functions (quote (set-window-configuration . current-window-configuration)))
+ '(helm-save-configuration-functions
+   (quote
+    (set-window-configuration . current-window-configuration)))
  '(helm-split-window-default-side (quote below))
  '(sml/theme (quote dark))
+ '(uniquify-buffer-name-style (quote post-forward-angle-brackets) nil (uniquify))
  '(vc-annotate-background "#3b3b3b")
- '(vc-annotate-color-map (quote ((20 . "#dd5542") (40 . "#CC5542") (60 . "#fb8512") (80 . "#baba36") (100 . "#bdbc61") (120 . "#7d7c61") (140 . "#6abd50") (160 . "#6aaf50") (180 . "#6aa350") (200 . "#6a9550") (220 . "#6a8550") (240 . "#6a7550") (260 . "#9b55c3") (280 . "#6CA0A3") (300 . "#528fd1") (320 . "#5180b3") (340 . "#6380b3") (360 . "#DC8CC3"))))
+ '(vc-annotate-color-map
+   (quote
+    ((20 . "#dd5542")
+     (40 . "#CC5542")
+     (60 . "#fb8512")
+     (80 . "#baba36")
+     (100 . "#bdbc61")
+     (120 . "#7d7c61")
+     (140 . "#6abd50")
+     (160 . "#6aaf50")
+     (180 . "#6aa350")
+     (200 . "#6a9550")
+     (220 . "#6a8550")
+     (240 . "#6a7550")
+     (260 . "#9b55c3")
+     (280 . "#6CA0A3")
+     (300 . "#528fd1")
+     (320 . "#5180b3")
+     (340 . "#6380b3")
+     (360 . "#DC8CC3"))))
  '(vc-annotate-very-old-color "#DC8CC3"))
 
 (custom-set-faces
