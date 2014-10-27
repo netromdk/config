@@ -803,5 +803,8 @@
 (add-to-list 'sml/replacer-regexp-list '("/Volumes/Luxion" ":LUX:") t)
 (add-to-list 'sml/prefix-face-list '(":LUX:" sml/git))
 
+(add-to-list 'sml/replacer-regexp-list '("/Volumes/HakLabs" ":HL:") t)
+(add-to-list 'sml/prefix-face-list '(":HL:" sml/git))
+
 (add-to-list 'sml/replacer-regexp-list '(".*[Ss]vn" ":SVN:") t)
 (add-to-list 'sml/prefix-face-list '(":SVN:" sml/git))
