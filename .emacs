@@ -132,6 +132,7 @@
    (quote
     (set-window-configuration . current-window-configuration)))
  '(helm-split-window-default-side (quote below))
+ '(sml/numbers-separator " ")
  '(uniquify-buffer-name-style (quote post-forward-angle-brackets) nil (uniquify))
  '(vc-annotate-background "#3b3b3b")
  '(vc-annotate-color-map
