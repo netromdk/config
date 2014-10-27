@@ -799,3 +799,9 @@
 ;;;;;;;;; smart-mode-line
 
 (sml/setup)
+
+(add-to-list 'sml/replacer-regexp-list '(".*Luxion" ":LUX:") t)
+(add-to-list 'sml/prefix-face-list '(":LUX:" sml/git))
+
+(add-to-list 'sml/replacer-regexp-list '(".*[Ss]vn" ":SVN:") t)
+(add-to-list 'sml/prefix-face-list '(":SVN:" sml/git))
