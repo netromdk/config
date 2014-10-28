@@ -75,6 +75,8 @@
         '(magit-log-head-label-tags ((t (:inherit magit-tag))))
         '(magit-log-reflog-label-commit ((t (:inherit magit-tag))))
         '(magit-log-reflog-label-merge ((t (:inherit magit-tag))))
+        '(magit-log-author ((t (:foreground "#ff9800"))))
+        '(magit-log-sha1 ((t (:foreground "#b1d631"))))
         '(git-commit-nonempty-second-line-face ((t nil)))
         '(git-commit-overlong-summary-face ((t nil)))
 	'(org-hide ((t (:foreground "#708090"))))
