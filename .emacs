@@ -117,7 +117,7 @@
  '(custom-enabled-themes (quote (mustang-netrom)))
  '(custom-safe-themes
    (quote
-    ("45bd312292a9a1c6e68d0e0de72df481d33be2db9912a93e04a986e9117b30fc" default)))
+    ("dc686cc0eb42e6620b48221f328d96d2b21c95cf831280d73f8b95e3cf006f88" default)))
  '(fci-rule-color "#2e2e2e")
  '(fic-background-color "#ff9800")
  '(fic-foreground-color "#000000")
@@ -132,6 +132,8 @@
    (quote
     (set-window-configuration . current-window-configuration)))
  '(helm-split-window-default-side (quote below))
+ '(magit-revert-item-confirm t)
+ '(magit-save-some-buffers t)
  '(sml/numbers-separator " ")
  '(uniquify-buffer-name-style (quote post-forward-angle-brackets) nil (uniquify))
  '(vc-annotate-background "#3b3b3b")
