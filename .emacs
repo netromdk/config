@@ -83,7 +83,7 @@
             'magit
             'magit-svn
             'multiple-cursors
-            'nlinum
+            'hlinum
             'package-safe-delete
             'rainbow-mode
             'smart-mode-line))
@@ -117,12 +117,11 @@
  '(custom-enabled-themes (quote (mustang-netrom)))
  '(custom-safe-themes
    (quote
-    ("33f4956c5d7d1f0dc96d25ef55a9d0b1c689202fa8b5457fe0293ccc046d12e2" default)))
+    ("0db7fe321417cd65a3d310dbe2985083576b526ad7e2d063cab6e2f67fa2b2da" default)))
  '(fci-rule-color "#2e2e2e")
  '(fic-background-color "#ff9800")
  '(fic-foreground-color "#000000")
  '(fic-highlighted-words (quote ("FIXME" "TODO" "BUG" "KLUDGE" "TEMP")))
- '(global-nlinum-mode t)
  '(helm-candidate-number-limit 100)
  '(helm-display-source-at-screen-top t)
  '(helm-exit-idle-delay 0)
@@ -763,12 +762,15 @@
 (highlight-current-line-minor-mode)
 (highlight-current-line-on t)
 
-;;;;;;;;; Nlinum-mode - shows line numbers in the margin
+;;;;;;;;; hlinum-mode - highlights current line number in margin
 
-(require 'nlinum)
-(global-nlinum-mode t)
+(require 'hlinum)
+(hlinum-activate)
 
-;;;;;;;;; Rainbow mode - highlights hexcolors, like #aabbcc
+;; Turn on general lines in left margin (built-in package).
+(global-linum-mode t)
+
+;;;;;;;;; Rainbow mode - highlights hexcolors, like #aabbcc and Red
 
 (add-hook 'prog-mode-hook 'rainbow-mode)
 

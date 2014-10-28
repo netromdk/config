@@ -56,6 +56,7 @@
         '(helm-match ((t (:foreground "#ff9800"))))
         '(highlight-current-line-face ((t (:background "#282828"))))
         '(linum ((t (:inherit (shadow default) :foreground "#696969" :height 0.9))))
+        '(linum-highlight-face ((t (:inherit linum :foreground "#b1d631"))))
         '(anzu-mode-line ((t (:foreground "#b1d631" :weight bold))))
         '(anzu-replace-to ((t (:foreground "#ff9800" :slant italic :weight bold))))
         '(semantic-highlight-func-current-tag-face ((t (:background "#353535" :weight bold))))
