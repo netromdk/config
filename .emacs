@@ -187,6 +187,8 @@
 (defalias 'qrr 'anzu-query-replace-regexp)
 (defalias 'sb 'ispell-buffer)
 (defalias 'lp 'helm-list-elisp-packages)
+(defalias 'sr 'magit-svn-rebase)
+(defalias 'sc 'magit-svn-dcommit)
 
 ;;;;;;;;; FUNCTIONS
 
