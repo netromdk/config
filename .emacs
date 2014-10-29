@@ -79,6 +79,7 @@
             'gitignore-mode
             'helm
             'helm-package
+            'helm-swoop
             'highlight-current-line
             'magit
             'magit-svn
@@ -186,10 +187,14 @@
 ;;;;;;;;; CUSTOM ALIASES
 
 (defalias 'qrr 'anzu-query-replace-regexp)
+
 (defalias 'sb 'ispell-buffer)
-(defalias 'lp 'helm-list-elisp-packages)
+
 (defalias 'sr 'magit-svn-rebase)
 (defalias 'sc 'magit-svn-dcommit)
+
+(defalias 'lp 'helm-list-elisp-packages)
+(defalias 'oc 'helm-occur)
 
 ;;;;;;;;; FUNCTIONS
 
@@ -791,8 +796,18 @@
 
 ;;;;;;;;; Helm
 
-;; Use Helm's "M-x" mode instead of the default one.
 (global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "M-y") 'helm-show-kill-ring)
+(global-set-key (kbd "C-x b") 'helm-mini)
+
+;; Enhance the help menu using helm functionality.
+(define-key 'help-command (kbd "a") 'helm-apropos)
+(define-key 'help-command (kbd "r") 'helm-info-emacs)
+(define-key 'help-command (kbd "C-l") 'helm-locate-library)
+(define-key 'help-command (kbd "SPC") 'helm-all-mark-rings)
+
+;; Activate helm-swoop on isearch results.
+(define-key isearch-mode-map (kbd "M-i") 'helm-swoop-from-isearch)
 
 ;;;;;;;;; objc-mode
 
