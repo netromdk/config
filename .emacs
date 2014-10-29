@@ -132,6 +132,7 @@
    (quote
     (set-window-configuration . current-window-configuration)))
  '(helm-split-window-default-side (quote below))
+ '(helm-swoop-split-with-multiple-windows t)
  '(magit-revert-item-confirm t)
  '(magit-save-some-buffers t)
  '(sml/numbers-separator " ")
