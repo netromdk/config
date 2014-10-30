@@ -754,8 +754,7 @@
 
 ;;;;;;;;; Magit mode
 
-(global-set-key "\C-xg" 'magit-status)
-(add-hook 'magit-mode-hook 'magit-load-config-extensions)
+(global-set-key (kbd "C-x g") 'magit-status)
 
 ;;;;;;;;; FIC mode (marks TODO, FIXME etc. clearly)
 
