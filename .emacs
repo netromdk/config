@@ -195,7 +195,6 @@
 (defalias 'sc 'magit-svn-dcommit)
 
 (defalias 'lp 'helm-list-elisp-packages)
-(defalias 'oc 'helm-occur)
 
 ;;;;;;;;; FUNCTIONS
 
@@ -805,6 +804,7 @@
 
 ;; Activate helm-swoop on isearch results.
 (define-key isearch-mode-map (kbd "M-i") 'helm-swoop-from-isearch)
+(define-key isearch-mode-map (kbd "M-I") 'helm-multi-swoop-all-from-isearch)
 
 ;;;;;;;;; objc-mode
 
