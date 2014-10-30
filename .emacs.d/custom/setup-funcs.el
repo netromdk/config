@@ -16,9 +16,6 @@
 
 (defalias 'sb 'ispell-buffer)
 
-(defalias 'sr 'magit-svn-rebase)
-(defalias 'sc 'magit-svn-dcommit)
-
 (defalias 'lp 'helm-list-elisp-packages)
 
 ;;;;;;;;; FUNCTIONS

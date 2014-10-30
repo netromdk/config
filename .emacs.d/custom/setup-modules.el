@@ -423,6 +423,11 @@
 
 (global-set-key (kbd "C-x g") 'magit-status)
 
+(defun my-magit-bindings ()
+  (local-set-key (kbd "C-c r") 'magit-svn-rebase)
+  (local-set-key (kbd "C-c c") 'magit-svn-dcommit))
+(add-hook 'magit-status-mode-hook 'my-magit-bindings)
+
 ;;;;;;;;; FIC mode (marks TODO, FIXME etc. clearly)
 
 (require 'fic-mode)
