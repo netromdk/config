@@ -66,7 +66,6 @@
 ;; The list of packages that should be automatically installed for
 ;; this configuration.
 (setq pkgs (list
-            'ace-jump-buffer
             'ace-jump-mode
             'ack
             'anzu
@@ -781,7 +780,7 @@
 
 (add-hook 'prog-mode-hook 'rainbow-mode)
 
-;;;;;;;;; Ace jump mode + ace jump buffer
+;;;;;;;;; Ace jump mode
 
 ;; Jump to symbol
 (autoload 'ace-jump-mode "ace-jump-mode" "Emacs quick move minor mode" t)
@@ -792,9 +791,6 @@
 (eval-after-load "ace-jump-mode"
   '(ace-jump-mode-enable-mark-sync))
 (define-key global-map (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
-
-;; Jump to some buffer
-(define-key global-map (kbd "C-c b") 'ace-jump-buffer)
 
 ;;;;;;;;; Helm
 
