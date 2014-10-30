@@ -80,10 +80,10 @@
             'helm-package
             'helm-swoop
             'highlight-current-line
+            'hlinum
             'magit
             'magit-svn
             'multiple-cursors
-            'hlinum
             'package-safe-delete
             'rainbow-mode
             'smart-mode-line))
