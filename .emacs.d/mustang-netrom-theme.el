@@ -54,6 +54,8 @@
         '(helm-selection ((t (:background "#282828" :foreground "#b1d631" :underline nil :weight bold))))
         '(helm-source-header ((t (:background "#353535" :foreground "white" :weight bold :height 1.3 :family "Sans Serif"))))
         '(helm-match ((t (:foreground "#ff9800"))))
+        '(helm-buffer-directory ((t (:foreground "#808bed"))))
+        '(helm-ff-directory ((t (:inherit helm-buffer-directory))))
         '(helm-swoop-target-line-block-face ((t nil)))
         '(helm-swoop-target-line-face ((t (:background "#3c414c"))))
         '(helm-swoop-target-word-face ((t (:background "#b1d631" :foreground "#000000"))))
