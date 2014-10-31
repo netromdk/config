@@ -478,11 +478,16 @@
 (setq helm-display-source-at-screen-top t)
 (setq helm-exit-idle-delay 0)
 (setq helm-full-frame nil)
-(setq helm-reuse-last-window-split-state nil)
 (setq helm-save-configuration-functions
       (quote
        (set-window-configuration . current-window-configuration)))
+(setq helm-buffers-fuzzy-matching t)
+(setq helm-ff-file-name-history-use-recentf t)
 (setq helm-split-window-default-side (quote below))
+(setq helm-reuse-last-window-split-state nil)
+(setq helm-split-window-in-side-p t) ;; split in same window
+(setq helm-quick-update t) ;; don't show invisible candidates
+
 (setq helm-swoop-split-direction (quote split-window-vertically))
 (setq helm-swoop-split-with-multiple-windows t)
 
