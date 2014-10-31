@@ -478,9 +478,6 @@
 (setq helm-display-source-at-screen-top t)
 (setq helm-exit-idle-delay 0)
 (setq helm-full-frame nil)
-(setq helm-save-configuration-functions
-      (quote
-       (set-window-configuration . current-window-configuration)))
 (setq helm-buffers-fuzzy-matching t)
 (setq helm-ff-file-name-history-use-recentf t)
 (setq helm-split-window-default-side (quote below))
