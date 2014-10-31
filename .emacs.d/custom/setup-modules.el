@@ -423,6 +423,9 @@
 
 ;;;;;;;;; Magit mode
 
+(setq magit-revert-item-confirm t)
+(setq magit-save-some-buffers t)
+
 (global-set-key (kbd "C-x g") 'magit-status)
 
 (defun my-magit-bindings ()
@@ -431,6 +434,10 @@
 (add-hook 'magit-status-mode-hook 'my-magit-bindings)
 
 ;;;;;;;;; FIC mode (marks TODO, FIXME etc. clearly)
+
+(setq fic-background-color "#ff9800")
+(setq fic-foreground-color "#000000")
+(setq fic-highlighted-words (quote ("FIXME" "TODO" "BUG" "KLUDGE" "TEMP")))
 
 (require 'fic-mode)
 (add-hook 'prog-mode-hook 'fic-mode)
@@ -467,6 +474,18 @@
 
 ;;;;;;;;; Helm
 
+(setq helm-candidate-number-limit 100)
+(setq helm-display-source-at-screen-top t)
+(setq helm-exit-idle-delay 0)
+(setq helm-full-frame nil)
+(setq helm-reuse-last-window-split-state nil)
+(setq helm-save-configuration-functions
+      (quote
+       (set-window-configuration . current-window-configuration)))
+(setq helm-split-window-default-side (quote below))
+(setq helm-swoop-split-direction (quote split-window-vertically))
+(setq helm-swoop-split-with-multiple-windows t)
+
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
 (global-set-key (kbd "C-x b") 'helm-mini)
@@ -495,6 +514,8 @@
 
 ;;;;;;;;; smart-mode-line
 
+(setq sml/numbers-separator " ")
+
 (sml/setup)
 
 (add-to-list 'sml/replacer-regexp-list '("/Volumes/Luxion/" ":LUX:") t)
@@ -505,6 +526,11 @@
 
 (add-to-list 'sml/replacer-regexp-list '(".*[Ss]vn" ":SVN:") t)
 (add-to-list 'sml/prefix-face-list '(":SVN:" sml/git))
+
+;;;;;;;;; ack mode
+
+(setq ack-command "ack -i ")
+(setq ack-scroll-output t)
 
 
 (provide 'setup-modules)

@@ -30,8 +30,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ack-command "ack -i ")
- '(ack-scroll-output t)
  '(ansi-color-names-vector
    ["#212121" "#CC5542" "#ff9800" "#b1d631" "#5180b3" "#DC8CC3" "#9b55c3" "#bdbdb3"])
  '(custom-enabled-themes (quote (mustang-netrom)))
@@ -39,23 +37,6 @@
    (quote
     ("4db131fdda71733708facef9e38107f7febde0082ddb4413a0ac705671ae3767" default)))
  '(fci-rule-color "#2e2e2e")
- '(fic-background-color "#ff9800")
- '(fic-foreground-color "#000000")
- '(fic-highlighted-words (quote ("FIXME" "TODO" "BUG" "KLUDGE" "TEMP")))
- '(helm-candidate-number-limit 100)
- '(helm-display-source-at-screen-top t)
- '(helm-exit-idle-delay 0)
- '(helm-full-frame nil)
- '(helm-reuse-last-window-split-state nil)
- '(helm-save-configuration-functions
-   (quote
-    (set-window-configuration . current-window-configuration)))
- '(helm-split-window-default-side (quote below))
- '(helm-swoop-split-direction (quote split-window-vertically))
- '(helm-swoop-split-with-multiple-windows t)
- '(magit-revert-item-confirm t)
- '(magit-save-some-buffers t)
- '(sml/numbers-separator " ")
  '(uniquify-buffer-name-style (quote post-forward-angle-brackets) nil (uniquify))
  '(vc-annotate-background "#3b3b3b")
  '(vc-annotate-color-map
