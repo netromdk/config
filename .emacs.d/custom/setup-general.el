@@ -15,6 +15,11 @@
 (setq-default indent-tabs-mode nil)     ;; use spaces instead of tabs
 (fset 'yes-or-no-p 'y-or-n-p)           ;; use 'y' instead of 'yes' etc.
 
+;; Use internal 'ls' to avoid the '--dired' argument warning when the
+;; system 'ls' command doesn't support it.
+(setq ls-lisp-use-insert-directory-program nil)
+(require 'ls-lisp)
+
 ;;;;;;;;; EMAIL
 
 (setq user-mail-address "msk@nullpointer.dk")
