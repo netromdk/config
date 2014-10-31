@@ -10,14 +10,6 @@
 (global-set-key (kbd "M-N") 'next-user-buffer) 
 (global-set-key (kbd "C-c o") 'ff-find-other-file)
 
-;;;;;;;;; CUSTOM ALIASES
-
-(defalias 'qrr 'anzu-query-replace-regexp)
-
-(defalias 'sb 'ispell-buffer)
-
-(defalias 'lp 'helm-list-elisp-packages)
-
 ;;;;;;;;; FUNCTIONS
 
 ;; convert current buffer to unix EOLs

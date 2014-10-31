@@ -32,6 +32,8 @@
   (interactive)
   (ispell-change-dictionary "english"))
 
+(defalias 'sb 'ispell-buffer)
+
 ;;;;;;;;; C & C++
 
 (add-hook 'c-mode-common-hook
@@ -479,11 +481,15 @@
 (define-key isearch-mode-map (kbd "M-i") 'helm-swoop-from-isearch)
 (define-key isearch-mode-map (kbd "M-I") 'helm-multi-swoop-all-from-isearch)
 
+(defalias 'lp 'helm-list-elisp-packages)
+
 ;;;;;;;;; objc-mode
 
 (setq auto-mode-alist (append '(("\\.mm$" . objc-mode)) auto-mode-alist))
 
 ;;;;;;;;; anzu-mode - always shows the number of matches for searches
+
+(defalias 'qrr 'anzu-query-replace-regexp)
 
 (global-anzu-mode t)
 
