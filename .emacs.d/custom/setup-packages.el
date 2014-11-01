@@ -10,6 +10,7 @@
             'ace-jump-mode
             'ack
             'anzu
+            'cmake-mode
             'company
             'company-c-headers
             'fic-mode
