@@ -19,6 +19,13 @@
 (setq ls-lisp-use-insert-directory-program nil)
 (require 'ls-lisp)
 
+;;;;;;;;; Scratch buffer
+
+(setq initial-major-mode 'lisp-interaction-mode)
+(setq initial-scratch-message ";; Scratch buffer..
+
+")
+
 ;;;;;;;;; EMAIL
 
 (setq user-mail-address "msk@nullpointer.dk")

@@ -330,5 +330,9 @@
 (show-smartparens-global-mode 1)
 (smartparens-global-mode 1)
 
+;;;;;;;;; zygospore - restore buffers
+
+(global-set-key (kbd "C-x 1") 'zygospore-toggle-delete-other-windows)
+
 
 (provide 'setup-modules)

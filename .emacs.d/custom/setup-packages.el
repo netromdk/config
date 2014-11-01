@@ -29,7 +29,8 @@
             'package-safe-delete
             'rainbow-mode
             'smart-mode-line
-            'smartparens))
+            'smartparens
+            'zygospore))
 
 ;; Refresh package archive if a package is to be installed or it's not
 ;; in the archive list.
