@@ -63,37 +63,6 @@
           (lambda () (auto-fill-mode t)))
 (setenv "TEXINPUTS" ".:~/latex/:")
 
-;;;;;;;;; SML
-
-;(autoload 'sml-mode "sml-mode" () t)
-(autoload 'sml-mode "sml-mode-color" () t)
-(setq auto-mode-alist (cons '("\\.sml$" . sml-mode) auto-mode-alist))
-(setq auto-mode-alist (cons '("\\.sig$" . sml-mode) auto-mode-alist))
-
-;;;;;;;;; Scheme
-
-;; Petite-chez-scheme-mode
-(autoload 'petite-chez-scheme-mode "petite-chez-scheme-mode-color" () t)
-(setq auto-mode-alist
-      (cons '("\\.scm$" . petite-chez-scheme-mode)
-	    (cons '("\\.sim$" . petite-chez-scheme-mode)
-		  auto-mode-alist)))
-
-(defun run-petite-chez-scheme ()
-  "Run an inferior Petite Chez Scheme process, input and output via buffer *Petite Chez Scheme*."
-  (interactive)
-  (require 'comint)
-  (pop-to-buffer
-    (make-comint "Petite Chez Scheme"
-                 "/bin/sh"
-                 nil
-                 "-c"
-                 "/usr/bin/petite"))
-  ;(inferior-scheme-mode)
-  (make-local-variable 'comint-prompt-regexp)
-  (setq comint-prompt-regexp "> ")
-  (setq mode-name "Inferior Petite Chez Scheme"))
-
 ;;;;;;;;; CSS-mode
 
 (autoload 'css-mode "css-mode" "CSS mode." t)
