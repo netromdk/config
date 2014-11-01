@@ -74,11 +74,6 @@
 (autoload 'php-mode "php-mode" "Mode for editing PHP source files")
 (add-to-list 'auto-mode-alist '("\\.\\(inc\\|php[s34]?\\)" . php-mode))
 
-;;;;;;;;; D-mode
-
-(autoload 'd-mode "d-mode" "Major mode for editing D code." t)
-(add-to-list 'auto-mode-alist '("\\.d[i]?\\'" . d-mode))
-
 ;;;;;;;;; erlang-mode
 
 (require 'erlang-start)
