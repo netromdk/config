@@ -7,12 +7,21 @@
 (setq inhibit-startup-message t)        ;; dont show the GNU splash screen
 (transient-mark-mode t)                 ;; show selection from mark
 (mouse-avoidance-mode 'jump)            ;; jump mouse away when typing
-(setq visible-bell nil)                 ;; turn off bip warnings
-(auto-compression-mode t)               ;; browse tar archives
+(auto-compression-mode t)               ;; browse compressed archives
 (put 'upcase-region 'disabled nil)      ;; enable ``upcase-region''
 (global-font-lock-mode t)               ;; syntax highlight
 (setq-default indent-tabs-mode nil)     ;; use spaces instead of tabs
 (fset 'yes-or-no-p 'y-or-n-p)           ;; use 'y' instead of 'yes' etc.
+
+;; Disable visible bell because it looks ugly, but that makes the
+;; audible bell and therefore we replace it with a
+;; background/foreground color "flash".
+(setq visible-bell nil)
+(setq ring-bell-function
+      `(lambda ()
+         (let ((old (face-foreground 'default)))
+           (set-face-foreground 'default (face-background 'default))
+           (set-face-foreground 'default old))))
 
 ;; Use internal 'ls' to avoid the '--dired' argument warning when the
 ;; system 'ls' command doesn't support it.
