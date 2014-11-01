@@ -534,5 +534,10 @@
 (setq ack-command "ack -i ")
 (setq ack-scroll-output t)
 
+;;;;;;;;; smartparens mode
+
+(require 'smartparens-config)
+(smartparens-global-mode 1)
+
 
 (provide 'setup-modules)

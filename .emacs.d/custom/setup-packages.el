@@ -27,7 +27,8 @@
             'multiple-cursors
             'package-safe-delete
             'rainbow-mode
-            'smart-mode-line))
+            'smart-mode-line
+            'smartparens))
 
 ;; Refresh package archive if a package is to be installed or it's not
 ;; in the archive list.
