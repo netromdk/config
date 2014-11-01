@@ -464,6 +464,7 @@
 ;;;;;;;;; smartparens mode
 
 (require 'smartparens-config)
+(show-smartparens-global-mode 1)
 (smartparens-global-mode 1)
 
 

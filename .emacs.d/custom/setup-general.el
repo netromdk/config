@@ -1,6 +1,5 @@
 ;;;;;;;;; COMMON CONFIGURATIONS
 
-(show-paren-mode t)                     ;; show matching parenthesis
 (column-number-mode t)                  ;; show current column
 (menu-bar-mode -1)                      ;; don't show menu-bar
 (tool-bar-mode -1)                      ;; same for the toolbar
