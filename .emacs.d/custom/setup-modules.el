@@ -69,18 +69,6 @@
                                 ("\\.style$" . css-mode))
                               auto-mode-alist))
 
-;;;;;;;;; Haskell-mode
-
-(setq auto-mode-alist
-      (append auto-mode-alist
-              '(("\\.[hg]s$"  . haskell-mode)
-                ("\\.hi$"     . haskell-mode)
-                ("\\.l[hg]s$" . literate-haskell-mode))))
-(autoload 'haskell-mode "haskell-mode"
-   "Major mode for editing Haskell scripts." t)
-(autoload 'literate-haskell-mode "haskell-mode"
-   "Major mode for editing literate Haskell scripts." t)
-
 ;;;;;;;;; PHP-mode
 
 (autoload 'php-mode "php-mode" "Mode for editing PHP source files")
