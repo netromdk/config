@@ -74,10 +74,6 @@
 (autoload 'php-mode "php-mode" "Mode for editing PHP source files")
 (add-to-list 'auto-mode-alist '("\\.\\(inc\\|php[s34]?\\)" . php-mode))
 
-;;;;;;;;; erlang-mode
-
-(require 'erlang-start)
-
 ;;;;;;;;; OCaml mode (TuaReg)
 
 (autoload 'tuareg-mode "tuareg" "Major mode for editing Caml code" t)
