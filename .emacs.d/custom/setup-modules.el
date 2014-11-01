@@ -74,18 +74,6 @@
 (autoload 'php-mode "php-mode" "Mode for editing PHP source files")
 (add-to-list 'auto-mode-alist '("\\.\\(inc\\|php[s34]?\\)" . php-mode))
 
-;;;;;;;;; OCaml mode (TuaReg)
-
-(autoload 'tuareg-mode "tuareg" "Major mode for editing Caml code" t)
-(autoload 'camldebug "camldebug" "Run the Caml debugger" t)
-;(autoload 'tuareg-imenu-set-imenu "tuareg-imenu" 
-;  "Configuration of imenu for tuareg" t) 
-;(add-hook 'tuareg-mode-hook 'tuareg-imenu-set-imenu)
-(setq auto-mode-alist 
-      (append '(("\\.ml[ily]?$" . tuareg-mode)
-                ("\\.topml$" . tuareg-mode))
-              auto-mode-alist))
-
 ;;;;;;;;; MIX / MIXAL
 
 (autoload 'mixal-mode "mixal-mode" t)
