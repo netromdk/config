@@ -65,7 +65,6 @@
 
 ;;;;;;;;; CSS-mode
 
-(autoload 'css-mode "css-mode" "CSS mode." t)
 (setq auto-mode-alist (append '(("\\.css$" . css-mode)
                                 ("\\.style$" . css-mode))
                               auto-mode-alist))
