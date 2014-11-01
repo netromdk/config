@@ -74,12 +74,6 @@
 (autoload 'php-mode "php-mode" "Mode for editing PHP source files")
 (add-to-list 'auto-mode-alist '("\\.\\(inc\\|php[s34]?\\)" . php-mode))
 
-;;;;;;;;; MIX / MIXAL
-
-(autoload 'mixal-mode "mixal-mode" t)
-(add-to-list 'auto-mode-alist '("\\.mixal\\'" . mixal-mode))
-(autoload 'mixvm "mixvm" "mixvm/gud interaction" t)
-
 ;;;;;;;;; CMake
 
 (require 'cmake-mode)
