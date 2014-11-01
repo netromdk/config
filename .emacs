@@ -35,7 +35,7 @@
  '(custom-enabled-themes (quote (mustang-netrom)))
  '(custom-safe-themes
    (quote
-    ("983fa3ef31b2e7f9dff9be3b343c87c06e8cdc33d711ac6ee9b1db61fb969bd8" default)))
+    ("7273cae832063ed71dffa2790c402368c6b9a6ead72a1c6bcb9863d6a68446c0" default)))
  '(fci-rule-color "#2e2e2e")
  '(uniquify-buffer-name-style (quote post-forward-angle-brackets) nil (uniquify))
  '(vc-annotate-background "#3b3b3b")

@@ -26,6 +26,7 @@
             'magit
             'magit-svn
             'multiple-cursors
+            'on-screen
             'package-safe-delete
             'rainbow-mode
             'smart-mode-line

@@ -334,5 +334,10 @@
 
 (global-set-key (kbd "C-x 1") 'zygospore-toggle-delete-other-windows)
 
+;;;;;;;;; on-screen mode to track reading markers
+
+(setq on-screen-highlight-method (quote fringe))
+
+(global-on-screen-mode 1)
 
 (provide 'setup-modules)

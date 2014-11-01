@@ -85,6 +85,7 @@
         '(magit-log-sha1 ((t (:foreground "#b1d631"))))
         '(git-commit-nonempty-second-line-face ((t nil)))
         '(git-commit-overlong-summary-face ((t nil)))
+        '(on-screen-fringe ((t (:foreground "#b1d631"))))
 	'(org-hide ((t (:foreground "#708090"))))
         '(org-level-1 ((t (:bold t :foreground "#808080" :height 1.1))))
         '(org-level-2 ((t (:bold nil :foreground "#7e8aa2" :height 1.1))))
