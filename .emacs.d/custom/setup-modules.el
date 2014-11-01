@@ -69,21 +69,6 @@
                                 ("\\.style$" . css-mode))
                               auto-mode-alist))
 
-;;;;;;;;; XSL mode
-
-(autoload 'xsl-mode "xslide" "Major mode for XSL stylesheets." t)
-
-;; Turn on font lock when in XSL mode
-(add-hook 'xsl-mode-hook
-          'turn-on-font-lock)
-
-(setq auto-mode-alist
-      (append
-       (list
-        '("\\.fo" . xsl-mode)
-        '("\\.xsl" . xsl-mode))
-       auto-mode-alist))
-
 ;;;;;;;;; DTD mode
 
 (autoload 'dtd-mode "tdtd" "Major mode for SGML and XML DTDs." t)
