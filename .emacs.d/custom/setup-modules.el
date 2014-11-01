@@ -69,11 +69,6 @@
                                 ("\\.style$" . css-mode))
                               auto-mode-alist))
 
-;;;;;;;;; Diff-mode
-
-(autoload 'diff-mode "diff-mode" "Diff major mode" t)
-(add-to-list 'auto-mode-alist '("\\.\\(diffs?\\|patch\\|rej\\)\\'" . diff-mode))
-
 ;;;;;;;;; Apache-mode
 
 (autoload 'apache-mode "apache-mode" nil t)
