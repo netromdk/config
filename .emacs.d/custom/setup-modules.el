@@ -340,4 +340,11 @@
 
 (global-on-screen-mode 1)
 
+;;;;;;;;; saveplace - saves the buffer positions and restores them
+
+(require 'saveplace)
+(setq-default save-place t)
+(setq save-place-file "~/.emacs.d/places")
+
+
 (provide 'setup-modules)
