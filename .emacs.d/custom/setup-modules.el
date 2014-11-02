@@ -343,7 +343,7 @@
 
 (require 'saveplace)
 (setq-default save-place t)
-(setq save-place-file "~/.emacs.d/places")
+(setq save-place-file "~/.emacs.d/saveplace.txt")
 
 
 (provide 'setup-modules)
