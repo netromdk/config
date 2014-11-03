@@ -35,7 +35,7 @@
  '(custom-enabled-themes (quote (mustang-netrom)))
  '(custom-safe-themes
    (quote
-    ("7273cae832063ed71dffa2790c402368c6b9a6ead72a1c6bcb9863d6a68446c0" default)))
+    ("4db131fdda71733708facef9e38107f7febde0082ddb4413a0ac705671ae3767" default)))
  '(fci-rule-color "#2e2e2e")
  '(recentf-exclude (quote ("ido.last" ".emacs.d/saveplace.txt")))
  '(uniquify-buffer-name-style (quote post-forward-angle-brackets) nil (uniquify))
