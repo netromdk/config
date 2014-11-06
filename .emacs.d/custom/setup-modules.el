@@ -307,6 +307,18 @@
 
 (defalias 'lp 'helm-list-elisp-packages)
 
+;; Enable helm-gtags-mode
+(add-hook 'c-mode-hook 'helm-gtags-mode)
+(add-hook 'c++-mode-hook 'helm-gtags-mode)
+(add-hook 'asm-mode-hook 'helm-gtags-mode)
+
+;; Set key bindings
+(eval-after-load "helm-gtags"
+  '(progn
+     (define-key helm-gtags-mode-map (kbd "M-t") 'helm-gtags-find-tag)
+     (define-key helm-gtags-mode-map (kbd "M-r") 'helm-gtags-find-rtag)
+     (define-key helm-gtags-mode-map (kbd "M-s") 'helm-gtags-find-symbol)))
+
 ;;;;;;;;; objc-mode
 
 (setq auto-mode-alist (append '(("\\.mm$" . objc-mode)) auto-mode-alist))

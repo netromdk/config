@@ -19,6 +19,7 @@
             'gitconfig-mode
             'gitignore-mode
             'helm
+            'helm-gtags
             'helm-package
             'helm-swoop
             'highlight-current-line
