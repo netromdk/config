@@ -291,6 +291,8 @@
 (setq helm-swoop-split-direction (quote split-window-vertically))
 (setq helm-swoop-split-with-multiple-windows t)
 
+(setq helm-gtags-maximum-candidates 1000)
+
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
 (global-set-key (kbd "C-x b") 'helm-mini)
