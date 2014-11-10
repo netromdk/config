@@ -24,6 +24,7 @@
             'helm-swoop
             'highlight-current-line
             'hlinum
+            'lua-mode
             'magit
             'magit-svn
             'multiple-cursors
