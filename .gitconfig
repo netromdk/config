@@ -12,12 +12,13 @@
 	co = checkout
 	br = branch
 	ci = commit
-	last = log -1 HEAD
 	cia = commit -a
-	pullr = pull --rebase
-	merge = merge --no-ff
+	cp = cherry-pick
 	df = diff
 	ls = ls-files
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	last = log -1 HEAD
+	pullr = pull --rebase
+	merge = merge --no-ff
 [pull]
 	rebase = preserve
