@@ -373,5 +373,9 @@
 (setq-default save-place t)
 (setq save-place-file "~/.emacs.d/saveplace.txt")
 
+;;;;;;;;; GO mode
+
+(add-hook 'go-mode-hook (lambda () (setq tab-width 2)))
+
 
 (provide 'setup-modules)

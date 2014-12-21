@@ -18,6 +18,7 @@
             'git-rebase-mode
             'gitconfig-mode
             'gitignore-mode
+            'go-mode
             'helm
             'helm-gtags
             'helm-package
