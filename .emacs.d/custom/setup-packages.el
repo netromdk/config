@@ -34,6 +34,7 @@
             'rainbow-mode
             'smart-mode-line
             'smartparens
+            'swiper-helm
             'zygospore))
 
 ;; Refresh package archive if a package is to be installed or it's not
