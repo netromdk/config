@@ -34,6 +34,7 @@
             'rainbow-mode
             'smart-mode-line
             'smartparens
+            'vim-empty-lines-mode
             'zygospore))
 
 ;; Refresh package archive if a package is to be installed or it's not

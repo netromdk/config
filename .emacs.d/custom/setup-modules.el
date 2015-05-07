@@ -377,5 +377,9 @@
 
 (add-hook 'go-mode-hook (lambda () (setq tab-width 2)))
 
+;;;;;;;;; Show empty lines at the end like Vim
+
+(global-vim-empty-lines-mode)
+
 
 (provide 'setup-modules)
