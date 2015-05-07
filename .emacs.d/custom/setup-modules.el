@@ -211,7 +211,7 @@
 ;;   "
 ;;   (interactive (list (read-directory-name "Provide the directory to search in:")))
 ;;   (my-semantic-parse-dir (expand-file-name dir) qt-files-regex)
-;; ) 
+;; )
 
 ;;;;;;;;; Recent files mode
 
@@ -228,6 +228,8 @@
 
 (setq magit-revert-item-confirm t)
 (setq magit-save-some-buffers t)
+(setq magit-auto-revert-mode nil) ;; Do _not_ auto-revert!
+(setq magit-last-seen-setup-instructions "1.4.0") ;; Silence latest info.
 
 (global-set-key (kbd "C-x g") 'magit-status)
 
