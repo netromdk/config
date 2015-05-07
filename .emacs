@@ -2,20 +2,6 @@
 ;;   Emacs Configurations
 ;; ------------------------
 
-;; Copyright (C) 2007-2014 - Morten Slot Kristensen
-;;
-;; I got inspiration to some of the tweaks elsewhere. One of those is
-;; Ian Zerny. If I have wrongfully forgotten to give credit to the
-;; original source of something please do inform me of the mistake.
-;;
-;; This file is free software. You may redistribute it and/or modify
-;; it under the terms of the GNU General Public License, version 2 or
-;; later as published by the Free Software Foundation.
-;;
-;; The file is distributed AS IS and WITHOUT ANY WARRANTY. I hope you
-;; will find it useful and I welcome feedback and
-;; modifications/improvements.
-
 ;; Add the ~/.emacs.d dir to the loadpath
 (add-to-list 'load-path (expand-file-name "~/.emacs.d") t)
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/custom") t)
@@ -36,7 +22,7 @@
  '(custom-safe-themes
    (quote
     ("7273cae832063ed71dffa2790c402368c6b9a6ead72a1c6bcb9863d6a68446c0" default)))
- '(fci-rule-color "#2e2e2e")
+ '(fill-column 80)
  '(recentf-exclude (quote ("ido.last" ".emacs.d/saveplace.txt")))
  '(uniquify-buffer-name-style (quote post-forward-angle-brackets) nil (uniquify))
  '(vc-annotate-background "#3b3b3b")
