@@ -381,5 +381,13 @@
 
 (global-vim-empty-lines-mode)
 
+;;;;;;;;; whitespace
+
+;; Visualize certain like space at end of line and trailing characters after
+;; fill column.
+(require 'whitespace)
+(setq whitespace-style '(face empty tabs lines-tail trailing))
+(global-whitespace-mode t)
+
 
 (provide 'setup-modules)
