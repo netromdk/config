@@ -397,7 +397,7 @@
 
 (add-to-list 'dash-at-point-mode-alist '(c-mode . "c,manpages"))
 (add-to-list 'dash-at-point-mode-alist '(c++-mode . "cpp,qt,c,manpages"))
-(add-to-list 'dash-at-point-mode-alist '(python-mode . "py,py2,flask"))
+(add-to-list 'dash-at-point-mode-alist '(python-mode . "py,flask"))
 (add-to-list 'dash-at-point-mode-alist '(cmake-mode . "cmake"))
 (add-to-list 'dash-at-point-mode-alist '(js-mode . "js"))
 
