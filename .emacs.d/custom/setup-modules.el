@@ -391,5 +391,15 @@
 (setq whitespace-style '(face empty tabs lines-tail trailing))
 (global-whitespace-mode t)
 
+;;;;;;;; dash-at-point
+
+(global-set-key "\C-cd" 'dash-at-point)
+
+(add-to-list 'dash-at-point-mode-alist '(c-mode . "cpp"))
+(add-to-list 'dash-at-point-mode-alist '(c++-mode . "cpp"))
+(add-to-list 'dash-at-point-mode-alist '(python-mode . "py"))
+(add-to-list 'dash-at-point-mode-alist '(cmake-mode . "cmake"))
+(add-to-list 'dash-at-point-mode-alist '(js-mode . "js"))
+
 
 (provide 'setup-modules)

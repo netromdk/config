@@ -13,9 +13,8 @@
             'cmake-mode
             'company
             'company-c-headers
+            'dash-at-point
             'fic-mode
-            'git-commit-mode
-            'git-rebase-mode
             'gitconfig-mode
             'gitignore-mode
             'go-mode
