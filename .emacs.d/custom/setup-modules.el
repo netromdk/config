@@ -229,6 +229,7 @@
 (setq magit-revert-item-confirm t)
 (setq magit-save-some-buffers t)
 (setq magit-auto-revert-mode nil) ;; Do _not_ auto-revert!
+(setq magit-revert-buffers t)
 (setq magit-last-seen-setup-instructions "1.4.0") ;; Silence latest info.
 
 (global-set-key (kbd "C-x g") 'magit-status)
