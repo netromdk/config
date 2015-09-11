@@ -231,6 +231,7 @@
 (setq magit-auto-revert-mode nil) ;; Do _not_ auto-revert!
 (setq magit-revert-buffers t)
 (setq magit-last-seen-setup-instructions "1.4.0") ;; Silence latest info.
+(setq magit-push-always-verify nil) ;; Only ask when upstream is not conf'ed!
 
 (global-set-key (kbd "C-x g") 'magit-status)
 
