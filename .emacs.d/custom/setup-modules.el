@@ -405,8 +405,7 @@
 
 ;;;;;;;; helm-ag
 
-;; Fuzzy match so it's case-insensitive.
-(setq helm-ag-fuzzy-match t)
+(setq helm-ag-base-command "ag --nocolor --nogroup --smart-case --stats")
 
 
 (provide 'setup-modules)
