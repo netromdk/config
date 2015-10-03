@@ -19,6 +19,7 @@
             'gitignore-mode
             'go-mode
             'helm
+            'helm-ag
             'helm-gtags
             'helm-package
             'helm-swoop

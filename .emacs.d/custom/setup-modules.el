@@ -403,5 +403,10 @@
 (add-to-list 'dash-at-point-mode-alist '(cmake-mode . "cmake"))
 (add-to-list 'dash-at-point-mode-alist '(js-mode . "js"))
 
+;;;;;;;; helm-ag
+
+;; Fuzzy match so it's case-insensitive.
+(setq helm-ag-fuzzy-match t)
+
 
 (provide 'setup-modules)
