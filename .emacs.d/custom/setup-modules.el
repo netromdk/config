@@ -480,6 +480,7 @@
 (setq mu4e-bookmarks
       '(("flag:unread AND NOT flag:trashed" "Unread messages" 117)
         ("date:today..now" "Today's messages" 116)
+        ("flag:replied AND date:today..now" "Replied today" 114)
         ("date:7d..now" "Last 7 days" 119)
         ("mime:image/*" "Messages with images" 112)
         ("size:5M..500M" "Big messages" 98)
