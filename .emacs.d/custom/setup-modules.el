@@ -461,15 +461,18 @@
 ;; Show unicode characters.
 (setq mu4e-use-fancy-chars t)
 
-;; Set appropriate date/time format.
-(setq mu4e-headers-date-format "%d/%m %Y, %H:%M")
+;; Set appropriate time format.
+(setq mu4e-headers-time-format "%H:%M:%S")
+
+;; Set appropriate date format.
+(setq mu4e-headers-date-format "%a %d/%m %Y")
 
 ;; Set the headers and their column sizes.
 (setq mu4e-headers-fields
-      '((:date . 20)
+      '((:human-date . 20)
         (:flags . 6)
         (:size . 6)
-        (:from . 22)
+        (:from-or-to . 22)
         (:subject . nil)))
 
 ;; Set the header fields to show when viewing emails.
@@ -482,6 +485,7 @@
         ("date:today..now" "Today's messages" 116)
         ("flag:replied AND date:today..now" "Replied today" 114)
         ("date:7d..now" "Last 7 days" 119)
+        ("flag:attach" "Messages with attachments" 97)
         ("mime:image/*" "Messages with images" 112)
         ("size:5M..500M" "Big messages" 98)
         ("html" "HTML messages" 104)
