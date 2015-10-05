@@ -235,11 +235,6 @@
 
 (global-set-key (kbd "C-x g") 'magit-status)
 
-(defun my-magit-bindings ()
-  (local-set-key (kbd "C-c r") 'magit-svn-rebase)
-  (local-set-key (kbd "C-c c") 'magit-svn-dcommit))
-(add-hook 'magit-status-mode-hook 'my-magit-bindings)
-
 ;;;;;;;;; FIC mode (marks TODO, FIXME etc. clearly)
 
 (setq fic-background-color "#ff9800")
@@ -350,11 +345,6 @@
 (add-to-list 'sml/replacer-regexp-list '(".*[Ss]vn" ":SVN:") t)
 (add-to-list 'sml/prefix-face-list '(":SVN:" sml/git))
 
-;;;;;;;;; ack mode
-
-(setq ack-command "ack -i ")
-(setq ack-scroll-output t)
-
 ;;;;;;;;; smartparens mode
 
 (require 'smartparens-config)
@@ -376,10 +366,6 @@
 (require 'saveplace)
 (setq-default save-place t)
 (setq save-place-file "~/.emacs.d/saveplace.txt")
-
-;;;;;;;;; GO mode
-
-(add-hook 'go-mode-hook (lambda () (setq tab-width 2)))
 
 ;;;;;;;;; Show empty lines at the end like Vim
 

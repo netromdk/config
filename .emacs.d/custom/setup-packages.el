@@ -8,7 +8,6 @@
 ;; this configuration.
 (setq pkgs (list
             'ace-jump-mode
-            'ack
             'anzu
             'cmake-mode
             'company
@@ -17,7 +16,6 @@
             'fic-mode
             'gitconfig-mode
             'gitignore-mode
-            'go-mode
             'helm
             'helm-ag
             'helm-gtags
@@ -25,9 +23,7 @@
             'helm-swoop
             'highlight-current-line
             'hlinum
-            'lua-mode
             'magit
-            'magit-svn
             'multiple-cursors
             'on-screen
             'package-safe-delete
