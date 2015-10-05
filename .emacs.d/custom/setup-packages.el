@@ -24,6 +24,7 @@
             'highlight-current-line
             'hlinum
             'magit
+            'mu4e-maildirs-extension
             'multiple-cursors
             'on-screen
             'package-safe-delete

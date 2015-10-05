@@ -566,5 +566,10 @@
 ;; Choose default account.
 (msk-mu4e-msk)
 
+;;;;;;;; mu4e-maildir-shortcuts
+
+(require 'mu4e-maildirs-extension)
+(mu4e-maildirs-extension)
+
 
 (provide 'setup-modules)
