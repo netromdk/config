@@ -469,7 +469,7 @@
 
 ;; Set the headers and their column sizes.
 (setq mu4e-headers-fields
-      '((:human-date . 20)
+      '((:human-date . 15) ;; Shows time for today and date for otherwise.
         (:flags . 6)
         (:size . 6)
         (:from-or-to . 22)
