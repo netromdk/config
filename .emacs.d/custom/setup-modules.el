@@ -423,6 +423,12 @@
       smtpmail-smtp-server "smtp.gmail.com"
       smtpmail-smtp-service 587)
 
+;; Add confirmation before sending emails.
+(add-hook 'message-send-hook
+          (lambda ()
+            (unless (yes-or-no-p "Sure you want to send this?")
+              (signal 'quit nil))))
+
 ;; Don't keep message buffers around after sending a message.
 (setq message-kill-buffer-on-exit t)
 
