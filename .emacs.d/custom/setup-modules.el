@@ -476,6 +476,16 @@
 (setq mu4e-view-fields
       '(:from :to :cc :bcc :subject :flags :date :maildir :mailing-list :tags :attachments :signature :decryption :size))
 
+;; Set bookmarks on the front.
+(setq mu4e-bookmarks
+      '(("flag:unread AND NOT flag:trashed" "Unread messages" 117)
+        ("date:today..now" "Today's messages" 116)
+        ("date:7d..now" "Last 7 days" 119)
+        ("mime:image/*" "Messages with images" 112)
+        ("size:5M..500M" "Big messages" 98)
+        ("html" "HTML messages" 104)
+        ("text" "Text messages" 120)))
+
 (defun mu4e-in-new-frame ()
   "Start mu4e in new frame."
   (interactive)
