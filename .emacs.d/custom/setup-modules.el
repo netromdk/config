@@ -446,11 +446,15 @@
 ;; Convert org mode to HTML automatically.
 (setq org-mu4e-convert-to-html t)
 
-;; Need this to convert some e-mails properly.
-(setq mu4e-html2text-command "html2text -width 80 -style compact -nobs")
+;; Need this to render HTML e-mails properly.
+(require 'mu4e-contrib)
+(setq mu4e-html2text-command 'mu4e-shr2text)
 
-;; Prefer text to HTML.
-(setq mu4e-view-prefer-html nil)
+;; Some link navigation with tab and backtab.
+(add-hook 'mu4e-view-mode-hook
+          (lambda()
+            (local-set-key (kbd "<tab>") 'shr-next-link)
+            (local-set-key (kbd "<backtab>") 'shr-previous-link)))
 
 ;; Show addresses in addition to names.
 (setq mu4e-view-show-addresses t)
