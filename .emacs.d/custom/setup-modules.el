@@ -399,9 +399,11 @@
 
 (setq mu4e-maildir (expand-file-name "~/Maildir"))
 
-(setq mu4e-drafts-folder "/[Gmail].Drafts")
-(setq mu4e-sent-folder   "/[Gmail].Sent Mail")
-(setq mu4e-trash-folder  "/[Gmail].Bin")
+(setq mu4e-drafts-folder  "/[Gmail].Drafts")
+(setq mu4e-sent-folder    "/[Gmail].Sent Mail")
+(setq mu4e-trash-folder   "/[Gmail].Bin")
+(setq mu4e-refile-folder  "/[Gmail].All Mail")
+(setq mu4e-attachment-dir "~/Downloads")
 
 ;; Don't save message to Sent Messages, GMail/IMAP will take care of this.
 (setq mu4e-sent-messages-behavior 'delete)
@@ -428,6 +430,9 @@
 ;; with labels).
 (setq mu4e-headers-skip-duplicates t)
 
+;; Number of headers to show while viewing an email.
+(setq mu4e-headers-visible-lines 20)
+
 ;; Use imagemagick, if available.
 (when (fboundp 'imagemagick-register-types)
   (imagemagick-register-types))
@@ -444,11 +449,14 @@
 ;; Need this to convert some e-mails properly.
 (setq mu4e-html2text-command "html2text -width 80 -style compact -nobs")
 
+;; Prefer text to HTML.
+(setq mu4e-view-prefer-html nil)
+
 ;; Show addresses in addition to names.
-(setq mu4e-show-addresses t)
+(setq mu4e-view-show-addresses t)
 
 ;; Show images inline.
-(setq mu4e-show-images t)
+(setq mu4e-view-show-images t)
 
 ;; Show unicode characters.
 (setq mu4e-use-fancy-chars t)
@@ -456,15 +464,17 @@
 ;; Set appropriate date/time format.
 (setq mu4e-headers-date-format "%d/%m %Y, %H:%M")
 
-;; Set the column width of headers.
+;; Set the headers and their column sizes.
 (setq mu4e-headers-fields
       '((:date . 20)
         (:flags . 6)
+        (:size . 6)
         (:from . 22)
         (:subject . nil)))
 
-;; Save attachments to downloads folder.
-(setq mu4e-attachment-dir "~/Downloads")
+;; Set the header fields to show when viewing emails.
+(setq mu4e-view-fields
+      '(:from :to :cc :bcc :subject :flags :date :maildir :mailing-list :tags :attachments :signature :decryption :size))
 
 (defun mu4e-in-new-frame ()
   "Start mu4e in new frame."

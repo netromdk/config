@@ -122,6 +122,9 @@
 	'(mu4e-view-url-number-face ((t (:foreground "#7e8aa2"))))
 	'(mu4e-cited-1-face ((t (:foreground "#df9f2d"))))
 	'(mu4e-cited-7-face ((t (:foreground "#808bed"))))
+        '(mu4e-compose-header-face ((t (:inherit message-separator :slant italic))))
+        '(mu4e-header-highlight-face ((t (:inherit region :weight bold))))
+        '(mu4e-unread-face ((t (:inherit font-lock-string-face :weight bold))))
 	'(slime-repl-inputed-output-face ((t (:foreground "#ff9800"))))
         '(whitespace-line ((t (:background "gray20" :foreground "#DD5542")))))
 

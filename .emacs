@@ -21,7 +21,7 @@
  '(custom-enabled-themes (quote (mustang-netrom)))
  '(custom-safe-themes
    (quote
-    ("5d9a77bf1e65406ba8633a1e8da6d8a16805789b355b79bd374bd50f27c07578" default)))
+    ("a479d98dbdfaa2880d8c81014f926acd14c286f5b0f4a657507e63f0577a4844" default)))
  '(fill-column 80)
  '(recentf-exclude (quote ("ido.last" ".emacs.d/saveplace.txt")))
  '(uniquify-buffer-name-style (quote post-forward-angle-brackets) nil (uniquify))
