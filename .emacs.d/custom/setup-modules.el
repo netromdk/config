@@ -601,6 +601,26 @@
 
 (add-hook 'mu4e-compose-pre-hook 'msk-mu4e-set-from-address)
 
+;; Enable to compose an email with attachments from dired mode. Go into dired
+;; somewhere, mark files to attach using 'm' and then do C-c RET C-a to compose
+;; new email with those files as attachments.
+(require 'gnus-dired)
+;; make the `gnus-dired-mail-buffers' function also work on
+;; message-mode derived modes, such as mu4e-compose-mode
+(defun gnus-dired-mail-buffers()
+  "Return a list of active message buffers."
+  (let (buffers)
+    (save-current-buffer
+      (dolist (buffer (buffer-list t))
+        (set-buffer buffer)
+        (when (and (derived-mode-p 'message-mode)
+                   (null message-sent-message-via))
+          (push (buffer-name buffer) buffers))))
+    (nreverse buffers)))
+
+(setq gnus-dired-mail-mode 'mu4e-user-agent)
+(add-hook 'dired-mode-hook 'turn-on-gnus-dired-mode)
+
 ;; Choose default account.
 (msk-mu4e-msk)
 
