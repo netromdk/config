@@ -407,5 +407,178 @@
 
 (setq helm-ag-base-command "ag --nocolor --nogroup --smart-case --stats")
 
+;;;;;;;; mu4e
+
+(require 'mu4e)
+
+(setq mu4e-maildir (expand-file-name "~/Maildir"))
+
+(setq mu4e-drafts-folder "/[Gmail].Drafts")
+(setq mu4e-sent-folder   "/[Gmail].Sent Mail")
+(setq mu4e-trash-folder  "/[Gmail].Bin")
+
+;; Don't save message to Sent Messages, GMail/IMAP will take care of this.
+(setq mu4e-sent-messages-behavior 'delete)
+
+;; Allow for updating mail using 'U' in the main view.
+(setq mu4e-get-mail-command "offlineimap")
+
+(setq mu4e-user-mail-address-list
+      '("msk@nullpointer.dk"
+        "ontherenth@gmail.com"
+        "morten@luxion.com"))
+
+;; First time it will ask for user and pass, then save it to .authinfo
+(setq message-send-mail-function 'smtpmail-send-it
+      smtpmail-stream-type 'starttls
+      smtpmail-default-smtp-server "smtp.gmail.com"
+      smtpmail-smtp-server "smtp.gmail.com"
+      smtpmail-smtp-service 587)
+
+;; Don't keep message buffers around after sending a message.
+(setq message-kill-buffer-on-exit t)
+
+;; Skip duplicates when the Message-Id is the same (typically happens with gmail
+;; with labels).
+(setq mu4e-headers-skip-duplicates t)
+
+;; Use imagemagick, if available.
+(when (fboundp 'imagemagick-register-types)
+  (imagemagick-register-types))
+
+;; Define actions to view in browser with "ai".
+(add-to-list 'mu4e-headers-actions
+             '("in browser" . mu4e-action-view-in-browser) t)
+(add-to-list 'mu4e-view-actions
+             '("in browser" . mu4e-action-view-in-browser) t)
+
+;; Convert org mode to HTML automatically.
+(setq org-mu4e-convert-to-html t)
+
+;; Need this to convert some e-mails properly.
+(setq mu4e-html2text-command "html2text -width 80 -style compact -nobs")
+
+;; Show addresses in addition to names.
+(setq mu4e-show-addresses t)
+
+;; Show images inline.
+(setq mu4e-show-images t)
+
+;; Show unicode characters.
+(setq mu4e-use-fancy-chars t)
+
+;; Set appropriate date/time format.
+(setq mu4e-headers-date-format "%d/%m %Y, %H:%M")
+
+;; Set the column width of headers.
+(setq mu4e-headers-fields
+      '((:date . 20)
+        (:flags . 6)
+        (:from . 22)
+        (:subject . nil)))
+
+;; Save attachments to downloads folder.
+(setq mu4e-attachment-dir "~/Downloads")
+
+(defun mu4e-in-new-frame ()
+  "Start mu4e in new frame."
+  (interactive)
+  (select-frame (make-frame))
+  (mu4e))
+
+;; Define each account.
+(defun msk-mu4e-msk()
+  (interactive)
+  (message "Personal account: msk@nullpointer.dk")
+  (setq user-mail-address "msk@nullpointer.dk"
+        user-full-name "Morten Kristensen"
+        mu4e-compose-signature
+        '(concat "Mvh. /Best regards\n"
+                 "Morten Kristensen\n")
+        mu4e-maildir-shortcuts
+        '(("/INBOX" . ?i)
+          ("/me/@msk" . ?m)
+          ("/me/@ontherenth" . ?g)
+          ("/me/e-boks" . ?e)
+          ("/me/receipts" . ?r)
+          ("/bujinkan/dojo" . ?d)
+          ("/bujinkan/e-boks" . ?b)
+          ("/bujinkan/kenkon" . ?k)
+          ("/[Gmail].Sent Mail" . ?s))))
+
+(defun msk-mu4e-ontherenth()
+  (interactive)
+  (message "Personal account: ontherenth@gmail.com")
+  (setq user-mail-address "ontherenth@gmail.com"
+        user-full-name "Morten Kristensen"
+        mu4e-compose-signature
+        '(concat "Mvh. /Best regards\n"
+                 "Morten Kristensen\n")
+        mu4e-maildir-shortcuts
+        '(("/INBOX" . ?i)
+          ("/me/@msk" . ?m)
+          ("/me/@ontherenth" . ?g)
+          ("/me/e-boks" . ?e)
+          ("/me/receipts" . ?r)
+          ("/bujinkan/dojo" . ?d)
+          ("/bujinkan/e-boks" . ?b)
+          ("/bujinkan/kenkon" . ?k)
+          ("/[Gmail].Sent Mail" . ?s))))
+
+(defun msk-mu4e-luxion()
+  (interactive)
+  (message "Work account: morten@luxion.com")
+  (setq user-mail-address "morten@luxion.com"
+        user-full-name "Morten Kristensen"
+        mu4e-compose-signature
+        '(concat "Mvh. /Best regards\n"
+                 "Morten Kristensen\n\n"
+                 "Software Engineer\n"
+                 "Luxion ApS\n")
+        mu4e-maildir-shortcuts
+        '(("/INBOX" . ?i)
+          ("/lux" . ?l)
+          ("/lux/commits" . ?c)
+          ("/lux/redmine" . ?r)
+          ("/lux/velux" . ?v)
+          ("/lux/@dev" . ?d)
+          ("/lux/@aarhus" . ?å)
+          ("/lux/@all" . ?a)
+          ("/lux/@cloud" . ?u)
+          ("/[Gmail].Sent Mail" . ?s))))
+
+;; Switch between active accounts.
+(define-key mu4e-main-mode-map (kbd "1") 'msk-mu4e-msk)
+(define-key mu4e-main-mode-map (kbd "2") 'msk-mu4e-ontherenth)
+(define-key mu4e-main-mode-map (kbd "3") 'msk-mu4e-luxion)
+(define-key mu4e-headers-mode-map (kbd "1") 'msk-mu4e-msk)
+(define-key mu4e-headers-mode-map (kbd "2") 'msk-mu4e-ontherenth)
+(define-key mu4e-headers-mode-map (kbd "3") 'msk-mu4e-luxion)
+
+;; Check if addresses are used in to, cc or bcc fields.
+(defun msk-mu4e-is-message-to (msg rx)
+  "Check if to, cc or bcc field in MSG has any address in RX."
+  (or (mu4e-message-contact-field-matches msg :to rx)
+      (mu4e-message-contact-field-matches msg :cc rx)
+      (mu4e-message-contact-field-matches msg :bcc rx)))
+
+;; Set replying identity from to, cc or bcc fields.
+(defun msk-mu4e-set-from-address ()
+  "Set current identity based on to, cc, bcc of original."
+  (let ((msg mu4e-compose-parent-message))
+    (if msg
+        (cond
+         ((msk-mu4e-is-message-to msg (list "msk@nullpointer.dk"))
+          (msk-mu4e-msk))
+         ((msk-mu4e-is-message-to msg (list "ontherenth@gmail.com"))
+          (msk-mu4e-ontherenth))
+         ((msk-mu4e-is-message-to msg (list "morten@luxion.com"))
+          (msk-mu4e-luxion))))))
+
+(add-hook 'mu4e-compose-pre-hook 'msk-mu4e-set-from-address)
+
+;; Choose default account.
+(msk-mu4e-msk)
+
 
 (provide 'setup-modules)
