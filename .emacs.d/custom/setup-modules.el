@@ -20,17 +20,15 @@
 ;                log-edit-mode-hook))
 ;  (add-hook hook (lambda () (flyspell-mode -1))))
 
-;; Change to danish dict
 (defun da-spell ()
-  "Set ispell to use Danish dictionary"
+  "Set ispell to use Danish dictionary (globally)"
   (interactive)
-  (ispell-change-dictionary "dansk"))
+  (ispell-change-dictionary "dansk" "global"))
 
-;; Change to english dict
 (defun en-spell ()
-  "Set ispell to use English dictionary"
+  "Set ispell to use English dictionary (globally)"
   (interactive)
-  (ispell-change-dictionary "english"))
+  (ispell-change-dictionary "english" "global"))
 
 (defalias 'sb 'ispell-buffer)
 
@@ -513,6 +511,7 @@
 ;; Define each account.
 (defun msk-mu4e-msk()
   (interactive)
+  (da-spell)
   (message "Personal account: msk@nullpointer.dk")
   (setq user-mail-address "msk@nullpointer.dk"
         user-full-name "Morten Kristensen"
@@ -533,6 +532,7 @@
 
 (defun msk-mu4e-ontherenth()
   (interactive)
+  (da-spell)
   (message "Personal account: ontherenth@gmail.com")
   (setq user-mail-address "ontherenth@gmail.com"
         user-full-name "Morten Kristensen"
@@ -553,6 +553,7 @@
 
 (defun msk-mu4e-luxion()
   (interactive)
+  (en-spell)
   (message "Work account: morten@luxion.com")
   (setq user-mail-address "morten@luxion.com"
         user-full-name "Morten Kristensen"
