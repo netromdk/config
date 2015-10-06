@@ -397,6 +397,9 @@
 
 (require 'mu4e)
 
+;; Set as default MUA.
+(setq mail-user-agent 'mu4e-user-agent)
+
 (setq mu4e-maildir (expand-file-name "~/Maildir"))
 
 (setq mu4e-drafts-folder  "/[Gmail].Drafts")
