@@ -671,6 +671,12 @@
 ;; Show definitions of a word at point.
 (global-set-key (kbd "C-c ?") 'define-word-at-point)
 
+;;;;;;;;; expand-region
+
+;; Expand region to select text intelligently.
+(global-set-key (kbd "C-<") 'er/expand-region)
+(global-set-key (kbd "C->") 'er/contract-region)
+
 ;;;;;;;;; whitespace
 
 ;; Note: Do this after all programming modes have been required, if any.

@@ -14,6 +14,7 @@
             'company-c-headers
             'dash-at-point
             'define-word
+            'expand-region
             'fic-mode
             'gitconfig-mode
             'gitignore-mode
