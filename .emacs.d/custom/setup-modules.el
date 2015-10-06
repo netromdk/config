@@ -368,19 +368,6 @@
 
 (global-vim-empty-lines-mode)
 
-;;;;;;;;; whitespace
-
-;; Visualize certain like space at end of line and trailing characters after
-;; fill column.
-(require 'whitespace)
-(setq whitespace-style '(face empty tabs lines-tail trailing))
-
-;; Enable whitespace for certain modes, mostly programming modes.
-(dolist (hook '(c-mode-common-hook
-                js-mode-hook
-                text-mode-hook))
-  (add-hook hook (lambda () (whitespace-mode t))))
-
 ;;;;;;;; dash-at-point
 
 (global-set-key "\C-cd" 'dash-at-point)
@@ -639,6 +626,23 @@
 
 (require 'mu4e-maildirs-extension)
 (mu4e-maildirs-extension)
+
+;;;;;;;;; whitespace
+
+;; Note: Do this after all programming modes have been required, if any.
+
+;; Visualize certain like space at end of line and trailing characters after
+;; fill column.
+(require 'whitespace)
+(setq whitespace-style '(face empty tabs lines-tail trailing))
+
+;; Enable whitespace for certain modes, mostly programming modes.
+(dolist (hook '(prog-mode-hook
+                c-mode-common-hook
+                js-mode-hook
+                cmake-mode-hook
+                text-mode-hook))
+  (add-hook hook (lambda () (whitespace-mode t))))
 
 
 (provide 'setup-modules)
