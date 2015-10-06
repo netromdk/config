@@ -666,6 +666,11 @@
             (auto-fill-mode 0)
             (visual-line-mode t)))
 
+;;;;;;;;; define-word
+
+;; Show definitions of a word at point.
+(global-set-key (kbd "C-c ?") 'define-word-at-point)
+
 ;;;;;;;;; whitespace
 
 ;; Note: Do this after all programming modes have been required, if any.

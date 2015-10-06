@@ -13,6 +13,7 @@
             'company
             'company-c-headers
             'dash-at-point
+            'define-word
             'fic-mode
             'gitconfig-mode
             'gitignore-mode
