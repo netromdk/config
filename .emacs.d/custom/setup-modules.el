@@ -16,7 +16,7 @@
 ;          (lambda () (flyspell-mode t)))
 
 ;; Remove Flyspell from some sub modes of text mode
-;(dolist (hook '(change-log-mode-hook 
+;(dolist (hook '(change-log-mode-hook
 ;                log-edit-mode-hook))
 ;  (add-hook hook (lambda () (flyspell-mode -1))))
 
@@ -48,7 +48,7 @@
 ;; Open .h files in c++ mode.
 (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 
-;;;;;;;;; Text 
+;;;;;;;;; Text
 
 ;; set auto-fill-mode
 (add-hook 'text-mode-hook
@@ -604,6 +604,9 @@
           (msk-mu4e-luxion))))))
 
 (add-hook 'mu4e-compose-pre-hook 'msk-mu4e-set-from-address)
+
+;; Enable flyspell mode when composing emails.
+(add-hook 'mu4e-compose-mode-hook (lambda () (flyspell-mode t)))
 
 ;; Enable to compose an email with attachments from dired mode. Go into dired
 ;; somewhere, mark files to attach using 'm' and then do C-c RET C-a to compose
