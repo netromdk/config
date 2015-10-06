@@ -596,8 +596,17 @@
 
 (add-hook 'mu4e-compose-pre-hook 'msk-mu4e-set-from-address)
 
-;; Enable flyspell mode when composing emails.
-(add-hook 'mu4e-compose-mode-hook (lambda () (flyspell-mode t)))
+;; When composing: enable flyspell, no auto-fill and enable visual line mode.
+(add-hook 'mu4e-compose-mode-hook
+          (lambda ()
+            (flyspell-mode t)
+            (auto-fill-mode 0)
+            (visual-line-mode t)))
+
+;; When viewing emails: turn on visual lines mode.
+(add-hook 'mu4e-view-mode-hook
+          (lambda ()
+            (visual-line-mode t)))
 
 ;; Enable to compose an email with attachments from dired mode. Go into dired
 ;; somewhere, mark files to attach using 'm' and then do C-c RET C-a to compose
