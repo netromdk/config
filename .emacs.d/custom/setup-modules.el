@@ -375,7 +375,12 @@
 ;; fill column.
 (require 'whitespace)
 (setq whitespace-style '(face empty tabs lines-tail trailing))
-(global-whitespace-mode t)
+
+;; Enable whitespace for certain modes, mostly programming modes.
+(dolist (hook '(c-mode-common-hook
+                js-mode-hook
+                text-mode-hook))
+  (add-hook hook (lambda () (whitespace-mode t))))
 
 ;;;;;;;; dash-at-point
 
