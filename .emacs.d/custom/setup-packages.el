@@ -28,6 +28,7 @@
             'multiple-cursors
             'on-screen
             'package-safe-delete
+            'php-mode
             'rainbow-mode
             'smart-mode-line
             'smartparens
