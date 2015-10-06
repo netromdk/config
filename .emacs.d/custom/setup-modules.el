@@ -640,8 +640,7 @@
 (dolist (hook '(prog-mode-hook
                 c-mode-common-hook
                 js-mode-hook
-                cmake-mode-hook
-                text-mode-hook))
+                cmake-mode-hook))
   (add-hook hook (lambda () (whitespace-mode t))))
 
 
