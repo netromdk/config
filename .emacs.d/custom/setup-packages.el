@@ -24,6 +24,7 @@
             'highlight-current-line
             'hlinum
             'magit
+            'markdown-mode
             'mu4e-maildirs-extension
             'multiple-cursors
             'on-screen

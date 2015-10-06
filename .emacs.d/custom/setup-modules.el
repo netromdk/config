@@ -653,6 +653,19 @@
 (require 'mu4e-maildirs-extension)
 (mu4e-maildirs-extension)
 
+;;;;;;;;; markdown-mode
+
+(autoload 'markdown-mode "markdown-mode"
+  "Major mode for editing Markdown files" t)
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+
+;; Turn off auto-fill-mode beacuse markdown is sensitive about newlines.
+(add-hook 'markdown-mode-hook
+          (lambda ()
+            (auto-fill-mode 0)
+            (visual-line-mode t)))
+
 ;;;;;;;;; whitespace
 
 ;; Note: Do this after all programming modes have been required, if any.
