@@ -647,7 +647,8 @@
                  :dyn-target (lambda (target msg)
                                (mu4e-get-refile-folder msg))
                  :action (lambda (docid msg target)
-                           (mu4e~proc-move docid (mu4e~mark-check-target target) "+S-u-N"))))))
+                           (mu4e~proc-move docid nil "+S-u-N")
+                           (mu4e~proc-move docid (mu4e~mark-check-target target) "-N"))))))
 
 (define-key mu4e-headers-mode-map
   (kbd "a") 'mu4e-headers-mark-for-archive)
