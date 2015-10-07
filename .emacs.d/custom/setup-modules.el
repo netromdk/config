@@ -594,7 +594,11 @@
           (msk-mu4e-msk))
          ((msk-mu4e-is-message-to msg (list "ontherenth@gmail.com"))
           (msk-mu4e-ontherenth))
-         ((msk-mu4e-is-message-to msg (list "morten@luxion.com"))
+         ((msk-mu4e-is-message-to msg (list "morten@luxion.com"
+                                            "cloud@luxion.com"
+                                            "all@luxion.com"
+                                            "dev@luxion.com"
+                                            "aarhus@luxion.com"))
           (msk-mu4e-luxion))))))
 
 (add-hook 'mu4e-compose-pre-hook 'msk-mu4e-set-from-address)
