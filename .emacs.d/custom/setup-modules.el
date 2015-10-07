@@ -635,24 +635,6 @@
 (setq gnus-dired-mail-mode 'mu4e-user-agent)
 (add-hook 'dired-mode-hook 'turn-on-gnus-dired-mode)
 
-;; Define archive mark ('a') and action that refiles and marks as read in one
-;; action.
-(mu4e~headers-defun-mark-for archive)
-
-(setq mu4e-marks
-      (append mu4e-marks
-              '((archive
-                 :char "a"
-                 :prompt "archive"
-                 :dyn-target (lambda (target msg)
-                               (mu4e-get-refile-folder msg))
-                 :action (lambda (docid msg target)
-                           (mu4e~proc-move docid nil "+S-u-N")
-                           (mu4e~proc-move docid (mu4e~mark-check-target target) "-N"))))))
-
-(define-key mu4e-headers-mode-map
-  (kbd "a") 'mu4e-headers-mark-for-archive)
-
 ;; Choose default account.
 (msk-mu4e-msk)
 
