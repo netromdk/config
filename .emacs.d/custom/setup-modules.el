@@ -386,6 +386,9 @@
 
 (require 'mu4e)
 
+;; Activate mode with keybinding that is bound by default to compose-mail.
+(global-set-key (kbd "C-x m") 'mu4e)
+
 ;; Set as default MUA.
 (setq mail-user-agent 'mu4e-user-agent)
 
