@@ -447,9 +447,8 @@
 ;; Convert org mode to HTML automatically.
 (setq org-mu4e-convert-to-html t)
 
-;; Need this to render HTML e-mails properly.
-(require 'mu4e-contrib)
-(setq mu4e-html2text-command 'mu4e-shr2text)
+;; Need this to render HTML e-mails properly using w3m external program.
+(setq mu4e-html2text-command "w3m -dump -T text/html -O utf-8")
 
 ;; Some link navigation with tab and backtab.
 (add-hook 'mu4e-view-mode-hook
