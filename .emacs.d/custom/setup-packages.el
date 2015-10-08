@@ -53,5 +53,9 @@
   (unless (package-installed-p pkg)
     (package-install pkg)))
 
+;; Aliases for viewing packages.
+(defalias 'lp 'package-list-packages)
+(defalias 'lpn 'package-list-packages-no-fetch)
+
 
 (provide 'setup-packages)
