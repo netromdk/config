@@ -83,6 +83,13 @@
 
 (add-hook 'js-mode-hook (lambda () (setq js-indent-level 2)))
 
+;;;;;;;;; SH
+
+(add-hook 'sh-mode-hook
+          (lambda ()
+            (setq sh-basic-offset 2
+                  sh-indentation 2)))
+
 ;;;;;;;;; CEDET
 
 ;; (require 'cc-mode)
