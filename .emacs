@@ -22,12 +22,11 @@
  '(custom-safe-themes
    (quote
     ("a479d98dbdfaa2880d8c81014f926acd14c286f5b0f4a657507e63f0577a4844" default)))
- '(fill-column 80)
  '(recentf-exclude
    (quote
     ("ido.last"
      ".emacs.d/saveplace.txt"
-     "/var/folders/"))) ;; Exclude mu4e temp. files.
+     "/var/folders/" "~/Maildir"))) ;; Exclude mu4e files.
  '(uniquify-buffer-name-style (quote post-forward-angle-brackets) nil (uniquify))
  '(vc-annotate-background "#3b3b3b")
  '(vc-annotate-color-map
