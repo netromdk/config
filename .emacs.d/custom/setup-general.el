@@ -13,6 +13,11 @@
 (setq-default indent-tabs-mode nil)     ;; use spaces instead of tabs
 (fset 'yes-or-no-p 'y-or-n-p)           ;; use 'y' instead of 'yes' etc.
 
+;; Set fill column to 80.
+(setq-default fill-column 80)
+(add-hook 'auto-fill-mode-hook
+          (lambda () (set-fill-column 80)))
+
 ;; Disable visible bell because it looks ugly, but that makes the
 ;; audible bell and therefore we replace it with a
 ;; background/foreground color "flash".
