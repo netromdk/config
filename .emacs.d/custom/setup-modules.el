@@ -607,14 +607,14 @@
 
 (add-hook 'mu4e-compose-pre-hook 'msk-mu4e-set-from-address)
 
-;; When composing: enable flyspell, no auto-fill and enable visual line mode.
+;; When composing: enable flyspell, auto-fill-mode, and visual-line-mode.
 (add-hook 'mu4e-compose-mode-hook
           (lambda ()
             (flyspell-mode t)
-            (auto-fill-mode 0)
+            (auto-fill-mode 1)
             (visual-line-mode t)))
 
-;; When viewing emails: turn on visual lines mode.
+;; When viewing emails: turn on visual-line-mode.
 (add-hook 'mu4e-view-mode-hook
           (lambda ()
             (visual-line-mode t)))
