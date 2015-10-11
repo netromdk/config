@@ -121,6 +121,7 @@
         '(gnus-header-subject ((t (:foreground "#ff8800"))))
         '(mu4e-view-url-number-face ((t (:foreground "#7e8aa2"))))
         '(mu4e-cited-1-face ((t (:foreground "#df9f2d"))))
+        '(mu4e-cited-6-face ((t (:inherit font-lock-builtin-face :slant italic :weight normal))))
         '(mu4e-cited-7-face ((t (:foreground "#808bed"))))
         '(mu4e-compose-header-face ((t (:inherit message-separator :slant italic))))
         '(mu4e-header-highlight-face ((t (:inherit region :weight bold))))
