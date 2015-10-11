@@ -125,6 +125,7 @@
         '(mu4e-compose-header-face ((t (:inherit message-separator :slant italic))))
         '(mu4e-header-highlight-face ((t (:inherit region :weight bold))))
         '(mu4e-unread-face ((t (:inherit font-lock-string-face :weight bold))))
+        '(message-cited-text ((t (:inherit mu4e-cited-1-face))))
 	'(slime-repl-inputed-output-face ((t (:foreground "#ff9800"))))
         '(whitespace-line ((t (:background "gray20" :foreground "#DD5542")))))
 

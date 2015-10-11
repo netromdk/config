@@ -21,12 +21,10 @@
  '(custom-enabled-themes (quote (mustang-netrom)))
  '(custom-safe-themes
    (quote
-    ("a479d98dbdfaa2880d8c81014f926acd14c286f5b0f4a657507e63f0577a4844" default)))
+    ("cb506953b620adf7b97101da28a41017630ff940f1f5f5914f36b2912c735ced" default)))
  '(recentf-exclude
    (quote
-    ("ido.last"
-     ".emacs.d/saveplace.txt"
-     "/var/folders/" "~/Maildir"))) ;; Exclude mu4e files.
+    ("ido.last" ".emacs.d/saveplace.txt" "/var/folders/" "~/Maildir")))
  '(uniquify-buffer-name-style (quote post-forward-angle-brackets) nil (uniquify))
  '(vc-annotate-background "#3b3b3b")
  '(vc-annotate-color-map
