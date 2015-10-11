@@ -618,12 +618,14 @@
 
 (add-hook 'mu4e-compose-pre-hook 'msk-mu4e-set-from-address)
 
-;; When composing: enable flyspell, auto-fill-mode, and visual-line-mode. Do
-;; flyspell last so the chosen dicitonary is shown in the message line.
+;; When composing: enable flyspell, orgstruct++, auto-fill-mode, and
+;; visual-line-mode. Do flyspell last so the chosen dicitonary is shown in the
+;; message line.
 (add-hook 'mu4e-compose-mode-hook
           (lambda ()
             (auto-fill-mode 1)
             (visual-line-mode t)
+            (orgstruct++-mode t)
             (flyspell-mode t)))
 
 ;; When viewing emails: turn on visual-line-mode.
