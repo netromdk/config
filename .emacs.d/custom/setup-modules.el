@@ -390,6 +390,7 @@
 ;;;;;;;; mu4e
 
 (require 'mu4e)
+(require 'org-mu4e)
 
 ;; Activate mode with keybinding that is bound by default to compose-mail.
 (global-set-key (kbd "C-x m") 'mu4e)
@@ -415,6 +416,9 @@
       '("msk@nullpointer.dk"
         "ontherenth@gmail.com"
         "morten@luxion.com"))
+
+;; Don't include addresses from mu4e-user-mail-address-list.
+(setq mu4e-compose-dont-reply-to-self t)
 
 ;; First time it will ask for user and pass, then save it to .authinfo
 (setq message-send-mail-function 'smtpmail-send-it
@@ -449,6 +453,10 @@
 (add-to-list 'mu4e-view-actions
              '("in browser" . mu4e-action-view-in-browser) t)
 
+;; Remember to move the cursor to the header section before sending the email
+;; for correct handling of org mode!
+(defalias 'org-mail 'org-mu4e-compose-org-mode)
+
 ;; Convert org mode to HTML automatically.
 (setq org-mu4e-convert-to-html t)
 
@@ -460,6 +468,9 @@
           (lambda()
             (local-set-key (kbd "<tab>") 'shr-next-link)
             (local-set-key (kbd "<backtab>") 'shr-previous-link)))
+
+;; Prefer HTML versions (also so org-mode mails look good).
+(setq mu4e-view-prefer-html t)
 
 ;; Show addresses in addition to names.
 (setq mu4e-view-show-addresses t)
@@ -639,6 +650,9 @@
 
 (setq gnus-dired-mail-mode 'mu4e-user-agent)
 (add-hook 'dired-mode-hook 'turn-on-gnus-dired-mode)
+
+(setq message-citation-line-function 'message-insert-formatted-citation-line)
+(setq message-citation-line-format "On %a, %b %d %Y, %f wrote:\n")
 
 ;; Choose default account.
 (msk-mu4e-msk)
