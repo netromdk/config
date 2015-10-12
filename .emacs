@@ -6,6 +6,11 @@
 (add-to-list 'load-path (expand-file-name "~/.emacs.d") t)
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/custom") t)
 
+;; Log load time after init.
+(add-hook 'after-init-hook
+          '(lambda ()
+             (message ".emacs loaded in %s" (emacs-init-time))))
+
 (require 'setup-general)
 (require 'setup-packages)
 
