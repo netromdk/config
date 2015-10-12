@@ -50,9 +50,12 @@
 
 ;;;;;;;;; Text
 
-;; set auto-fill-mode
+;; set auto-fill-mode and org minor modes for lists and tables.
 (add-hook 'text-mode-hook
-          (lambda () (auto-fill-mode t)))
+          (lambda ()
+            (auto-fill-mode t)
+            (orgstruct-mode t)
+            (orgtbl-mode t)))
 
 ;;;;;;;;; (La)TeX
 
@@ -632,7 +635,7 @@
 
 (add-hook 'mu4e-compose-pre-hook 'msk-mu4e-set-from-address)
 
-;; When composing: enable flyspell, orgstruct++, auto-fill-mode, and
+;; When composing: enable flyspell, orgstruct++, orgtbl, auto-fill-mode, and
 ;; visual-line-mode. Do flyspell last so the chosen dicitonary is shown in the
 ;; message line.
 (add-hook 'mu4e-compose-mode-hook
@@ -640,6 +643,7 @@
             (auto-fill-mode 1)
             (visual-line-mode t)
             (orgstruct++-mode t)
+            (orgtbl-mode t)
             (flyspell-mode t)))
 
 ;; When viewing emails: turn on visual-line-mode.
