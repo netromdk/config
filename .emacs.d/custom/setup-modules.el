@@ -511,11 +511,25 @@
         ("html" "HTML messages" 104)
         ("text" "Text messages" 120)))
 
-(defun mu4e-in-new-frame ()
-  "Start mu4e in new frame."
+;; Do not auto-include a signature when composing mails.
+(setq mu4e-compose-signature-auto-include nil)
+
+;; Insert newline before signature.
+(setq message-signature-insert-empty-line t)
+
+;; Insert signature at point while preserving buffer position.
+(defun msk-mu4e-insert-signature-at-point()
+  "Insert mail signature at point."
   (interactive)
-  (select-frame (make-frame))
-  (mu4e))
+  (save-excursion
+    (when message-signature-insert-empty-line
+      (insert "\n"))
+    (insert "\n-- \n")
+    (insert (eval mu4e-compose-signature))))
+
+;; Override to insert at point instead of at the end.
+(define-key mu4e-compose-mode-map
+  (kbd "C-c C-w") 'msk-mu4e-insert-signature-at-point)
 
 ;; Define each account.
 (defun msk-mu4e-msk()
