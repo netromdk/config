@@ -337,18 +337,37 @@
 
 ;;;;;;;;; smart-mode-line
 
-(setq sml/numbers-separator " ")
+;; (setq sml/numbers-separator " ")
 
-(sml/setup)
+;; (sml/setup)
 
-(add-to-list 'sml/replacer-regexp-list '("/Volumes/Luxion/" ":LUX:") t)
-(add-to-list 'sml/prefix-face-list '(":LUX:" sml/git))
+;; (add-to-list 'sml/replacer-regexp-list '("/Volumes/Luxion/" ":LUX:") t)
+;; (add-to-list 'sml/prefix-face-list '(":LUX:" sml/git))
 
-(add-to-list 'sml/replacer-regexp-list '("/Volumes/Burator/" ":B:") t)
-(add-to-list 'sml/prefix-face-list '(":B:" sml/git))
+;; (add-to-list 'sml/replacer-regexp-list '("/Volumes/Burator/" ":B:") t)
+;; (add-to-list 'sml/prefix-face-list '(":B:" sml/git))
 
-(add-to-list 'sml/replacer-regexp-list '(".*[Ss]vn" ":SVN:") t)
-(add-to-list 'sml/prefix-face-list '(":SVN:" sml/git))
+;; (add-to-list 'sml/replacer-regexp-list '(".*[Ss]vn" ":SVN:") t)
+;; (add-to-list 'sml/prefix-face-list '(":SVN:" sml/git))
+
+;;;;;;;;; window-numbering mode
+
+(window-numbering-mode t)
+
+;;;;;;;;; spaceline
+
+(require 'spaceline-config)
+(spaceline-spacemacs-theme)
+
+;; Don't show unicode window numbers because they are too small to be seen fast
+;; and clearly.
+(setq spaceline-window-numbers-unicode nil)
+
+(setq spaceline-minor-modes-separator " ")
+
+(spaceline-toggle-process-on)
+(spaceline-toggle-selection-info-on)
+(spaceline-toggle-hud-off)
 
 ;;;;;;;;; smartparens mode
 
@@ -721,6 +740,37 @@
                 js-mode-hook
                 cmake-mode-hook))
   (add-hook hook (lambda () (whitespace-mode t))))
+
+;;;;;;;; diminish
+
+(require 'diminish)
+
+(eval-after-load "anzu"
+  '(diminish 'anzu-mode))
+
+(eval-after-load "vim-empty-lines-mode"
+  '(diminish 'vim-empty-lines-mode))
+
+(eval-after-load "abbrev"
+  '(diminish 'abbrev-mode "Abv"))
+
+(eval-after-load "company"
+  '(diminish 'company-mode "Cmp"))
+
+(eval-after-load "smartparens"
+  '(diminish 'smartparens-mode))
+
+(eval-after-load "org-table"
+  '(diminish 'orgtbl-mode "OT"))
+
+(eval-after-load "org"
+  '(diminish 'orgstruct-mode "OS"))
+
+(eval-after-load "rainbow-mode"
+  '(diminish 'rainbow-mode))
+
+(eval-after-load "helm-gtags"
+  '(diminish 'helm-gtags-mode "HG"))
 
 
 (provide 'setup-modules)

@@ -14,6 +14,7 @@
             'company-c-headers
             'dash-at-point
             'define-word
+            'diminish
             'expand-region
             'fic-mode
             'gitconfig-mode
@@ -33,10 +34,13 @@
             'package-safe-delete
             'php-mode
             'rainbow-mode
-            'smart-mode-line
+            ;;'smart-mode-line
             'smartparens
+            'spaceline
             'vim-empty-lines-mode
-            'zygospore))
+            'window-numbering
+            'zygospore
+            ))
 
 ;; Refresh package archive if a package is to be installed or it's not
 ;; in the archive list.
