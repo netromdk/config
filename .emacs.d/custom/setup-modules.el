@@ -760,22 +760,22 @@
   '(diminish 'abbrev-mode "Abv"))
 
 (eval-after-load "company"
-  '(diminish 'company-mode "Cmp"))
+  '(diminish 'company-mode "Comp"))
 
 (eval-after-load "smartparens"
   '(diminish 'smartparens-mode))
 
 (eval-after-load "org-table"
-  '(diminish 'orgtbl-mode "OT"))
+  '(diminish 'orgtbl-mode "OrgT"))
 
 (eval-after-load "org"
-  '(diminish 'orgstruct-mode "OS"))
+  '(diminish 'orgstruct-mode "OrgS"))
 
 (eval-after-load "rainbow-mode"
   '(diminish 'rainbow-mode))
 
 (eval-after-load "helm-gtags"
-  '(diminish 'helm-gtags-mode "HG"))
+  '(diminish 'helm-gtags-mode "HGt"))
 
 
 (provide 'setup-modules)
