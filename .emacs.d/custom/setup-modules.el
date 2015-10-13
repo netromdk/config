@@ -333,6 +333,9 @@
 
 (defalias 'qrr 'anzu-query-replace-regexp)
 
+;; Don't add to modeline because spaceline will show anzu.
+(setq anzu-cons-mode-line-p nil)
+
 (global-anzu-mode t)
 
 ;;;;;;;;; smart-mode-line
