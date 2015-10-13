@@ -338,6 +338,12 @@
 
 (global-anzu-mode t)
 
+;;;;;;;;; window-numbering mode
+
+(require 'window-numbering)
+
+(window-numbering-mode t)
+
 ;;;;;;;;; smart-mode-line
 
 ;; (setq sml/numbers-separator " ")
@@ -352,12 +358,6 @@
 
 ;; (add-to-list 'sml/replacer-regexp-list '(".*[Ss]vn" ":SVN:") t)
 ;; (add-to-list 'sml/prefix-face-list '(":SVN:" sml/git))
-
-;;;;;;;;; window-numbering mode
-
-(require 'window-numbering)
-
-(window-numbering-mode t)
 
 ;;;;;;;;; spaceline
 
