@@ -246,15 +246,17 @@
 
 (add-hook 'mu4e-compose-pre-hook 'msk-mu4e-set-from-address)
 
-;; When composing: enable flyspell, orgstruct++, orgtbl, auto-fill-mode, and
-;; visual-line-mode. Do flyspell last so the chosen dicitonary is shown in the
-;; message line.
+;; When composing: enable flyspell, orgstruct++, orgtbl, auto-fill-mode,
+;; visual-line-mode, and disable auto-saving so it doesn't create unwanted mail
+;; files unless we want to save the draft. Do flyspell last so the chosen
+;; dicitonary is shown in the message line.
 (add-hook 'mu4e-compose-mode-hook
           (lambda ()
             (auto-fill-mode 1)
             (visual-line-mode t)
             (orgstruct++-mode t)
             (orgtbl-mode t)
+            (auto-save-mode -1)
             (flyspell-mode t)))
 
 ;; When viewing emails: turn on visual-line-mode.
