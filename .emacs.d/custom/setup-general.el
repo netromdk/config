@@ -13,6 +13,10 @@
 (setq-default indent-tabs-mode nil)     ;; use spaces instead of tabs
 (fset 'yes-or-no-p 'y-or-n-p)           ;; use 'y' instead of 'yes' etc.
 
+;; Prefer newest version of a file, especially for compiled files this is
+;; useful.
+(setq load-prefer-newer t)
+
 ;; Set fill column to 80.
 (setq-default fill-column 80)
 (add-hook 'auto-fill-mode-hook
