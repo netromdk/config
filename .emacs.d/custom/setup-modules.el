@@ -262,8 +262,9 @@
 (require 'hlinum)
 (hlinum-activate)
 
-;; Turn on general lines in left margin (built-in package).
-(global-linum-mode t)
+;; Does not show the line number mode per default unless goto-line is used,
+;; which will enable it only while choosinga line to jump to. Defined in
+;; "setup-general.el".
 
 ;;;;;;;;; Rainbow mode - highlights hexcolors, like #aabbcc and Red
 
