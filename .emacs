@@ -64,3 +64,4 @@
 (require 'setup-funcs)
 (require 'setup-luxion)
 (require 'setup-modules)
+(require 'setup-mu4e)
