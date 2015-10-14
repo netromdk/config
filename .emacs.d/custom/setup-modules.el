@@ -423,6 +423,9 @@
 ;; Activate mode with keybinding that is bound by default to compose-mail.
 (global-set-key (kbd "C-x m") 'mu4e)
 
+;; Don't ask to quit just return to previous buffer.
+(define-key mu4e-main-mode-map "q" 'previous-buffer)
+
 ;; Set as default MUA.
 (setq mail-user-agent 'mu4e-user-agent)
 
