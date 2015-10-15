@@ -472,6 +472,13 @@
 ;; Enable whitespace for programming modes.
 (add-hook 'prog-mode-hook (lambda () (whitespace-mode t)))
 
+;;;;;;;; rainbow-delimiters
+
+;; For programming modes, show delimiters with variying colors to easily
+;; distinguish between them.
+(require 'rainbow-delimiters)
+(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+
 ;;;;;;;; diminish
 
 (require 'diminish)

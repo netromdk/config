@@ -36,6 +36,7 @@
             'on-screen
             'package-safe-delete
             'php-mode
+            'rainbow-delimiters
             'rainbow-mode
             ;;'smart-mode-line
             'smartparens

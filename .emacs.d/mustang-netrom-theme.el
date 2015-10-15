@@ -135,7 +135,17 @@
         '(message-header-subject ((t (:inherit message-header-to))))
         '(message-header-name ((t (:foreground "green" :weight bold))))
         '(slime-repl-inputed-output-face ((t (:foreground "#ff9800"))))
-        '(whitespace-line ((t (:background "gray20" :foreground "#DD5542")))))
+        '(whitespace-line ((t (:background "gray20" :foreground "#DD5542"))))
+        '(rainbow-delimiters-depth-1-face ((t (:foreground "grey55" :weight bold))))
+        '(rainbow-delimiters-depth-2-face ((t (:foreground "#93a8c6" :weight bold))))
+        '(rainbow-delimiters-depth-3-face ((t (:foreground "#b0b1a3" :weight bold))))
+        '(rainbow-delimiters-depth-4-face ((t (:foreground "#97b098" :weight bold))))
+        '(rainbow-delimiters-depth-5-face ((t (:foreground "#aebed8" :weight bold))))
+        '(rainbow-delimiters-depth-6-face ((t (:foreground "#b0b0b3" :weight bold))))
+        '(rainbow-delimiters-depth-7-face ((t (:foreground "#90a890" :weight bold))))
+        '(rainbow-delimiters-depth-8-face ((t (:foreground "#a2b6da" :weight bold))))
+        '(rainbow-delimiters-depth-9-face ((t (:foreground "#9cb6ad" :weight bold))))
+        '(rainbow-delimiters-unmatched-face ((t (:foreground "#88090B" :weight bold)))))
 
 ;;;###autoload
 (when load-file-name

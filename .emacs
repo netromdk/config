@@ -26,7 +26,7 @@
  '(custom-enabled-themes (quote (mustang-netrom)))
  '(custom-safe-themes
    (quote
-    ("d4a5e597eb9b6333dc63cd16ce4fa646de817986835481060b749200587b17cd" default)))
+    ("980f08fa0417c3a9cc5ada212bdf5de7b16fc3b499295d100a2277ce46f2e2a2" default)))
  '(recentf-exclude
    (quote
     ("ido.last" ".emacs.d/saveplace.txt" "/var/folders/" "~/Maildir")))
