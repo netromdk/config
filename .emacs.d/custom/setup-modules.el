@@ -1,7 +1,13 @@
-;;;;;;;;; IDO
+;;;;;;;;; IDO/FLX
 
-(ido-mode t)
+(require 'flx-ido)
+(ido-mode 1)
+(ido-everywhere 1)
+(flx-ido-mode 1)
+
+;; Disable ido faces to see flx highlights.
 (setq ido-enable-flex-matching t)
+(setq ido-use-faces nil)
 
 ;;;;;;;;; SPELLING
 
@@ -300,6 +306,9 @@
 
 (setq helm-gtags-maximum-candidates 1000)
 
+;; Use flx for better search results.
+(helm-flx-mode +1)
+
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
 (global-set-key (kbd "C-x b") 'helm-mini)
@@ -338,6 +347,13 @@
 (setq anzu-cons-mode-line-p nil)
 
 (global-anzu-mode t)
+
+;;;;;;;;; flx-isearch
+
+;; Use flx instead of normal matching.
+
+(global-set-key (kbd "C-s") #'flx-isearch-forward)
+(global-set-key (kbd "C-r") #'flx-isearch-backward)
 
 ;;;;;;;;; window-numbering mode
 

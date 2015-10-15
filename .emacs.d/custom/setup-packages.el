@@ -17,10 +17,13 @@
             'diminish
             'expand-region
             'fic-mode
+            'flx-ido
+            'flx-isearch
             'gitconfig-mode
             'gitignore-mode
             'helm
             'helm-ag
+            'helm-flx
             'helm-gtags
             'helm-package
             'helm-swoop
