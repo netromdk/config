@@ -1,13 +1,13 @@
 ;;;;;;;;; CUSTOM KEYBINDINGS
 
 (global-set-key (kbd "C-s") 'isearch-forward-regexp)
-(global-set-key (kbd "C-M-s") 'isearch-forward)
 (global-set-key (kbd "C-r") 'isearch-backward-regexp)
-(global-set-key (kbd "C-M-r") 'isearch-backward)
+(global-set-key (kbd "C-M-s") 'flx-isearch-forward)
+(global-set-key (kbd "C-M-r") 'flx-isearch-backward)
 (global-set-key (kbd "M-n") 'scroll-up-one-line)
 (global-set-key (kbd "M-p") 'scroll-down-one-line)
-(global-set-key (kbd "M-P") 'previous-user-buffer) 
-(global-set-key (kbd "M-N") 'next-user-buffer) 
+(global-set-key (kbd "M-P") 'previous-user-buffer)
+(global-set-key (kbd "M-N") 'next-user-buffer)
 (global-set-key (kbd "C-c o") 'ff-find-other-file)
 (global-set-key (kbd "C-c w") 'whitespace-mode)
 
