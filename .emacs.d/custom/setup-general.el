@@ -17,6 +17,10 @@
 ;; useful.
 (setq load-prefer-newer t)
 
+;; Garbage collect at every 20 MB allocated instead of the default 8 MB. This
+;; speeds up various things.
+(setq gc-cons-threshold 20000000)
+
 ;; Set fill column to 80.
 (setq-default fill-column 80)
 (add-hook 'auto-fill-mode-hook
