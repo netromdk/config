@@ -464,19 +464,13 @@
 
 ;;;;;;;;; whitespace
 
-;; Note: Do this after all programming modes have been required, if any.
-
 ;; Visualize certain like space at end of line and trailing characters after
 ;; fill column.
 (require 'whitespace)
 (setq whitespace-style '(face empty tabs lines-tail trailing))
 
-;; Enable whitespace for certain modes, mostly programming modes.
-(dolist (hook '(prog-mode-hook
-                c-mode-common-hook
-                js-mode-hook
-                cmake-mode-hook))
-  (add-hook hook (lambda () (whitespace-mode t))))
+;; Enable whitespace for programming modes.
+(add-hook 'prog-mode-hook (lambda () (whitespace-mode t)))
 
 ;;;;;;;; diminish
 
