@@ -470,7 +470,7 @@
 (setq whitespace-style '(face empty tabs lines-tail trailing))
 
 ;; Enable whitespace for programming modes.
-(add-hook 'prog-mode-hook (lambda () (whitespace-mode t)))
+(add-hook 'prog-mode-hook 'whitespace-mode)
 
 ;;;;;;;; rainbow-delimiters
 
