@@ -492,6 +492,9 @@
 (eval-after-load "abbrev"
   '(diminish 'abbrev-mode "Abv"))
 
+(eval-after-load "fic-mode"
+  '(diminish 'fic-mode))
+
 (eval-after-load "company"
   '(diminish 'company-mode "Comp"))
 
