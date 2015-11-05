@@ -23,3 +23,5 @@
 	undo-commit = reset --soft HEAD^
 [pull]
 	rebase = preserve
+[rebase]
+	autoStash = true
