@@ -19,7 +19,6 @@
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	last = log -1 HEAD
 	pullr = pull --rebase
-	merge = merge --no-ff
 	undo-commit = reset --soft HEAD^
 [pull]
 	rebase = preserve
