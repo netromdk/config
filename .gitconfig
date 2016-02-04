@@ -17,6 +17,8 @@
 	df = diff
 	ls = ls-files
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	lgf = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --follow
+	logf = log --follow
 	last = log -1 HEAD
 	pullr = pull --rebase
 	undo-commit = reset --soft HEAD^
