@@ -71,7 +71,11 @@ function _build {
     return
   fi
 
-  ${BUILDER} -C "${BUILDFOLDER}/${SUBFOLDER}" $@
+  if [ ! ${BUILDER} = "ctest" ]; then
+    ${BUILDER} -C "${BUILDFOLDER}/${SUBFOLDER}" $@
+  else
+    cd "${BUILDFOLDER}/${SUBFOLDER}" && ${BUILDER} $@
+  fi
 }
 
 function ninjabuild {
@@ -80,4 +84,8 @@ function ninjabuild {
 
 function makebuild {
   _build make $@
+}
+
+function ctestbuild {
+  _build ctest $@
 }
