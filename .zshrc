@@ -67,7 +67,7 @@ function _build {
   done
 
   if [ -z $BUILDFOLDER ]; then
-    echo "Didn't find any .git folder!"
+    echo "Didn't find any build/ folder!"
     return
   fi
 
