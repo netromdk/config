@@ -110,6 +110,6 @@ if [[ $CURRENT_OS == 'OS X' ]]; then
   antigen bundle osx
 fi
 
-antigen theme wezm
+antigen theme nanotech
 
 antigen apply
