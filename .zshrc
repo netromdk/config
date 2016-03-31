@@ -1,6 +1,6 @@
 HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=10000
+SAVEHIST=10000
 setopt autocd notify correct hist_ignore_dups no_hist_beep hist_reduce_blanks interactive_comments pushd_to_home auto_list extendedglob prompt_subst nobeep appendhistory
 unsetopt nomatch beep
 
@@ -31,8 +31,9 @@ export PATH=/usr/local/bin:/opt/local/bin:/opt/local/sbin:$PATH
 export MANPATH=/opt/local/share/man:$MANPATH
 export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:~/pkgconfig
 
+alias l='ls -lh -G -F'
 alias ls='ls -G -F'
-alias x='startx'
+
 alias emacs='emacs -nw'
 alias gdb='gdb -q'
 alias tunnel='ssh -N -f -q'
