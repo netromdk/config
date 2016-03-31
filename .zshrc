@@ -93,9 +93,12 @@ antigen use oh-my-zsh
 
 antigen bundle git
 antigen bundle command-not-found
-antigen bundle supercrabtree/k
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle sudo # ESC-ESC puts sudo in front of last cmd.
+
+# Provides the 'k' command for better folder listing, including git status.
+antigen bundle supercrabtree/k
+alias k='k -h' # Force human-readable sizes.
 
 # OS specific plugins
 if [[ $CURRENT_OS == 'OS X' ]]; then
