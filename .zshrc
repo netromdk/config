@@ -31,12 +31,6 @@ export PATH=/usr/local/bin:/opt/local/bin:/opt/local/sbin:$PATH
 export MANPATH=/opt/local/share/man:$MANPATH
 export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:~/pkgconfig
 
-function precmd {
- export RPS1="`date '+%H:%M:%S'`"
-}
-
-prompt="$(print '%{\e[0m%}%B%n@%m%b%{\e[0m%}') %~ %#$(print '%{\e[1;31m%}>%{\e[0m%}') "
-
 alias ls='ls -G -F'
 alias x='startx'
 alias emacs='emacs -nw'
@@ -89,3 +83,19 @@ function makebuild {
 function ctestbuild {
   _build ctest $@
 }
+
+### Antigen plugin manager ###
+source ~/.antigen/antigen.zsh
+
+# Load the oh-my-zsh's library.
+antigen use oh-my-zsh
+
+antigen bundle git
+antigen bundle command-not-found
+antigen bundle supercrabtree/k
+antigen bundle zsh-users/zsh-syntax-highlighting
+
+#antigen theme nanotech
+antigen theme wezm
+
+antigen apply
