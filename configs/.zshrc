@@ -1,6 +1,7 @@
 HISTFILE=~/.histfile
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=100000
+SAVEHIST=100000
+
 setopt autocd notify correct hist_ignore_dups no_hist_beep hist_reduce_blanks interactive_comments pushd_to_home auto_list extendedglob prompt_subst nobeep appendhistory
 unsetopt nomatch beep
 
@@ -27,17 +28,36 @@ export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 export TZ="Europe/Copenhagen"
 export EDITOR=emacs
-export PATH=/usr/local/bin:/opt/local/bin:/opt/local/sbin:$PATH
-export MANPATH=/opt/local/share/man:$MANPATH
-export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:~/pkgconfig
 
-alias l='ls -lh -G -F'
-alias ls='ls -G -F'
+if [ -e $HOME/.local/bin ]; then
+  export PATH=$HOME/.local/bin:$PATH
+fi
+
+# If flatpak is installed then setup folders for XDG.
+if [ -e /var/lib/flatpak/exports/share ]; then
+  export XDG_DATA_DIRS=/var/lib/flatpak/exports/share:$XDG_DATA_DIRS
+fi
+if [ -e $HOME/.local/share/flatpak/exports/share ]; then
+  export XDG_DATA_DIRS=$HOME/.local/share/flatpak/exports/share:$XDG_DATA_DIRS
+fi
+
+# Enable color support of ls and grep variants.
+if [ -x /usr/bin/dircolors ]; then
+  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+  alias ls='ls --color=auto'
+  alias grep='grep --color=auto'
+  alias fgrep='fgrep --color=auto'
+  alias egrep='egrep --color=auto'
+fi
+
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
 
 alias h='history'
 alias emacs='emacs -nw'
-alias gdb='gdb -q'
 alias tunnel='ssh -N -f -q'
+
 alias ...='cd ..; cd ..'
 alias ....='cd ..; cd ..; cd ..'
 alias .....='cd ..; cd ..; cd ..; cd ..'
@@ -85,41 +105,3 @@ function makebuild {
 function ctestbuild {
   _build ctest $@
 }
-
-### Antigen plugin manager ###
-source ~/antigen.zsh
-
-# Load the oh-my-zsh's library.
-antigen use oh-my-zsh
-
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle command-not-found
-antigen bundle sudo # ESC-ESC puts sudo in front of last cmd.
-antigen bundle colored-man-pages
-antigen bundle last-working-dir # shells start at last working dir.
-
-# Provides the 'k' command for better folder listing, including git status.
-antigen bundle supercrabtree/k
-alias k='k -h' # Force human-readable sizes.
-
-# Provides 'extract' (and alias 'x') to extract a wide range of compressed files using their
-# corresponding decompressor programs.
-antigen bundle extract
-
-# OS specific plugins
-if [[ $CURRENT_OS == 'OS X' ]]; then
-  # Gives the following commands:
-  # tab           open the current directory in a new tab
-  # pfd           return the path of the frontmost Finder window
-  # pfs           return the current Finder selection
-  # cdf           cd to the current Finder directory
-  # pushdf        pushd to the current Finder directory
-  # quick-look    quick Look a specified file
-  # man-preview   open a specified man page in Preview
-  # trash         move a specified file to the Trash
-  antigen bundle osx
-fi
-
-antigen theme blinks
-
-antigen apply
