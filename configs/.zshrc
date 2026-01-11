@@ -134,6 +134,11 @@ alias ...='cd ..; cd ..'
 alias ....='cd ..; cd ..; cd ..'
 alias .....='cd ..; cd ..; cd ..; cd ..'
 
+# Commands I write wrong sometimes.
+alias nija='ninja'
+alias inja='ninja'
+alias ninj='ninja'
+
 
 ########################################
 # Functions
