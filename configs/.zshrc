@@ -53,11 +53,22 @@ bindkey "^[OF" end-of-line
 
 export NOBEEP=YES
 export CLICOLOR=YES
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-export LANGUAGE=en_US.UTF-8
 export TZ="Europe/Copenhagen"
 export EDITOR=emacs
+
+# Language and Unicode.
+LANG=en_US.UTF-8
+LANGUAGE=en_US:en
+LC_ALL=en_US.UTF-8
+LC_ADDRESS=en_US.UTF-8
+LC_NAME=en_US.UTF-8
+LC_MONETARY=en_US.UTF-8
+LC_PAPER=en_US.UTF-8
+LC_IDENTIFICATION=en_US.UTF-8
+LC_TELEPHONE=en_US.UTF-8
+LC_MEASUREMENT=en_US.UTF-8
+LC_TIME=en_US.UTF-8
+LC_NUMERIC=en_US.UTF-8
 
 # Prefer binaries in local bin folders.
 if [ -e $HOME/.local/bin ]; then
