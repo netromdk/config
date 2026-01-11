@@ -4,6 +4,14 @@ CONFIGS="${SELFPATH}/configs"
 SCRIPTS="${SELFPATH}/scripts"
 PATHFLD="${HOME}/.local/bin"
 
+check_program() {
+  if ! hash $1 2> /dev/null; then
+    echo "'$1' is not installed!"
+    exit 1
+  fi
+}
+check_program readlink
+
 deploy() {
   SRC="$1"
   DSTFLD="$2"
