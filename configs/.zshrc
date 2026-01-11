@@ -55,7 +55,6 @@ alias la='ls -A'
 alias l='ls -CF'
 
 alias h='history'
-alias emacs='emacs -nw'
 alias tunnel='ssh -N -f -q'
 
 alias ...='cd ..; cd ..'
