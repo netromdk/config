@@ -104,3 +104,10 @@ function makebuild {
 function ctestbuild {
   _build ctest $@
 }
+
+##### Keep everything before this line! #####
+
+# Load custom ZSH config if present.
+if [ -e $HOME/.zshrc.custom ]; then
+  . $HOME/.zshrc.custom
+fi
