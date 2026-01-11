@@ -1,3 +1,7 @@
+########################################
+# General
+########################################
+
 HISTFILE=~/.histfile
 HISTSIZE=100000
 SAVEHIST=100000
@@ -9,7 +13,12 @@ zstyle :compinstall filename '~/.zshrc'
 autoload -Uz compinit
 compinit
 
-bindkey -e
+
+########################################
+# Key bindings
+########################################
+
+bindkey -e # Emacs
 bindkey "\eOH" beginning-of-line # Home-key
 bindkey "\eOF" end-of-line # End-key
 bindkey "^[[1;6C" end-of-line
@@ -21,6 +30,11 @@ bindkey "^E" end-of-line
 bindkey "^[OH" beginning-of-line
 bindkey "^[OF" end-of-line
 
+
+########################################
+# Variable exports and PATH
+########################################
+
 export NOBEEP=YES
 export CLICOLOR=YES
 export LC_ALL=en_US.UTF-8
@@ -29,6 +43,7 @@ export LANGUAGE=en_US.UTF-8
 export TZ="Europe/Copenhagen"
 export EDITOR=emacs
 
+# Prefer binaries in local bin folders.
 if [ -e $HOME/.local/bin ]; then
   export PATH=$HOME/.local/bin:$PATH
 fi
@@ -40,6 +55,18 @@ fi
 if [ -e $HOME/.local/share/flatpak/exports/share ]; then
   export XDG_DATA_DIRS=$HOME/.local/share/flatpak/exports/share:$XDG_DATA_DIRS
 fi
+
+
+########################################
+# Prompt
+########################################
+
+
+
+
+########################################
+# Aliases
+########################################
 
 # Enable color support of ls and grep variants.
 if [ -x /usr/bin/dircolors ]; then
@@ -60,6 +87,11 @@ alias tunnel='ssh -N -f -q'
 alias ...='cd ..; cd ..'
 alias ....='cd ..; cd ..; cd ..'
 alias .....='cd ..; cd ..; cd ..; cd ..'
+
+
+########################################
+# Functions
+########################################
 
 # Use to build target(s) by autodetecting from "pwd" and using build program $1 to build sub
 # build-folder $2. Requires the build folders to reside in "build".
