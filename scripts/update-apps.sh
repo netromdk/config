@@ -12,19 +12,27 @@ check_program() {
 echo "\n======= APT ======="
 check_program apt
 if [ $? -eq 0 ]; then
+  set -x
   sudo apt update
   apt list --upgradable
   sudo apt upgrade
+  set +x
 fi
 
 echo "\n======= Snap ======="
 check_program snap
 if [ $? -eq 0 ]; then
-  sudo snap refresh
+  CMD="sudo snap refresh --color=auto"
+  set -x
+  ${CMD} --list
+  ${CMD} --time
+  ${CMD}
+  set +x
 fi
 
 echo "\n======= Flatpak ======="
 check_program flatpak
 if [ $? -eq 0 ]; then
+  set -x
   flatpak update
 fi
