@@ -2,7 +2,7 @@
 # General
 ########################################
 
-HISTFILE=~/.histfile
+HISTFILE=${HOME}/.histfile
 HISTSIZE=100000
 SAVEHIST=100000
 
@@ -13,7 +13,7 @@ setopt correct                # Try to correct spelling of commands.
 setopt extended_glob          # Treat the ‘#’, ‘~’ and ‘^’ chars as part of patterns for filename generation, etc.
 setopt auto_cd                # Change directory without using paths.
 setopt auto_pushd             # Make `cd` push the old directory onto the directory stack.
-setopt pushd_to_home          # Have `pushd` with no arguments act like `pushd $HOME`.
+setopt pushd_to_home          # Have `pushd` with no arguments act like `pushd ${HOME}`.
 setopt auto_list              # Automatically list choices on an ambiguous completion.
 setopt inc_append_history     # Adds commands as they are typed, not at shell exit.
 setopt extended_history       # Save more info to history file: <beginning time>:<elapsed seconds>;<command>
@@ -71,16 +71,16 @@ LC_TIME=en_US.UTF-8
 LC_NUMERIC=en_US.UTF-8
 
 # Prefer binaries in local bin folders.
-if [ -e $HOME/.local/bin ]; then
-  export PATH=$HOME/.local/bin:$PATH
+if [ -e ${HOME}/.local/bin ]; then
+  export PATH=${HOME}/.local/bin:${PATH}
 fi
 
 # If flatpak is installed then setup folders for XDG.
 if [ -e /var/lib/flatpak/exports/share ]; then
-  export XDG_DATA_DIRS=/var/lib/flatpak/exports/share:$XDG_DATA_DIRS
+  export XDG_DATA_DIRS=/var/lib/flatpak/exports/share:${XDG_DATA_DIRS}
 fi
-if [ -e $HOME/.local/share/flatpak/exports/share ]; then
-  export XDG_DATA_DIRS=$HOME/.local/share/flatpak/exports/share:$XDG_DATA_DIRS
+if [ -e ${HOME}/.local/share/flatpak/exports/share ]; then
+  export XDG_DATA_DIRS=${HOME}/.local/share/flatpak/exports/share:${XDG_DATA_DIRS}
 fi
 
 
@@ -191,6 +191,6 @@ function ctestbuild {
 ##### Keep everything before this line! #####
 
 # Load custom ZSH config if present.
-if [ -e $HOME/.zshrc.custom ]; then
-  . $HOME/.zshrc.custom
+if [ -e ${HOME}/.zshrc.custom ]; then
+  . ${HOME}/.zshrc.custom
 fi
