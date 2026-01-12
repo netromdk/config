@@ -30,5 +30,5 @@ deploy() {
     echo "${TAB}${TAB}Destination exists. Ignoring."
     return
   fi
-  ln -s "${SRC}" "${DST}" && echo "Installed."
+  ln -s "${SRC}" "${DST}" && echo "${TAB}${TAB}Installed."
 }
