@@ -1,16 +1,7 @@
 #!/bin/sh
 SELFPATH="$(cd -- "$(dirname "$0")" >/dev/null 2>&1; pwd -P)"
-CONFIGS="${SELFPATH}/configs"
-SCRIPTS="${SELFPATH}/scripts"
-PATHFLD="${HOME}/.local/bin"
-TAB="  "
+. ${SELFPATH}/util.lib.sh
 
-check_program() {
-  if ! hash $1 2> /dev/null; then
-    echo "'$1' is not installed!"
-    exit 1
-  fi
-}
 check_program readlink
 
 echo "+++ Placing copies instead of symlinks to configs and scripts +++"
