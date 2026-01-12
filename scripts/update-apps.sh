@@ -24,8 +24,15 @@ check_program snap
 if [ $? -eq 0 ]; then
   CMD="sudo snap refresh --color=auto"
   set -x
-  ${CMD} --list
-  ${CMD} --time
+  # "All snaps up to date." is written to stderr and we want it ignored and only written with the
+  # last snap invocation.
+  ${CMD} --list 2>/dev/null
+  set +x
+  NUMPKGS=$(${CMD} --list 2>/dev/null | wc -l)
+  if [ $NUMPKGS -gt 0 ]; then
+    echo "Note: Update running apps by rerunning $0 after terminating them."
+  fi
+  set -x
   ${CMD}
   set +x
 fi
