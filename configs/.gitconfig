@@ -22,8 +22,6 @@
 	last = log -1 HEAD
 	pullr = pull --rebase
 	undo-commit = reset --soft HEAD^
-[pull]
-	rebase = preserve
 [rebase]
 	autoStash = true
 [credential "https://github.com"]
