@@ -5,8 +5,6 @@
 	editor = emacs
 [color]
 	ui = true
-[push]
-	default = simple
 [alias]
 	st = status
 	co = checkout
