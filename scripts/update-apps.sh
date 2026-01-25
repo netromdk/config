@@ -57,3 +57,12 @@ elif [ "${DIST}" = "Darwin" ]; then
     brew upgrade
   fi
 fi
+
+echo "\n======= Rust ======="
+check_program rustup
+if [ $? -eq 0 ]; then
+  echo "Updating Rust components."
+  set -x
+  rustup update
+  set +x
+fi
