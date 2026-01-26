@@ -45,6 +45,7 @@ if [ "${DIST}" = "Linux" ]; then
   if [ $? -eq 0 ]; then
     set -x
     flatpak update
+    set +x
   fi
 
 elif [ "${DIST}" = "Darwin" ]; then
@@ -55,13 +56,13 @@ elif [ "${DIST}" = "Darwin" ]; then
     brew update
     brew outdated
     brew upgrade
+    set +x
   fi
 fi
 
 echo "\n======= Rust ======="
 check_program rustup
 if [ $? -eq 0 ]; then
-  echo "Updating Rust components."
   set -x
   rustup update
   set +x
