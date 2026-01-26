@@ -104,7 +104,7 @@ check_program pip
 if [ $? -eq 0 ]; then
   echo "Installing missing packages updates from Pip."
   set -x
-  pip install --break-system-packages \
+  pip install --user --break-system-packages \
     python-lsp-server \
     flake8 \
     bandit
