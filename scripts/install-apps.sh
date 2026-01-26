@@ -11,6 +11,8 @@ check_program() {
 DIST=$(uname -s)
 
 if [ "${DIST}" = "Linux" ]; then
+  CODENAME=$(lsb_release -c -s | tail -n 1)
+
   echo "Installing missing packages updates from APT, Snap, and Flatpak."
   echo "\n======= APT ======="
   check_program apt
@@ -27,7 +29,6 @@ if [ "${DIST}" = "Linux" ]; then
       git \
       git-lfs \
       gh \
-      cmake \
       ccache \
       htop \
       ripgrep \
@@ -42,6 +43,17 @@ if [ "${DIST}" = "Linux" ]; then
       python3-pip \
       python-is-python3 \
       rustup
+
+    # Add Kitware apt source for cmake.
+    if [ ! -e "/etc/apt/sources.list.d/kitware.list" ]; then
+      sudo wget -qO - https://apt.kitware.com/keys/kitware-archive-latest.asc \
+        | gpg --dearmor | sudo tee /usr/share/keyrings/kitware-archive-keyring.gpg > /dev/null
+      sudo sh -c "echo 'deb [signed-by=/usr/share/keyrings/kitware-archive-keyring.gpg] \
+https://apt.kitware.com/ubuntu/ ${CODENAME} main' > /etc/apt/sources.list.d/kitware.list"
+      sudo apt update
+    fi
+    sudo apt install cmake
+
     set +x
   fi
 
