@@ -12,6 +12,10 @@ DIST=$(uname -s)
 
 if [ "${DIST}" = "Linux" ]; then
   CODENAME=$(lsb_release -c -s | tail -n 1)
+  APT_LIST_D="/etc/apt/sources.list.d/"
+  KEYRINGS="/usr/share/keyrings/"
+  KITWARE_APT_LIST="${APT_LIST_D}/kitware.list"
+  KITWARE_APT_URL="https://apt.kitware.com"
 
   echo "Installing missing packages updates from APT, Snap, and Flatpak."
   echo "\n======= APT ======="
@@ -46,12 +50,12 @@ if [ "${DIST}" = "Linux" ]; then
       python-is-python3 \
       rustup
 
-    # Add Kitware apt source for cmake.
-    if [ ! -e "/etc/apt/sources.list.d/kitware.list" ]; then
-      sudo wget -qO - https://apt.kitware.com/keys/kitware-archive-latest.asc \
-        | gpg --dearmor | sudo tee /usr/share/keyrings/kitware-archive-keyring.gpg > /dev/null
-      sudo sh -c "echo 'deb [signed-by=/usr/share/keyrings/kitware-archive-keyring.gpg] \
-https://apt.kitware.com/ubuntu/ ${CODENAME} main' > /etc/apt/sources.list.d/kitware.list"
+    # Add Kitware APT source for cmake.
+    if [ ! -e "${KITWARE_APT_LIST}" ]; then
+      sudo wget -qO - ${KITWARE_APT_URL}/keys/kitware-archive-latest.asc \
+        | gpg --dearmor | sudo tee ${KEYRINGS}/kitware-archive-keyring.gpg > /dev/null
+      sudo sh -c "echo 'deb [signed-by=${KEYRINGS}/kitware-archive-keyring.gpg] \
+${KITWARE_APT_URL}/ubuntu/ ${CODENAME} main' > ${KITWARE_APT_LIST}"
       sudo apt update
     fi
     sudo apt install cmake
