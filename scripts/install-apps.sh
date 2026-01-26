@@ -32,6 +32,7 @@ if [ "${DIST}" = "Linux" ]; then
       gh \
       ccache \
       htop \
+      tree \
       ripgrep \
       silversearcher-ag \
       cppcheck \
