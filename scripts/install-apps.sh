@@ -26,6 +26,7 @@ if [ "${DIST}" = "Linux" ]; then
       make \
       curl \
       wget \
+      gpg \
       git \
       git-lfs \
       gh \
