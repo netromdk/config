@@ -18,8 +18,12 @@ if [ "${DIST}" = "Linux" ]; then
     set -x
     sudo apt update
     sudo apt install \
+      zsh \
+      ninja-build \
       build-essential \
+      make \
       curl \
+      wget \
       git \
       git-lfs \
       gh \
