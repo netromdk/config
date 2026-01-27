@@ -1,5 +1,7 @@
 #!/bin/sh
+DIST=$(uname -s)
 PYTHON_VERSION=3.14
+LOCAL_BIN="${HOME}/.local/bin"
 
 check_program() {
   if hash $1 2> /dev/null; then
@@ -9,7 +11,23 @@ check_program() {
   return 1
 }
 
-DIST=$(uname -s)
+symlink() {
+  src="$1"
+  dst="$2"
+  if [ -L "${dst}" ]; then
+    if [ ! "$(readlink ${dst})" = "${src}" ]; then
+      rm -vf "${dst}"
+    else
+      echo "Already correct: ${dst} -> ${src}"
+      return
+    fi
+  fi
+  if [ -e "${dst}" ]; then
+    echo "${dst}: exists as non-symlink. Ignoring."
+    return
+  fi
+  ln -sv "${src}" "${dst}"
+}
 
 if [ "${DIST}" = "Linux" ]; then
   CODENAME=$(lsb_release -c -s | tail -n 1)
@@ -103,6 +121,18 @@ elif [ "${DIST}" = "Darwin" ]; then
       aspell
     set +x
   fi
+fi
+
+echo "\n======= Python ======="
+# Ensure the correct `python` and `python3` symlinks exist in ~/.local/bin.
+check_program python${PYTHON_VERSION}
+if [ $? -eq 0 ]; then
+  echo "Creating python and python3 symlinks in ${LOCAL_BIN}."
+  mkdir -p "${LOCAL_BIN}"
+
+  src="$(which python${PYTHON_VERSION})"
+  symlink "${src}" "${LOCAL_BIN}/python3"
+  symlink "${src}" "${LOCAL_BIN}/python"
 fi
 
 echo "\n======= Pip ======="
