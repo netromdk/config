@@ -1,4 +1,5 @@
 #!/bin/sh
+PYTHON_VERSION=3.14
 
 check_program() {
   if hash $1 2> /dev/null; then
@@ -41,8 +42,8 @@ if [ "${DIST}" = "Linux" ]; then
       openssh-client \
       python-is-python3 \
       python3-pip \
-      python3.14-full \
-      python3.14-venv \
+      python${PYTHON_VERSION}-full \
+      python${PYTHON_VERSION}-venv \
       ripgrep \
       rustup \
       shellcheck \
