@@ -38,6 +38,7 @@ if [ "${DIST}" = "Linux" ]; then
       htop \
       make \
       ninja-build \
+      openssh-client \
       python-is-python3 \
       python3-pip \
       python3.14-full \
