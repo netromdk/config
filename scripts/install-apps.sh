@@ -24,31 +24,31 @@ if [ "${DIST}" = "Linux" ]; then
     set -x
     sudo apt update
     sudo apt install \
-      zsh \
-      ninja-build \
+      aspell \
+      aspell-da \
+      aspell-en \
       build-essential \
-      make \
+      ccache \
+      cppcheck \
       curl \
-      wget \
-      gpg \
+      gh \
       git \
       git-lfs \
-      gh \
-      ccache \
+      gpg \
       htop \
-      tree \
-      ripgrep \
-      silversearcher-ag \
-      cppcheck \
-      shellcheck \
-      aspell \
-      aspell-en \
-      aspell-da \
+      make \
+      ninja-build \
+      python-is-python3 \
+      python3-pip \
       python3.14-full \
       python3.14-venv \
-      python3-pip \
-      python-is-python3 \
-      rustup
+      ripgrep \
+      rustup \
+      shellcheck \
+      silversearcher-ag \
+      tree \
+      wget \
+      zsh
 
     # Add Kitware APT source for cmake.
     if [ ! -e "${KITWARE_APT_LIST}" ]; then
