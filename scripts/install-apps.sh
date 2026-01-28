@@ -33,7 +33,7 @@ if [ "${DIST}" = "Linux" ]; then
   CODENAME=$(lsb_release -c -s | tail -n 1)
   APT_LIST_D="/etc/apt/sources.list.d/"
   KEYRINGS="/usr/share/keyrings/"
-  KITWARE_APT_LIST="${APT_LIST_D}/kitware.list"
+  KITWARE_APT_SOURCES="${APT_LIST_D}/kitware.sources"
   KITWARE_APT_URL="https://apt.kitware.com"
 
   echo "Installing missing packages updates from APT, Snap, and Flatpak."
@@ -47,6 +47,20 @@ if [ "${DIST}" = "Linux" ]; then
       sudo add-apt-repository ppa:deadsnakes/ppa
     fi
 
+    # Add Kitware APT source for cmake.
+    if ! apt-add-repository --list | grep kitware >/dev/null; then
+      set -x
+      sudo wget -qO - ${KITWARE_APT_URL}/keys/kitware-archive-latest.asc \
+        | gpg --dearmor | sudo tee ${KEYRINGS}/kitware-archive-keyring.gpg > /dev/null
+      sudo sh -c "cat >${KITWARE_APT_SOURCES} <<EOF
+Types: deb
+URIs: ${KITWARE_APT_URL}/ubuntu/
+Suites: ${CODENAME}
+Components: main
+Signed-By: ${KEYRINGS}/kitware-archive-keyring.gpg
+EOF"
+    fi
+
     set -x
     sudo apt update
     sudo apt install \
@@ -55,6 +69,7 @@ if [ "${DIST}" = "Linux" ]; then
       aspell-en \
       build-essential \
       ccache \
+      cmake \
       cppcheck \
       curl \
       gh \
@@ -65,10 +80,10 @@ if [ "${DIST}" = "Linux" ]; then
       make \
       ninja-build \
       openssh-client \
-      python-is-python3 \
-      python3-pip \
       python${PYTHON_VERSION}-full \
       python${PYTHON_VERSION}-venv \
+      python-is-python3 \
+      python3-pip \
       ripgrep \
       rustup \
       shellcheck \
@@ -76,16 +91,6 @@ if [ "${DIST}" = "Linux" ]; then
       tree \
       wget \
       zsh
-
-    # Add Kitware APT source for cmake.
-    if [ ! -e "${KITWARE_APT_LIST}" ]; then
-      sudo wget -qO - ${KITWARE_APT_URL}/keys/kitware-archive-latest.asc \
-        | gpg --dearmor | sudo tee ${KEYRINGS}/kitware-archive-keyring.gpg > /dev/null
-      sudo sh -c "echo 'deb [signed-by=${KEYRINGS}/kitware-archive-keyring.gpg] \
-${KITWARE_APT_URL}/ubuntu/ ${CODENAME} main' > ${KITWARE_APT_LIST}"
-      sudo apt update
-    fi
-    sudo apt install cmake
 
     set +x
   fi
