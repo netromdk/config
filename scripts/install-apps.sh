@@ -40,6 +40,13 @@ if [ "${DIST}" = "Linux" ]; then
   echo "\n======= APT ======="
   check_program apt
   if [ $? -eq 0 ]; then
+
+    # Add Deadsnakes APT source if not already there.
+    if ! apt-add-repository --list | grep deadsnakes >/dev/null; then
+      set -x
+      sudo add-apt-repository ppa:deadsnakes/ppa
+    fi
+
     set -x
     sudo apt update
     sudo apt install \
