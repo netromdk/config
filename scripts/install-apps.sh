@@ -40,6 +40,11 @@ if [ "${DIST}" = "Linux" ]; then
   echo "\n======= APT ======="
   check_program apt
   if [ $? -eq 0 ]; then
+    # Install prerequisites first.
+    set -x
+    sudo apt update
+    sudo apt install wget gpg
+    set +x
 
     # Add Deadsnakes APT source if not already there.
     if ! apt-add-repository --list | grep deadsnakes >/dev/null; then
@@ -75,7 +80,6 @@ EOF"
       gh \
       git \
       git-lfs \
-      gpg \
       htop \
       make \
       ninja-build \
@@ -89,7 +93,6 @@ EOF"
       shellcheck \
       silversearcher-ag \
       tree \
-      wget \
       zsh
 
     set +x
