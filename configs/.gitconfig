@@ -1,6 +1,7 @@
 [user]
 	name = Morten Kristensen
 	email = me@mortens.dev
+	signingkey = 8FAC7FAB93A70671249172E0BC1A685B5D4DA837!
 [core]
 	editor = emacs
 [color]
@@ -26,3 +27,9 @@
 	helper = !gh auth git-credential
 [credential "https://gist.github.com"]
 	helper = !gh auth git-credential
+[commit]
+	gpgsign = true
+[tag]
+	gpgSign = true
+[gpg]
+	format = openpgp
