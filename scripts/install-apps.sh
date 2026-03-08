@@ -88,11 +88,13 @@ EOF"
       python${PYTHON_VERSION}-venv \
       python-is-python3 \
       python3-pip \
+      python3-virtualenv \
       ripgrep \
       rustup \
       shellcheck \
       silversearcher-ag \
       tree \
+      virtualenv \
       zsh
 
     set +x
