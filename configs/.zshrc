@@ -199,7 +199,7 @@ function ctestbuild {
 FZF_DEFAULT_OPTS="--style full \
   --input-label ' Input ' \
   --header-label ' File Type ' \
-  --preview 'test -f {} && batcat --style=full --color=always {} || echo \"Not a file.\"' \
+  --preview '[[ -f {} ]] && batcat --style=full --color=always {} || echo \"No file to preview.\"' \
   --bind 'result:transform-list-label:
     if [[ -z $FZF_QUERY ]]; then
       echo \" $FZF_MATCH_COUNT items \"
@@ -207,8 +207,8 @@ FZF_DEFAULT_OPTS="--style full \
       echo \" $FZF_MATCH_COUNT matches for [$FZF_QUERY] \"
     fi
     ' \
-  --bind 'focus:transform-preview-label:[[ -n {} ]] && printf \" Previewing [%s] \" {}' \
-  --bind 'focus:+transform-header:file --brief {} || echo \"No file selected\"' \
+  --bind 'focus:transform-preview-label:[[ -f {} ]] && printf \" Previewing [%s] \" {}' \
+  --bind 'focus:+transform-header:[[ -f {} ]] && file --brief {} || echo \"No file selected.\"' \
   --bind 'ctrl-r:change-list-label( Reloading the list )+reload(sleep 2; git ls-files)' \
   --bind 'ctrl-/:change-preview-window(hidden|50%)' \
   --color 'border:#aaaaaa,label:#cccccc' \
