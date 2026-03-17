@@ -139,6 +139,8 @@ alias nija='ninja'
 alias inja='ninja'
 alias ninj='ninja'
 
+# An improved `cat`.
+alias bat=batcat
 
 ########################################
 # Functions

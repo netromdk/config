@@ -72,6 +72,7 @@ EOF"
       aspell \
       aspell-da \
       aspell-en \
+      bat \
       build-essential \
       ccache \
       cmake \
