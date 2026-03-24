@@ -211,11 +211,7 @@ FZF_DEFAULT_OPTS="--style full \
   --bind 'focus:+transform-header:[[ -f {} ]] && file --brief {} || echo \"No file selected.\"' \
   --bind 'ctrl-r:change-list-label( Reloading the list )+reload(sleep 2; git ls-files)' \
   --bind 'ctrl-/:change-preview-window(hidden|50%)' \
-  --color 'border:#aaaaaa,label:#cccccc' \
-  --color 'preview-border:#9999cc,preview-label:#ccccff' \
-  --color 'list-border:#669966,list-label:#99cc99' \
-  --color 'input-border:#996666,input-label:#ffcccc' \
-  --color 'header-border:#6699cc,header-label:#99ccff'"
+  --color 'border:#3c414c,label:#e2e2e5'"
 
 # Set up fzf key bindings and fuzzy completion.
 source <(fzf --zsh)
