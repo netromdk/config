@@ -130,13 +130,15 @@ elif [ "${DIST}" = "Darwin" ]; then
     set -x
     brew update
     brew install \
+      aspell \
+      bat \
+      cppcheck \
       curl \
+      fzf \
       git \
       ripgrep \
-      the_silver_searcher \
-      cppcheck \
       shellcheck \
-      aspell
+      the_silver_searcher
     set +x
   fi
 fi
