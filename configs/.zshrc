@@ -140,7 +140,9 @@ alias inja='ninja'
 alias ninj='ninja'
 
 # An improved `cat`.
-alias bat=batcat
+if hash batcat 2> /dev/null; then
+  alias bat=batcat
+fi
 
 
 ########################################
