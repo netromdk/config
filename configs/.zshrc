@@ -201,7 +201,7 @@ function ctestbuild {
 FZF_DEFAULT_OPTS="--style full \
   --input-label ' Input ' \
   --header-label ' File Type ' \
-  --preview '[[ -f {} ]] && batcat --style=full --color=always {} || echo \"No file to preview.\"' \
+  --preview '[[ -f {} ]] && bat --style=full --color=always {} || echo \"No file to preview.\"' \
   --bind 'result:transform-list-label:
     if [[ -z $FZF_QUERY ]]; then
       echo \" $FZF_MATCH_COUNT items \"
