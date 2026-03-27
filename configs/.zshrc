@@ -242,6 +242,14 @@ FZF_ALT_C_OPTS="
   --select-1
   --exit-0"
 
+# C-x-r directly executes a historic command. Instead of pressing enter after again.
+fzf-history-widget-accept() {
+  fzf-history-widget
+  zle accept-line
+}
+zle     -N     fzf-history-widget-accept
+bindkey '^X^R' fzf-history-widget-accept
+
 # Set up fzf key bindings and fuzzy completion.
 source <(fzf --zsh)
 
