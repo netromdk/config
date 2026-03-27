@@ -217,16 +217,22 @@ FZF_DEFAULT_OPTS="
   --color 'border:#3c414c,label:#e2e2e5'"
 
 # Preview file content using bat (https://github.com/sharkdp/bat).
+# `--select-1` automatically selects the item if there's only one.
+# `--exit-0` automatically exits when the list is empty.
 FZF_CTRL_T_OPTS="
   --walker-skip .git,node_modules,target
   --preview '[[ -f {} ]] && bat -n --color=always {} || echo \"No file to preview.\"'
   --bind 'focus:+transform-header:[[ -f {} ]] && file --brief {} || echo \"No file selected.\"'
-  --header-label ' File Type '"
+  --header-label ' File Type '
+  --select-1
+  --exit-0"
 
 # Print tree structure in the preview window.
 FZF_ALT_C_OPTS="
   --walker-skip .git,node_modules,target
-  --preview 'tree -C -a {}'"
+  --preview 'tree -C -a {}'
+  --select-1
+  --exit-0"
 
 # Set up fzf key bindings and fuzzy completion.
 source <(fzf --zsh)
