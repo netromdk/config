@@ -176,3 +176,10 @@ if [ $? -eq 0 ]; then
   rustup component add rustfmt rust-analysis rust-src
   set +x
 fi
+
+echo "\n======= FZF ======="
+check_program fzf
+if [ $? -eq 0 ]; then
+  # If not then that will be shown.
+  echo "\`fzf\` found in PATH!"
+fi
