@@ -227,6 +227,14 @@ FZF_CTRL_T_OPTS="
   --select-1
   --exit-0"
 
+# `--no-sort` show chronological order of historic commands, no sorting.
+# Preview commands that are too long to show in the list by hitting ?.
+FZF_CTRL_R_OPTS="
+  --no-sort
+  --preview 'echo {}'
+  --preview-window down:3:hidden:wrap
+  --bind '?:toggle-preview'"
+
 # Print tree structure in the preview window.
 FZF_ALT_C_OPTS="
   --walker-skip .git,node_modules,target
