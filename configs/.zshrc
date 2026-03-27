@@ -216,6 +216,13 @@ FZF_DEFAULT_OPTS="
   --bind 'ctrl-/:change-preview-window(hidden|50%)'
   --color 'border:#3c414c,label:#e2e2e5'"
 
+# Preview file content using bat (https://github.com/sharkdp/bat).
+FZF_CTRL_T_OPTS="
+  --walker-skip .git,node_modules,target
+  --preview '[[ -f {} ]] && bat -n --color=always {} || echo \"No file to preview.\"'
+  --bind 'focus:+transform-header:[[ -f {} ]] && file --brief {} || echo \"No file selected.\"'
+  --header-label ' File Type '"
+
 # Set up fzf key bindings and fuzzy completion.
 source <(fzf --zsh)
 
