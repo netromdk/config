@@ -201,21 +201,19 @@ function ctestbuild {
 # FZF
 ########################################
 
-FZF_DEFAULT_OPTS="--style full \
-  --input-label ' Input ' \
-  --header-label ' File Type ' \
-  --preview '[[ -f {} ]] && bat --style=full --color=always {} || echo \"No file to preview.\"' \
+FZF_DEFAULT_OPTS="
+  --style full
+  --input-label ' Input '
   --bind 'result:transform-list-label:
     if [[ -z $FZF_QUERY ]]; then
       echo \" $FZF_MATCH_COUNT items \"
     else
       echo \" $FZF_MATCH_COUNT matches for [$FZF_QUERY] \"
     fi
-    ' \
-  --bind 'focus:transform-preview-label:[[ -f {} ]] && printf \" Previewing [%s] \" {}' \
-  --bind 'focus:+transform-header:[[ -f {} ]] && file --brief {} || echo \"No file selected.\"' \
-  --bind 'ctrl-r:change-list-label( Reloading the list )+reload(sleep 2; git ls-files)' \
-  --bind 'ctrl-/:change-preview-window(hidden|50%)' \
+    '
+  --bind 'focus:transform-preview-label:[[ -f {} ]] && printf \" Previewing [%s] \" {}'
+  --bind 'ctrl-r:change-list-label( Reloading the list )+reload(sleep 2; git ls-files)'
+  --bind 'ctrl-/:change-preview-window(hidden|50%)'
   --color 'border:#3c414c,label:#e2e2e5'"
 
 # Set up fzf key bindings and fuzzy completion.
