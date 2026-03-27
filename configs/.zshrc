@@ -223,6 +223,11 @@ FZF_CTRL_T_OPTS="
   --bind 'focus:+transform-header:[[ -f {} ]] && file --brief {} || echo \"No file selected.\"'
   --header-label ' File Type '"
 
+# Print tree structure in the preview window.
+FZF_ALT_C_OPTS="
+  --walker-skip .git,node_modules,target
+  --preview 'tree -C -a {}'"
+
 # Set up fzf key bindings and fuzzy completion.
 source <(fzf --zsh)
 
