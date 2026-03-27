@@ -141,7 +141,10 @@ alias ninj='ninja'
 
 # An improved `cat`.
 if hash batcat 2> /dev/null; then
-  alias bat=batcat
+  # An alias does not work with FZF in preview!
+  if [ ! -L "$HOME/.local/bin/bat" ]; then
+    ln -s "$(which batcat)" "$HOME/.local/bin/bat" >/dev/null
+  fi
 fi
 
 
