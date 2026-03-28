@@ -53,6 +53,19 @@ FZF_COMPLETION_DIR_OPTS="
   --walker dir,follow,hidden
   ${FZF_ALT_C_OPTS}"
 
+# Advanced completion (**) customization of fzf options via _fzf_comprun function.
+_fzf_comprun() {
+  local command=$1
+  shift
+
+  case "$command" in
+    cd)           fzf --preview 'tree -C -a {} | head -200'   "$@" ;;
+    export|unset) fzf --preview "eval 'echo \$'{}"            "$@" ;;
+    ssh)          fzf --preview 'dig {}'                      "$@" ;;
+    *)            fzf --preview 'bat -n --color=always {}'    "$@" ;;
+  esac
+}
+
 # C-x-r directly executes a historic command. Instead of pressing enter after again.
 fzf-history-widget-accept() {
   fzf-history-widget
