@@ -6,8 +6,10 @@ check_program readlink
 
 echo "+++ Deploying configs as symlinks +++"
 
-for f in $(find "${CONFIGS}" -type f); do
-  deploy "$f" "${HOME}"
+for f in $(find "${CONFIGS}" -maxdepth 1); do
+  if [ ! "$f" = "${CONFIGS}" ]; then
+    deploy "$f" "${HOME}"
+  fi
 done
 
 echo "\n+++ Deploying scripts to PATH  +++"
