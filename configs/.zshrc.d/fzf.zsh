@@ -43,6 +43,16 @@ FZF_ALT_C_OPTS="
   --select-1
   --exit-0"
 
+# Options for path completion (e.g. nano **<TAB>)
+FZF_COMPLETION_PATH_OPTS="
+  --walker file,dir,follow,hidden
+  ${FZF_CTRL_T_OPTS}"
+
+# Options for directory completion (e.g. cd **<TAB>)
+FZF_COMPLETION_DIR_OPTS="
+  --walker dir,follow,hidden
+  ${FZF_ALT_C_OPTS}"
+
 # C-x-r directly executes a historic command. Instead of pressing enter after again.
 fzf-history-widget-accept() {
   fzf-history-widget
