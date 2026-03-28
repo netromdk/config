@@ -96,6 +96,7 @@ EOF"
       silversearcher-ag \
       tree \
       virtualenv \
+      wl-clipboard \
       zsh
 
     set +x
