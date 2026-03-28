@@ -229,11 +229,15 @@ FZF_CTRL_T_OPTS="
 
 # `--no-sort` show chronological order of historic commands, no sorting.
 # Preview commands that are too long to show in the list by hitting ?.
+# C-y to copy into clipboard with `wl-copy`.
 FZF_CTRL_R_OPTS="
   --no-sort
   --preview 'echo {}'
   --preview-window down:3:hidden:wrap
-  --bind '?:toggle-preview'"
+  --bind '?:toggle-preview'
+  --bind 'ctrl-y:execute-silent(echo -n {2..} | wl-copy)+abort'
+  --color header:italic
+  --header 'C-y to copy command into clipboard.'"
 
 # Print tree structure in the preview window.
 FZF_ALT_C_OPTS="
