@@ -74,5 +74,18 @@ fzf-history-widget-accept() {
 zle     -N     fzf-history-widget-accept
 bindkey '^X^R' fzf-history-widget-accept
 
+# find-in-file - usage: fif <search term>
+# Using ripgrep combined with bat preview.
+fif() {
+  if [ ! "$#" -gt 0 ]; then
+    echo "Need a string to search for!";
+    return 1;
+  fi
+  rg --files-with-matches --no-messages "$1" | \
+    fzf --preview "bat --color=always --style=plain --paging=never {} \
+                   | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 5 '$1' \
+                     || rg --ignore-case --pretty --context 5 '$1' {}"
+}
+
 # Set up fzf key bindings and fuzzy completion.
 source <(fzf --zsh)
