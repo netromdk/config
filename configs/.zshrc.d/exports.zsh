@@ -37,3 +37,10 @@ fi
 if [[ -v WAYLAND_DISPLAY ]]; then
   USING_WAYLAND=1
 fi
+
+# Set copy-to-clipboard based on X11 or Wayland.
+if [[ -v USING_X11 ]]; then
+  COPY_CMD="xsel -b"
+else
+  COPY_CMD="wl-copy"
+fi
