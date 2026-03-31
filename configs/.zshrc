@@ -29,8 +29,8 @@ function load-config {
   source "$HOME/.zshrc.d/$1"
 }
 
-load-config bindings.zsh
 load-config exports.zsh
+load-config bindings.zsh
 load-config prompt.zsh
 load-config aliases.zsh
 load-config functions.zsh

@@ -29,3 +29,11 @@ fi
 if [ -e ${HOME}/.local/share/flatpak/exports/share ]; then
   export XDG_DATA_DIRS=${HOME}/.local/share/flatpak/exports/share:${XDG_DATA_DIRS}
 fi
+
+# Check if running under X11 or Wayland.
+if [[ -v XDG_SESSION_TYPE && $XDG_SESSION_TYPE = "x11" ]]; then
+  USING_X11=1
+fi
+if [[ -v WAYLAND_DISPLAY ]]; then
+  USING_WAYLAND=1
+fi
