@@ -94,6 +94,18 @@ fzf-apt-pkg-comp() {
         --preview="apt-cache show {} | bat -l yaml -p --color=always"
 }
 
+# Find an APT package and ask to install afterwards.
+fzf-apt-install() {
+  choice=$(fzf-apt-pkg-comp)
+  if [[ -n "$choice" ]]; then
+    cmd="sudo apt install ${choice}"
+    if read -q "answer?Install package \"${choice}\" through \"${cmd}\"?"; then
+      ${cmd}
+    fi
+    unset cmd
+  fi
+}
+
 # find-in-file - usage: fif <search term>
 # Using ripgrep combined with bat preview.
 fif() {
