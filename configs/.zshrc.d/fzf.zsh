@@ -74,6 +74,27 @@ fzf-history-widget-accept() {
 zle     -N     fzf-history-widget-accept
 bindkey '^X^R' fzf-history-widget-accept
 
+# C-h shows man pages with preview using `bat`, where enter shows fullscreen inside `bat` and
+# returns to the list afterwards.
+fzf-man-widget() {
+  manpage="echo {} | sed 's/\([[:alnum:][:punct:]]*\) (\([[:alnum:]]*\)).*/\2 \1/'"
+  batman="${manpage} | xargs -r man | col -bx | bat -l man -p --color always"
+  man -k . | \
+    sort | \
+    awk -v cyan=$(tput setaf 6) -v blue=$(tput setaf 4) -v res=$(tput sgr0) -v bld=$(tput bold) \
+      '{ $1=cyan bld $1; $2=res blue $2; } 1' | \
+    fzf -q "$1" \
+      --ansi \
+      --tiebreak=begin \
+      --prompt='man > '  \
+      --preview-window '50%,rounded,<50(up,85%,border-bottom)' \
+      --preview "${batman}" \
+      --bind "enter:execute(${batman})"
+  zle reset-prompt
+}
+zle -N fzf-man-widget
+bindkey '^h' fzf-man-widget
+
 # find-in-file - usage: fif <search term>
 # Using ripgrep combined with bat preview.
 fif() {
