@@ -95,6 +95,18 @@ fzf-man-widget() {
 zle -N fzf-man-widget
 bindkey '^h' fzf-man-widget
 
+# List APT packages with preview using `apt-cache show`.
+fzf-apt-pkg-comp() {
+  apt-cache pkgnames | \
+    sort | \
+    fzf --layout=reverse \
+        --info=inline \
+        --height=40 \
+        --preview-window="right:60%" \
+        --preview-label=" Package Info " \
+        --preview="apt-cache show {} | bat -l yaml -p --color=always"
+}
+
 # find-in-file - usage: fif <search term>
 # Using ripgrep combined with bat preview.
 fif() {
