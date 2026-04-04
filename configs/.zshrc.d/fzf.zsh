@@ -97,6 +97,26 @@ fzf-apt-install-widget() {
 zle -N fzf-apt-install-widget
 bindkey '^[a^[i' fzf-apt-install-widget
 
+fzf-apt-uninstall-widget() {
+  FZF_APT_PURGE="/tmp/fzf-apt-purge"
+  aptitude search -F '%p' --disable-columns '~i' | \
+    sort | \
+    fzf -q "$1" \
+        --prompt="APT Remove > " \
+        --height=40 \
+        --preview-window="right:60%" \
+        --preview-label=" Package Info " \
+        --preview="apt-cache show {} | bat -l yaml -p --color=always" \
+        --header '[ M-p: Purge | M-r: Remove ]' \
+        --bind "enter:execute(if [[ -f ${FZF_APT_PURGE} ]]; then sudo apt purge {}; else sudo apt remove {}; fi )" \
+        --bind "alt-r:+execute-silent(rm -f ${FZF_APT_PURGE} >/dev/null)+change-prompt(APT Remove > )" \
+        --bind "alt-p:+execute-silent(touch ${FZF_APT_PURGE})+change-prompt(APT Purge > )"
+  rm -f ${FZF_APT_PURGE} >/dev/null
+  zle reset-prompt
+}
+zle -N fzf-apt-uninstall-widget
+bindkey '^[a^[u' fzf-apt-uninstall-widget
+
 # List APT packages with preview. Mostly for advanced completion (`_fzf_comprun`).
 fzf-apt-pkg-comp() {
   aptitude search '!~i' | awk '{print $2;}' | grep -v "\\$" | \
