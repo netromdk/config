@@ -83,7 +83,7 @@ zle -N fzf-man-widget
 bindkey '^h' fzf-man-widget
 
 fzf-apt-install-widget() {
-  aptitude search '!~i' | awk '{print $2;}' | grep -v "\\$" | \
+  aptitude search -F '%p' --disable-columns '!~i' | grep -v "\\$" | \
     sort | \
     fzf -q "$1" \
         --prompt="APT Install > " \
@@ -119,7 +119,7 @@ bindkey '^[a^[u' fzf-apt-uninstall-widget
 
 # List APT packages with preview. Mostly for advanced completion (`_fzf_comprun`).
 fzf-apt-pkg-comp() {
-  aptitude search '!~i' | awk '{print $2;}' | grep -v "\\$" | \
+  aptitude search -F '%p' --disable-columns '!~i' | grep -v "\\$" | \
     sort | \
     fzf --layout=reverse \
         --info=inline \
