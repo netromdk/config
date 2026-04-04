@@ -82,9 +82,24 @@ fzf-man-widget() {
 zle -N fzf-man-widget
 bindkey '^h' fzf-man-widget
 
-# List APT packages with preview using `apt-cache show`.
+fzf-apt-install-widget() {
+  aptitude search '!~i' | awk '{print $2;}' | grep -v "\\$" | \
+    sort | \
+    fzf -q "$1" \
+        --prompt="APT Install > " \
+        --height=40 \
+        --preview-window="right:60%" \
+        --preview-label=" Package Info " \
+        --preview="apt-cache show {} | bat -l yaml -p --color=always" \
+        --bind "enter:execute(sudo apt install {})"
+  zle reset-prompt
+}
+zle -N fzf-apt-install-widget
+bindkey '^[a^[i' fzf-apt-install-widget
+
+# List APT packages with preview. Mostly for advanced completion (`_fzf_comprun`).
 fzf-apt-pkg-comp() {
-  apt-cache pkgnames | \
+  aptitude search '!~i' | awk '{print $2;}' | grep -v "\\$" | \
     sort | \
     fzf --layout=reverse \
         --info=inline \
@@ -92,18 +107,6 @@ fzf-apt-pkg-comp() {
         --preview-window="right:60%" \
         --preview-label=" Package Info " \
         --preview="apt-cache show {} | bat -l yaml -p --color=always"
-}
-
-# Find an APT package and ask to install afterwards.
-fzf-apt-install() {
-  choice=$(fzf-apt-pkg-comp)
-  if [[ -n "$choice" ]]; then
-    cmd="sudo apt install ${choice}"
-    if read -q "answer?Install package \"${choice}\" through \"${cmd}\"?"; then
-      ${cmd}
-    fi
-    unset cmd
-  fi
 }
 
 # find-in-file - usage: fif <search term>
