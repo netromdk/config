@@ -143,6 +143,7 @@ fzf-apt-pkg-comp() {
   aptitude search -F '%p' --disable-columns '!~i' | grep -v "\\$" | \
     sort | \
     fzf --layout=reverse \
+        --multi \
         --info=inline \
         --height=40 \
         --preview-window="right:60%" \
