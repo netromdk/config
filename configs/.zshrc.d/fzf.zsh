@@ -83,16 +83,23 @@ zle -N fzf-man-widget
 bindkey '^h' fzf-man-widget
 
 fzf-apt-install-widget() {
-  aptitude search -F '%p' --disable-columns '!~i' | grep -v "\\$" | \
-    sort | \
-    fzf -q "$1" \
-        --prompt="APT Install > " \
-        --height=40 \
-        --preview-window="right:60%" \
-        --preview-label=" Package Info " \
-        --preview="apt-cache show {} | bat -l yaml -p --color=always" \
-        --bind "enter:execute(sudo apt install {})"
+  pkgs=$(
+    aptitude search -F '%p' --disable-columns '!~i' | grep -v "\\$" | \
+      sort | \
+      fzf -q "$1" \
+          --multi \
+          --prompt="APT Install > " \
+          --height=40 \
+          --preview-window="right:60%" \
+          --preview-label=" Package Info " \
+          --preview="apt-cache show {} | bat -l yaml -p --color=always" | \
+      xargs # truncate into one line with spaces.
+      )
   zle reset-prompt
+  if [[ -n "${pkgs}" ]]; then
+    echo "Installing: ${pkgs}"
+    sudo apt install -y $(echo $pkgs)
+  fi
 }
 zle -N fzf-apt-install-widget
 bindkey '^[a^[i' fzf-apt-install-widget
