@@ -105,21 +105,35 @@ zle -N fzf-apt-install-widget
 bindkey '^[a^[i' fzf-apt-install-widget
 
 fzf-apt-uninstall-widget() {
-  FZF_APT_PURGE="/tmp/fzf-apt-purge"
-  aptitude search -F '%p' --disable-columns '~i' | \
-    sort | \
-    fzf -q "$1" \
-        --prompt="APT Remove > " \
-        --height=40 \
-        --preview-window="right:60%" \
-        --preview-label=" Package Info " \
-        --preview="apt-cache show {} | bat -l yaml -p --color=always" \
-        --header '[ M-p: Purge | M-r: Remove ]' \
-        --bind "enter:execute(if [[ -f ${FZF_APT_PURGE} ]]; then sudo apt purge {}; else sudo apt remove {}; fi )" \
-        --bind "alt-r:+execute-silent(rm -f ${FZF_APT_PURGE} >/dev/null)+change-prompt(APT Remove > )" \
-        --bind "alt-p:+execute-silent(touch ${FZF_APT_PURGE})+change-prompt(APT Purge > )"
-  rm -f ${FZF_APT_PURGE} >/dev/null
+  tmp_purge="/tmp/fzf-apt-purge"
+  pkgs=$(
+    aptitude search -F '%p' --disable-columns '~i' | \
+      sort | \
+      fzf -q "$1" \
+          --multi \
+          --prompt="APT Remove > " \
+          --height=40 \
+          --preview-window="right:60%" \
+          --preview-label=" Package Info " \
+          --preview="apt-cache show {} | bat -l yaml -p --color=always" \
+          --header '[ M-p: Purge | M-r: Remove ]' \
+          --bind "alt-r:+execute-silent(rm -f ${tmp_purge} >/dev/null)+change-prompt(APT Remove > )" \
+          --bind "alt-p:+execute-silent(touch ${tmp_purge})+change-prompt(APT Purge > )" | \
+      xargs # truncate into one line with spaces.
+      )
   zle reset-prompt
+  if [[ -n "${pkgs}" ]]; then
+    if [[ -f ${tmp_purge} ]]; then
+      cmd=purge
+      echo -n "Purging"
+    else
+      cmd=remove
+      echo -n "Removing"
+    fi
+    echo ": ${pkgs}"
+    sudo apt $cmd -y $(echo $pkgs)
+  fi
+  rm -f ${tmp_purge} >/dev/null
 }
 zle -N fzf-apt-uninstall-widget
 bindkey '^[a^[u' fzf-apt-uninstall-widget
