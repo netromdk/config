@@ -69,6 +69,7 @@ EOF"
     set -x
     sudo apt update
     sudo apt install \
+      aptitude \
       aspell \
       aspell-da \
       aspell-en \
