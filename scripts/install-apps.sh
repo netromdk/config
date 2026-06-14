@@ -92,12 +92,15 @@ EOF"
       python3-pip \
       python3-virtualenv \
       ripgrep \
+      rofi \
       rustup \
       shellcheck \
       silversearcher-ag \
       tree \
       virtualenv \
       wl-clipboard \
+      wtype \
+      xdotool \
       zsh
 
     set +x
@@ -163,9 +166,10 @@ if [ $? -eq 0 ]; then
   echo "Installing missing packages updates from Pip."
   set -x
   pip install --user --break-system-packages \
-    python-lsp-server \
+    bandit \
     flake8 \
-    bandit
+    python-lsp-server \
+    rofimoji
   set +x
 fi
 
