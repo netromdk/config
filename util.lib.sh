@@ -9,7 +9,7 @@ PATHFLD="${HOME}/.local/bin"
 TAB="  "
 
 check_program() {
-  if ! hash $1 2> /dev/null; then
+  if ! hash $1 2>/dev/null; then
     echo "'$1' is not installed!"
     exit 1
   fi
@@ -18,6 +18,7 @@ check_program() {
 deploy() {
   SRC="$1"
   DSTFLD="$2"
+  mkdir -p "${DSTFLD}"
   DST="${DSTFLD}/$(basename ${SRC})"
   echo "\n${TAB}${DST} -> ${SRC}"
   if [ -L "${DST}" ]; then
