@@ -1,0 +1,6 @@
+action = type
+prompt = (≧∇≦)/
+hidden-descriptions = false
+selector-args = -theme ~/.config/rofimoji.rasi -kb-row-left Left -kb-row-right Right -kb-move-char-back Control+b -kb-move-char-forward Control+f
+files = [kaomoji, emojis, emojis_activities, emojis_animals_nature, emojis_component, emojis_flags, emojis_food_drink, emojis_objects, emojis_people_body, emojis_smileys_emotion, emojis_symbols, emojis_travel_places, emoticons, math, mathematical_operators, mathematical_alphanumeric_symbols, gitmoji, gothic, html_characters, musical_symbols, nerd_font, phoenician, phonetic_extensions, phonetic_extensions_supplement]
+skin-tone = light
